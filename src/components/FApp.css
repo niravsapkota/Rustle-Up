@@ -275,7 +275,7 @@ body{
     justify-content: center;
     width: 100%;
     position: relative;
-    top: 40vw;
+    top: 45vw;
     text-align: center;
 
 }
@@ -421,19 +421,61 @@ body{
 
 .app__signup-box{
 
-    background-color: #7E7A05;
-    display: flex;
+    position: absolute;
+    border:2px solid #7E7A05;
+    display: inline-block;
+    width: 40vw;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-top: 10vh;
+    left: 30vw;
 
 }
 
 .app__form-field{
 
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    color: #7E7A05;
+    font-size: 1.5rem;
     
 }
 
+#app__name-input{
+
+    display: inline-block;
+    width: 70%;
+
+}
+
+.app__sign-up{
+
+    width: 100%;
+    text-align: center;
+    font-weight: 800;
+    color: #7E7A05;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    padding: 2rem;
+
+}
+
+.app__login-link{
+
+    width: 100%;
+    text-align: center;
+
+}
+
+.app__signup-btn{
+
+    background-color: #7E7A05;
+    color: #FFFFFF;
+    font-size: 2rem;
+    border-radius: 2rem;
+    width:15vw;
+    margin-left: 12vw;
+    margin-bottom: 3vw;    
+
+}
 
