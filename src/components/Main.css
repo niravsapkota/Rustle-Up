@@ -387,3 +387,83 @@ body {
   margin-left: 12vw;
   margin-bottom: 3vw;
 }
+
+.app__profile-container {
+  margin-top: 2vw;
+  margin-left: 8.5vw;
+  margin-right: 8.5vw;
+  display: flex;
+}
+
+.app__profile-user-card {
+  height: 75vh;
+  width: 20vw;
+  color: #000000;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #7e7a05;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-right: 0.5vw;
+}
+
+.app__profile-user-card img {
+  border-style: solid;
+  border-color: #7e7a05;
+  border-width: 2px;
+  margin-top: 7vh;
+  margin-bottom: 2.5vh;
+  height: 30vh;
+  width: 30vh;
+  border-radius: 50%;
+}
+
+.app__profile-user-card-name {
+  width: 100%;
+  font-size: 2vw;
+  color: #7e7a05;
+  margin-bottom: 5vh;
+}
+
+.app__profile-user-card p {
+  font-size: 0.9vw;
+  font-weight: 500;
+  margin-bottom: 1.4vh;
+}
+
+.app__profile-user-card-options {
+  margin-top: 4vh;
+}
+
+.app__profile-user-card-options span {
+  color: #7e7a05;
+  font-size: 1vw;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.app__profile-user-card {
+  height: 75vh;
+  width: 20vw;
+  color: #000000;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #7e7a05;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.app__profile-recipe-card {
+  height: 75vh;
+  width: 100%;
+  color: #000000;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #7e7a05;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-left: 0.5vw;
+}

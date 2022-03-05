@@ -1,13 +1,9 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import searchbtn from "../assets/search.png";
 
 export default function Search() {
   return (
     <>
-      <Header />
-
       <div className="app__search-bar">
         <label className="app__search-label" htmlFor="search">
           Search
@@ -21,8 +17,6 @@ export default function Search() {
           <img className="search-btn" src={searchbtn} />
         </a>
       </div>
-
-      <Footer />
     </>
   );
 }

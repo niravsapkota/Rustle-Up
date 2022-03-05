@@ -1,15 +1,12 @@
 import "./Main.css";
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import Tile from "./Tile";
 import pic from "../assets/unsplash_8T9AVksyt7s.png";
 
-export default function FApp() {
+export default function Main() {
   return (
     <>
       <title>Rustle Up</title>
-      <Header />
 
       <section className="app__section-hero">
         <div className="app__hero-img"></div>
@@ -83,8 +80,6 @@ export default function FApp() {
         <h2>Post your own recipe</h2>
         <div className="app__hightlight">Register Here</div>
       </section>
-
-      <Footer />
     </>
   );
 }
