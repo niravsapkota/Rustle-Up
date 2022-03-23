@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
+import Recepie from "./components/recepie";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
