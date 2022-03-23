@@ -1,6 +1,6 @@
 import React from "react";
 import pic from "../assets/unsplash_8T9AVksyt7s.png";
-import recipe_profile from "./recipe-profile.js";
+import recipe_profile from "./recipe_profile.js";
 
 export default function recipe() {
     return(
@@ -11,6 +11,13 @@ export default function recipe() {
                 <recipe_profile
                     img={pic}
                     title="Title"/>
+                <p className="app__prepTime">Preparation Time : N hrs</p>
+                <p className="app__difficultyRaing">Difficulty : 3/5</p>
+                <p className="app__recipeRating">Rating : 4/5</p>
+                <span className="app__recipeButtons">
+                    <button className="app__ratingButton">Give a Rating</button>
+                    <button className="app__reviewButton">Leave a Review</button>
+                </span>
             </div>
 
             <div className="app__recipedetails">

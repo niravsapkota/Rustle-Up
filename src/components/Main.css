@@ -556,12 +556,32 @@ div.app__recipe {
   align-items: right;
 }
 
+.app__recipeProfile p{
+  font-size: 15px;
+}
+
 .app__recipedetails h2{
   color: #7e7a05;
 }
 
 .app__recipedetails li{
   font-size: 18px;
+}
+
+.app__recipeProfile button{
+  color: #7e7a05;
+  margin: 1%;
+  border:0vw;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/*Recipe-Profile*/
+.app__recipe_profile{
+  height: 75vh;
+}
+
+.app__recipe_profile h2{
+  color: #7e7a05;
 }
 
 /* RECIPE TILE */
