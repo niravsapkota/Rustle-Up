@@ -212,6 +212,21 @@ body {
   cursor: pointer;
 }
 
+.app__footer-logo {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 4vw;
+  font-weight: 600;
+  letter-spacing: 0.8vw;
+  color: black;
+  text-transform: uppercase;
+}
+
+.app__footer-logopart {
+  color: #7e7a05;
+  padding-left: 0.7rem;
+}
+
 .app_social-pages {
   display: flex;
   justify-content: center;
@@ -229,11 +244,17 @@ body {
   justify-content: center;
   width: 100%;
   position: relative;
-  top: 45vw;
+  top: 100vh;
   text-align: center;
 }
 
+.app__footer-support {
+  font-family: "Montserrat";
+  letter-spacing: 0.1vw;
+}
+
 .app__end-statement {
+  font-weight: 200;
   font-family: "Montserrat";
   margin: 8vw 0 1vw 0;
 }
@@ -315,27 +336,36 @@ body {
 /* For search bar only */
 .app__search-bar {
   display: block;
-  margin-top: 30vh;
+  margin-top: 10vh;
+  margin-left: 18.5vw;
+  margin-right: 18.5vw;
 }
 
 .app__search-label {
   width: 20vw;
   font-size: 2.5vw;
+  font-weight: 700;
   text-align: right;
   margin-right: 2vw;
   color: #7e7a05;
 }
 
 #app__search-input {
-  width: 64vw;
+  background-color: #dddddd;
+  width: 40vw;
   height: 4.5vw;
-  color: #7e7a05;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #7e7a05;
+  font-family: inherit;
+  font-size: 1.8vw;
+  padding-left: 1vw;
 }
 
 .search-btn {
-  margin: 2vw;
-  width: 3vw;
-  height: 3vw;
+  margin-left: 1vw;
+  width: 4vw;
+  height: 4vw;
 }
 
 /* For Login and Sign Up*/
@@ -346,7 +376,7 @@ body {
   display: inline-block;
   width: 40vw;
   flex-direction: column;
-  margin-top: 10vh;
+  margin-top: 8vh;
   left: 30vw;
 }
 
@@ -359,11 +389,18 @@ body {
 }
 
 #app__name-input {
+  border-radius: 25px;
+  font-family: "Cormorant Upright";
+  font-size: 1rem;
+  background-color: #dddddd;
+  border: #7e7a05 solid;
   display: inline-block;
-  width: 70%;
+  width: 65%;
+  height: 4vh;
 }
 
 .app__sign-up {
+  font-family: "Montserrat";
   width: 100%;
   text-align: center;
   font-weight: 800;
@@ -379,6 +416,8 @@ body {
 }
 
 .app__signup-btn {
+  font-family: "Cormorant Upright";
+  font-weight: 600;
   background-color: #7e7a05;
   color: #ffffff;
   font-size: 2rem;
@@ -387,6 +426,8 @@ body {
   margin-left: 12vw;
   margin-bottom: 3vw;
 }
+
+/* PROFILE PAGE */
 
 .app__profile-container {
   margin-top: 2vw;
@@ -397,7 +438,7 @@ body {
 
 .app__profile-user-card {
   height: 75vh;
-  width: 20vw;
+  width: 28vw;
   color: #000000;
   border-style: solid;
   border-width: 2px;
@@ -422,18 +463,20 @@ body {
 .app__profile-user-card-name {
   width: 100%;
   font-size: 2vw;
+  font-weight: 700;
   color: #7e7a05;
   margin-bottom: 5vh;
 }
 
 .app__profile-user-card p {
   font-size: 0.9vw;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1.4vh;
 }
 
 .app__profile-user-card-options {
   margin-top: 4vh;
+  font-weight: 700;
 }
 
 .app__profile-user-card-options span {
@@ -443,27 +486,128 @@ body {
   margin-right: 0.7vw;
 }
 
-.app__profile-user-card {
-  height: 75vh;
-  width: 20vw;
-  color: #000000;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #7e7a05;
-  align-items: center;
-  text-align: center;
-  justify-content: space-between;
-}
-
 .app__profile-recipe-card {
-  height: 75vh;
+  height: 65vh;
   width: 100%;
   color: #000000;
   border-style: solid;
   border-width: 2px;
   border-color: #7e7a05;
-  align-items: center;
   text-align: center;
-  justify-content: space-between;
   margin-left: 0.5vw;
+  padding: 5vh;
+}
+
+.app__profile-recipe-card-fav {
+  color: #7e7a05;
+  margin-right: 12vw;
+  font-size: 2vw;
+  font-weight: 600;
+}
+
+.app__profile-recipe-card-myrecipe {
+  margin-left: 12vw;
+  font-size: 1.6vw;
+  font-weight: 400;
+}
+
+.app__profile-recipe-card-container {
+  display: flexbox;
+  width: 100%;
+  margin-top: 5vh;
+}
+
+.app__profile-next {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* RECIPE TILE */
+.app__recipe-tile {
+  display: flex;
+  height: 15vh;
+  border: 2px solid;
+  color: #7e7a05;
+  margin: 1vh 0;
+}
+
+.recipe-img {
+  margin: 1.2vh;
+  height: 13vh;
+  width: 15vw;
+}
+
+.recipe-text-container {
+  text-align: start;
+}
+
+.recipe-img-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.recipe-description {
+  color: #000000;
+  font-family: "Montserrat";
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+/* TRENDING */
+
+.app__trending-title {
+  text-align: center;
+  color: #7e7a05;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+
+.app__trending-container {
+  margin-top: 2vw;
+  margin-left: 8.5vw;
+  margin-right: 8.5vw;
+  height: 100%;
+}
+
+.app__trending-next {
+  margin-right: 6.5vw;
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* TRENDING TILE*/
+
+.app__trending-tile {
+  display: flex;
+  height: 18vh;
+  color: #7e7a05;
+  margin: 2vh 4vw;
+}
+
+.trending-img {
+  margin: 0;
+  height: 100%;
+  width: 35vw;
+  margin-right: 4vw;
+}
+
+.trending-text-container {
+  text-align: start;
+}
+
+.trending-img-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.trending-description {
+  color: #000000;
+  font-family: "Montserrat";
+  margin-top: 0;
+  font-size: 1rem;
 }

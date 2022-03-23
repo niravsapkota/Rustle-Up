@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
-import menu from "./menu.svg";
+import menu from "../assets/menu.svg";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
@@ -21,7 +21,7 @@ export default function NavBar() {
           <Link
             style={{ color: "inherit", textDecoration: "inherit" }}
             className="app__nav-items"
-            to="/"
+            to="/trending"
           >
             <li>Trending</li>
           </Link>

@@ -1,5 +1,6 @@
 import "./Main.css";
 import React from "react";
+import { Link } from "react-router-dom";
 import Tile from "./Tile";
 import pic from "../assets/unsplash_8T9AVksyt7s.png";
 
@@ -15,7 +16,14 @@ export default function Main() {
           <div className="app__hero-para">
             Experience the joy of cooking in the comfort of your own kitchen.
           </div>
-          <button className="app__subscribe-btn">Login/Register Now</button>
+          <button className="app__subscribe-btn">
+            <Link
+              style={{ color: "inherit", textDecoration: "inherit" }}
+              to="/signup"
+            >
+              Login/Register Now
+            </Link>
+          </button>
         </div>
       </section>
 
@@ -78,7 +86,14 @@ export default function Main() {
         <h2>Leave a Review</h2>
         <h2>Add to your favourites</h2>
         <h2>Post your own recipe</h2>
-        <div className="app__hightlight">Register Here</div>
+        <div className="app__hightlight">
+          <Link
+            style={{ color: "inherit", textDecoration: "inherit" }}
+            to="/signup"
+          >
+            Register Here
+          </Link>
+        </div>
       </section>
     </>
   );

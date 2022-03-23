@@ -8,6 +8,7 @@ import Search from "./components/Search";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Recepie from "./components/recepie";
+import Trending from "./components/Trending";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/trending" element={<Trending />} />
         </Routes>
         <Footer />
       </Router>
