@@ -523,6 +523,47 @@ body {
   font-weight: 600;
 }
 
+/*RECIPE PAGE*/
+div.app__recipe {
+  display : grid;
+  grid-template-columns: 3fr 9fr;
+  margin-left: 8.5vw;
+  margin-right: 8.5vw;
+}
+
+.app__recipeProfile{
+  border: 2px solid;
+  border-color: #7e7a05;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  height: 75vh;
+  margin: 2px;
+}
+
+.app__recipedetails{
+  border : 2px solid ;
+  border-color: #7e7a05 ;
+  margin: 2px;
+  padding:1%;
+}
+
+.app__recipedetails button{
+  color: #7e7a05;
+  margin: 1%;
+  border:0vw;
+  background-color: rgba(0, 0, 0, 0);
+  align-items: right;
+}
+
+.app__recipedetails h2{
+  color: #7e7a05;
+}
+
+.app__recipedetails li{
+  font-size: 18px;
+}
+
 /* RECIPE TILE */
 .app__recipe-tile {
   display: flex;
