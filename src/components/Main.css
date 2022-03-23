@@ -333,39 +333,54 @@ body {
   }
 }
 
+
+
 /* For search bar only */
+
 .app__search-bar {
-  display: block;
-  margin-top: 10vh;
-  margin-left: 18.5vw;
-  margin-right: 18.5vw;
+  display: grid;
+  grid-template-columns: 30vw auto 20vw;
+  margin-top: 20vh;
+
+
 }
 
+
 .app__search-label {
-  width: 20vw;
   font-size: 2.5vw;
   font-weight: 700;
-  text-align: right;
-  margin-right: 2vw;
   color: #7e7a05;
+  align-self: center;
+  justify-self: end;
+  margin-right: 3vw;
+  
+  
 }
 
 #app__search-input {
+
   background-color: #dddddd;
-  width: 40vw;
+  color: #7e7a05;
+  font-size: 1rem;
   height: 4.5vw;
   border-style: solid;
   border-width: 2px;
+  border-radius: 10%;
   border-color: #7e7a05;
   font-family: inherit;
   font-size: 1.8vw;
   padding-left: 1vw;
+  
 }
 
 .search-btn {
-  margin-left: 1vw;
-  width: 4vw;
-  height: 4vw;
+  background-color: #7e7a05;
+  height: 4.8vw;
+  border-radius: 20%;
+  margin-left: .5vw;
+  padding: 1vw;
+  box-sizing: border-box;
+
 }
 
 /* For Login and Sign Up*/
