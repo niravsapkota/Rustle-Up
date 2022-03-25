@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
+import Recipe from "./components/Recipe";
 import Trending from "./components/Trending";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/trending" element={<Trending />} />
+          <Route path="/recipe" element={<Recipe />} />
         </Routes>
         <Footer />
       </Router>
