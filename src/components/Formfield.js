@@ -1,6 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
 
-export default function (props) {
+export default function FormField(props) {
     return (
         <div className="app__form-field">
 
@@ -12,3 +13,17 @@ export default function (props) {
     )
 
 }
+
+FormField.propTypes = {
+
+    labeltitle:PropTypes.string.isRequired
+
+};
+
+
+FormField.defaultProps = {
+
+    labeltitle:"Error"
+
+}
+

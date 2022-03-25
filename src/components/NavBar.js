@@ -18,9 +18,9 @@ export default function NavBar() {
             </Link>
           </li>
 
+
           <Link
             style={{ color: "inherit", textDecoration: "inherit" }}
-            className="app__nav-items"
             to="/trending"
           >
             <li>Trending</li>

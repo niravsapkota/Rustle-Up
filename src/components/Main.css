@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
-body {
+body{
   font-family: "Cormorant Upright";
   background-color: #dddddd;
   color: black;
@@ -244,7 +244,7 @@ body {
   justify-content: center;
   width: 100%;
   position: relative;
-  top: 100vh;
+  top: 50vw;
   text-align: center;
 }
 
@@ -258,82 +258,6 @@ body {
   font-family: "Montserrat";
   margin: 8vw 0 1vw 0;
 }
-
-@media screen and (max-width: 720px) {
-  .app__nav-items {
-    position: absolute;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    background-color: #ffffff;
-    color: #000000;
-    right: 0;
-    top: 0;
-    width: 50vw;
-    height: 100vh;
-    list-style-type: none;
-    font-size: 1.2rem;
-    z-index: 2;
-  }
-
-  .app__hero-line {
-    font-size: 3.2rem;
-    font-weight: 400;
-    margin: 2.5rem 1.5rem;
-    line-height: 3.5rem;
-  }
-
-  .app__hero-para {
-    font-size: 1.3rem;
-    font-family: "Montserrat";
-    font-weight: 300;
-    margin: 2rem 1.5rem 2rem 0rem;
-    line-height: 1.8rem;
-    text-align: center;
-  }
-
-  .app__navbar-login {
-    display: none;
-  }
-
-  .app__menu-icon {
-    display: unset;
-  }
-
-  .app__hero-img {
-    background-size: cover;
-  }
-
-  .app__hero-container {
-    width: 100%;
-    height: 90vh;
-    position: unset;
-    border-radius: unset;
-    justify-content: center;
-  }
-
-  .app__grid-container {
-    display: block;
-  }
-
-  .app__grid-element {
-    display: inline-block;
-    word-wrap: break-word;
-    border: 1px solid olive;
-    border-radius: 2rem 0rem;
-    background-size: cover;
-    color: #000000;
-    word-break: break-all;
-    word-wrap: break-word;
-    margin: 1vh;
-  }
-
-  .app_web_view-show {
-    float: right;
-  }
-}
-
-
 
 /* For search bar only */
 
@@ -365,7 +289,6 @@ body {
   height: 4.5vw;
   border-style: solid;
   border-width: 2px;
-  border-radius: 10%;
   border-color: #7e7a05;
   font-family: inherit;
   font-size: 1.8vw;
@@ -374,7 +297,6 @@ body {
 }
 
 .search-btn {
-  background-color: #7e7a05;
   height: 4.8vw;
   border-radius: 20%;
   margin-left: .5vw;
@@ -385,14 +307,22 @@ body {
 
 /* For Login and Sign Up*/
 
+.app__signup-container{
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+
+
 .app__signup-box {
-  position: absolute;
+  position: relative;
   border: 2px solid #7e7a05;
-  display: inline-block;
   width: 40vw;
+  display: flex;
   flex-direction: column;
-  margin-top: 8vh;
-  left: 30vw;
+  margin-top: 10vh;
 }
 
 .app__form-field {
@@ -471,7 +401,7 @@ body {
   margin-top: 7vh;
   margin-bottom: 2.5vh;
   height: 30vh;
-  width: 30vh;
+  width: 15vw;
   border-radius: 50%;
 }
 
@@ -555,6 +485,8 @@ body {
 
 .recipe-text-container {
   text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recipe-img-title {
@@ -568,6 +500,7 @@ body {
   font-family: "Montserrat";
   margin-top: 0;
   font-size: 0.9rem;
+
 }
 
 /* TRENDING */
@@ -598,9 +531,9 @@ body {
 
 .app__trending-tile {
   display: flex;
-  height: 18vh;
+  height: 20vh;
   color: #7e7a05;
-  margin: 2vh 4vw;
+  margin: 4vh 4vw;
 }
 
 .trending-img {
@@ -611,7 +544,12 @@ body {
 }
 
 .trending-text-container {
+
   text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  
 }
 
 .trending-img-title {
@@ -624,5 +562,145 @@ body {
   color: #000000;
   font-family: "Montserrat";
   margin-top: 0;
-  font-size: 1rem;
+  font-size: 1rem; 
+  
 }
+
+@media screen and (max-width:1380px){
+
+
+  .app__signup-box {
+
+    width: 90vw;
+    
+  }
+
+  .app__signup-btn {
+    
+    margin: 3vw auto;
+    
+  }
+
+
+}
+
+@media screen and (max-width: 720px) {
+  
+  /*
+  .app__nav-items{
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 100vh;
+    background-color: #ffffff;
+    font-size: 1.2rem;
+
+    
+  }
+
+  .app__nav-items li{
+    
+    padding: .5rem;
+    
+
+  }
+
+  .app__nav-items li:hover {
+    
+    border-bottom: 2px solid #000000;
+    
+
+  }*/
+
+  .app__hero-line {
+    font-size: 3.2rem;
+    font-weight: 400;
+    margin: 2.5rem 1.5rem;
+    line-height: 3.5rem;
+  }
+
+  .app__hero-para {
+    font-size: 1.3rem;
+    font-family: "Montserrat";
+    font-weight: 300;
+    margin: 2rem 1.5rem 2rem 0rem;
+    line-height: 1.8rem;
+    text-align: center;
+  }
+
+  .app__navbar-login {
+    display: none;
+  }
+
+  .app__menu-icon {
+    display: unset;
+  }
+
+  .app__hero-img {
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .app__hero-container {
+    width: 100%;
+    height: 100vh;
+    position: unset;
+    border-radius: unset;
+    justify-content: center;
+  }
+
+  .app__grid-container {
+    display: block;
+  }
+
+  .app__grid-element {
+    display: inline-block;
+    word-wrap: break-word;
+    border: 1px solid olive;
+    border-radius: 2rem 0rem;
+    background-size: cover;
+    color: #000000;
+    word-break: break-all;
+    word-wrap: break-word;
+    margin: 1vh;
+  }
+
+  .app_web_view-show {
+    float: right;
+  }
+
+
+  .app__signup-box {
+
+    width: 90vw;
+    
+  }
+
+  .app__form-field {
+    display: block;
+    width: 80vw;
+
+  }
+  
+  #app__name-input {
+    
+    display: block;
+    width: 80vw;
+
+  }
+  
+  
+  .app__signup-btn {
+    
+    width: 30vw;
+    margin: auto;
+  }
+
+
+}
+
