@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import fb_logo from "../assets/Facebook.png";
-import twitter_logo from "../assets/Twitter.png";
-import insta_logo from "../assets/Instagram.png";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -14,13 +12,13 @@ export default function Header() {
       </Link>
       <div className="app_social-pages">
         <a href="#">
-          <img src={fb_logo} />
+          <FaFacebook size={35} />
         </a>
         <a href="#">
-          <img src={twitter_logo} />
+          <FaTwitter size={35} />
         </a>
         <a href="#">
-          <img src={insta_logo} />
+          <FaInstagram size={35} />
         </a>
       </div>
       <h7 className="app__footer-support">For Support:help@rustleup.com</h7>
