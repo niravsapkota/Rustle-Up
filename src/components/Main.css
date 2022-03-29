@@ -1,10 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
-body{
+:root {
+  --bg: #dddddd;
+  --primary-color: #7e7a05;
+  --hero-line: #ffffff;
+  --text-primary: #000000;
+  --secondary-color: #000000;
+  --sub-button: #fbf4a1;
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+  --primary-color: #dcca87;
+  --hero-line: #ffffff;
+  --text-primary: #ffffff;
+  --secondary-color: #ffffff;
+  --sub-button: #fbf4a1;
+}
+
+.theme {
+  background-color: var(--bg);
   font-family: "Cormorant Upright";
-  background-color: #dddddd;
-  color: black;
+
+  color: var(--text-primary);
+}
+
+.theme-toggle {
+  color: var(--primary-color);
+  z-index: 2;
+  margin-left: 70%;
+  cursor: pointer;
+}
+
+body {
+
+  font-family: "Cormorant Upright";
+  color: var(--text-primary);
 }
 
 .app_header {
@@ -15,54 +47,18 @@ body{
   padding: 2vw 8.5%;
 }
 
-.app__nav-items {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  font-family: "Montserrat";
-  font-size: 1.2vw;
-}
-
-.app__nav-items li {
-  padding: 0rem 1rem;
-  cursor: pointer;
-}
-
-.nav__item-home {
-  font-weight: 800;
-}
-
 .app__header-logo {
   text-decoration: none;
   display: inline-block;
   font-size: 2.2vw;
   font-weight: bold;
-  color: black;
+  color: var(--text-primary);
   text-transform: uppercase;
 }
 
 .app__header-logopart {
-  color: #7e7a05;
+  color: var(--primary-color);
   padding-left: 0.5rem;
-}
-
-.app__navbar-login {
-  display: flex;
-  justify-content: flex-end;
-  text-decoration: none;
-  align-items: center;
-  color: #7e7a05;
-  font-family: "Montserrat";
-  font-size: 1.5vw;
-  font-weight: bold;
-}
-
-.app__menu-btn {
-  display: none;
 }
 
 .app__hero-img {
@@ -74,7 +70,7 @@ body{
   height: 90vh;
   background-size: 100%;
   background-repeat: no-repeat;
-  z-index: -1;
+  z-index: 0;
 }
 
 .app__hero-container {
@@ -88,10 +84,11 @@ body{
   background-color: #7e7a05;
   opacity: 0.7;
   border-radius: 2vw;
+  z-index: 1;
 }
 
 .app__hero-line {
-  color: #ffffff;
+  color: var(--hero-line);
   font-size: 3.5vw;
   font-weight: bold;
   margin-left: 1.5vw;
@@ -102,7 +99,7 @@ body{
 }
 
 .app__hero-para {
-  color: #ffffff;
+  color: var(--hero-line);
   font-size: 1.8vw;
   margin: 2vw;
   font-family: "Montserrat";
@@ -118,7 +115,7 @@ body{
   font-size: 2vw;
   font-weight: bold;
   background-color: #000000;
-  color: #fbf4a1;
+  color: var(--sub-button);
   font-family: "Montserrat";
   border-radius: 1.5vw;
   padding: 2vw 0;
@@ -129,7 +126,7 @@ body{
   position: relative;
   top: 20vw;
   text-align: center;
-  color: #7e7a05;
+  color: var(--primary-color);
 }
 
 .app__mid-section-title {
@@ -148,12 +145,18 @@ body{
 .app__grid-element {
   display: inline-block;
   word-wrap: break-word;
-  border: 1px solid olive;
+  border: 1px solid var(--primary-color);
   border-radius: 2rem 0rem;
   background-size: cover;
-  color: #000000;
+  color: var(--text-primary);
   word-break: break-all;
   word-wrap: break-word;
+}
+
+.image__title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .image__description {
@@ -173,7 +176,7 @@ body{
   display: none;
   position: absolute;
   z-index: 2;
-  color: #000000;
+  color: #ffffff;
   font-weight: 800;
   text-decoration: none;
   cursor: pointer;
@@ -197,15 +200,15 @@ body{
 }
 
 .app_perks-title {
-  color: #7e7a05;
+  color: var(--primary-color);
   font-size: 3.5vw;
 }
 
 .app__hightlight {
   display: block;
   padding: 2vw 0;
-  background-color: #7e7a05;
-  color: #000000;
+  background-color: var(--primary-color);
+  color: var(--text-primary);
   font-size: 2.5vw;
   font-weight: bold;
   text-decoration: none;
@@ -218,33 +221,35 @@ body{
   font-size: 4vw;
   font-weight: 600;
   letter-spacing: 0.8vw;
-  color: black;
+  color: var(--text-primary);
   text-transform: uppercase;
 }
 
 .app__footer-logopart {
-  color: #7e7a05;
+  color: var(--primary-color);
   padding-left: 0.7rem;
 }
 
 .app_social-pages {
+  color: var(--primary-color);
   display: flex;
   justify-content: center;
   margin: 2rem 0;
 }
 
 .app_social-pages a {
+  color: var(--primary-color);
   display: inline-block;
   margin: 0 1rem;
 }
 
 .app__footer {
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  position: relative;
-  top: 50vw;
+  margin-top: 100vh;
   text-align: center;
 }
 
@@ -266,40 +271,45 @@ body{
   grid-template-columns: 30vw auto 20vw;
   margin-top: 20vh;
 
-
 }
 
+
+/* For search bar only */
+.app__search-bar {
+  display: grid;
+  grid-template-columns: 30vw auto 20vw;
+  margin-top: 20vh;
+}
 
 .app__search-label {
   font-size: 2.5vw;
   font-weight: 700;
-  color: #7e7a05;
+  color: var(--primary-color);
   align-self: center;
   justify-self: end;
   margin-right: 3vw;
-  
-  
 }
 
 #app__search-input {
-
-  background-color: #dddddd;
-  color: #7e7a05;
+  background-color: var(--bg);
+  color: var(--primary-color);
   font-size: 1rem;
   height: 4.5vw;
   border-style: solid;
   border-width: 2px;
-  border-color: #7e7a05;
+  border-color: var(--primary-color);
   font-family: inherit;
   font-size: 1.8vw;
   padding-left: 1vw;
   
 }
 
-.search-btn {
+
+.app__search-btn {
+  color: var(--primary-color);
   height: 4.8vw;
   border-radius: 20%;
-  margin-left: .5vw;
+  margin-left: 0.5vw;
   padding: 1vw;
   box-sizing: border-box;
 
@@ -317,8 +327,12 @@ body{
 
 
 .app__signup-box {
+  
   position: relative;
   border: 2px solid #7e7a05;
+  position: absolute;
+  border: 2px solid var(--primary-color);
+  display: inline-block;
   width: 40vw;
   display: flex;
   flex-direction: column;
@@ -329,7 +343,7 @@ body{
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  color: #7e7a05;
+  color: var(--primary-color);
   font-size: 1.5rem;
 }
 
@@ -337,8 +351,8 @@ body{
   border-radius: 25px;
   font-family: "Cormorant Upright";
   font-size: 1rem;
-  background-color: #dddddd;
-  border: #7e7a05 solid;
+  background-color: var(--bg);
+  border: var(--primary-color) solid;
   display: inline-block;
   width: 65%;
   height: 4vh;
@@ -349,7 +363,7 @@ body{
   width: 100%;
   text-align: center;
   font-weight: 800;
-  color: #7e7a05;
+  color: var(--primary-color);
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   padding: 2rem;
@@ -363,7 +377,7 @@ body{
 .app__signup-btn {
   font-family: "Cormorant Upright";
   font-weight: 600;
-  background-color: #7e7a05;
+  background-color: var(--primary-color);
   color: #ffffff;
   font-size: 2rem;
   border-radius: 2rem;
@@ -384,10 +398,10 @@ body{
 .app__profile-user-card {
   height: 75vh;
   width: 28vw;
-  color: #000000;
+  color: var(--text-primary);
   border-style: solid;
   border-width: 2px;
-  border-color: #7e7a05;
+  border-color: var(--primary-color);
   align-items: center;
   text-align: center;
   justify-content: space-between;
@@ -396,7 +410,7 @@ body{
 
 .app__profile-user-card img {
   border-style: solid;
-  border-color: #7e7a05;
+  border-color: var(--primary-color);
   border-width: 2px;
   margin-top: 7vh;
   margin-bottom: 2.5vh;
@@ -409,7 +423,7 @@ body{
   width: 100%;
   font-size: 2vw;
   font-weight: 700;
-  color: #7e7a05;
+  color: var(--primary-color);
   margin-bottom: 5vh;
 }
 
@@ -425,7 +439,7 @@ body{
 }
 
 .app__profile-user-card-options span {
-  color: #7e7a05;
+  color: var(--primary-color);
   font-size: 1vw;
   margin-left: 0.7vw;
   margin-right: 0.7vw;
@@ -434,26 +448,13 @@ body{
 .app__profile-recipe-card {
   height: 65vh;
   width: 100%;
-  color: #000000;
+  color: var(--text-primary);
   border-style: solid;
   border-width: 2px;
-  border-color: #7e7a05;
+  border-color: var(--primary-color);
   text-align: center;
   margin-left: 0.5vw;
   padding: 5vh;
-}
-
-.app__profile-recipe-card-fav {
-  color: #7e7a05;
-  margin-right: 12vw;
-  font-size: 2vw;
-  font-weight: 600;
-}
-
-.app__profile-recipe-card-myrecipe {
-  margin-left: 12vw;
-  font-size: 1.6vw;
-  font-weight: 400;
 }
 
 .app__profile-recipe-card-container {
@@ -468,17 +469,86 @@ body{
   font-weight: 600;
 }
 
+.profile-active {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 2vw;
+  margin: 0 2.5rem;
+}
+
+.profile-inactive {
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 2vw;
+  margin: 0 2.5rem;
+}
+
+/* RECIPE TILE */
+.app__recipe-tile {
+  display: flex;
+  height: 15vh;
+  border: 2px solid;
+  color: var(--primary-color);
+  margin: 1vh 0;
+}
+
+.recipe-img {
+  margin: 1.2vh;
+  height: 13vh;
+  width: 15vw;
+}
+
+.recipe-text-container {
+  text-align: start;
+}
+
+.recipe-img-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.recipe-description {
+  color: var(--text-primary);
+  font-family: "Montserrat";
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+/*CREATE A RECIPE*/
+.app__create-box {
+  position: absolute;
+  border: 2px solid var(--primary-color);
+  display: inline-block;
+  width: 55vw;
+  flex-direction: column;
+  margin: 8vh 25% 0 25%;
+}
+
+.app__create-btn {
+  font-family: "Cormorant Upright";
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 2rem;
+  border-radius: 2rem;
+  width: 15vw;
+  margin-bottom: 3vw;
+}
+
 /*RECIPE PAGE*/
 div.app__recipe {
-  display : grid;
+  display: grid;
   grid-template-columns: 3fr 9fr;
   margin-left: 8.5vw;
   margin-right: 8.5vw;
 }
 
-.app__recipeProfile{
+.app__recipeProfile {
   border: 2px solid;
-  border-color: #7e7a05;
+  border-color: var(--primary-color);
   align-items: center;
   text-align: center;
   justify-content: space-between;
@@ -486,42 +556,42 @@ div.app__recipe {
   margin: 2px;
 }
 
-.app__recipedetails{
-  border : 2px solid ;
-  border-color: #7e7a05 ;
+.app__recipedetails {
+  border: 2px solid;
+  border-color: var(--primary-color);
   margin: 2px;
-  padding:1%;
+  padding: 1%;
 }
 
-.app__recipedetails button{
-  color: #7e7a05;
+.app__recipedetails button {
+  color: var(--primary-color);
   margin: 1%;
-  border:0vw;
+  border: 0vw;
   background-color: rgba(0, 0, 0, 0);
   align-items: right;
 }
 
-.app__recipeProfile p{
+.app__recipeProfile p {
   font-size: 15px;
 }
 
-.app__recipedetails h2{
-  color: #7e7a05;
+.app__recipedetails h2 {
+  color: var(--primary-color);
 }
 
-.app__recipedetails li{
+.app__recipedetails li {
   font-size: 18px;
 }
 
-.app__recipeProfile button{
-  color: #7e7a05;
+.app__recipeProfile button {
+  color: var(--primary-color);
   margin: 1%;
-  border:0vw;
+  border: 0vw;
   background-color: rgba(0, 0, 0, 0);
 }
 
 /*Recipe-Profile*/
-.app__recipe_profile{
+.app__recipe_profile {
   height: 75vh;
 }
 
@@ -561,6 +631,10 @@ div.app__recipe {
   font-family: "Montserrat";
   margin-top: 0;
   font-size: 0.9rem;
+}
+
+.app__recipe_profile h2 {
+  color: var(--primary-color);
 
 }
 
@@ -568,7 +642,7 @@ div.app__recipe {
 
 .app__trending-title {
   text-align: center;
-  color: #7e7a05;
+  color: var(--primary-color);
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
@@ -592,9 +666,10 @@ div.app__recipe {
 
 .app__trending-tile {
   display: flex;
-  height: 20vh;
-  color: #7e7a05;
-  margin: 4vh 4vw;
+  height: 18vh;
+  color: var(--primary-color);
+  margin: 2vh 4vw;
+
 }
 
 .trending-img {
@@ -620,7 +695,7 @@ div.app__recipe {
 }
 
 .trending-description {
-  color: #000000;
+  color: var(--text-primary);
   font-family: "Montserrat";
   margin-top: 0;
   font-size: 1rem; 

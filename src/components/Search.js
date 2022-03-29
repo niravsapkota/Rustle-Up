@@ -1,5 +1,5 @@
 import React from "react";
-import searchbtn from "../assets/search.png";
+import { GoSearch } from "react-icons/go";
 
 export default function Search() {
   return (
@@ -14,7 +14,7 @@ export default function Search() {
           placeholder="Search Recipe you want..."
         ></input>
         <a href="#" className="app__search-btn">
-          <img className="search-btn" src={searchbtn} />
+          <GoSearch size={40} />
         </a>
       </div>
     </>

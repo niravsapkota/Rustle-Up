@@ -4,7 +4,7 @@ import userimg from "../assets/userimg.jpg";
 import RecipeTile from "./RecipeTile";
 import pic from "../assets/unsplash_8T9AVksyt7s.png";
 
-export default function Profile() {
+export default function ProfileMyRecipe() {
   return (
     <>
       <div className="app__profile-container">
