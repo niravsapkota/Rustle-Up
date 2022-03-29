@@ -61,7 +61,7 @@ body{
   font-weight: bold;
 }
 
-.app__menu-icon {
+.app__menu-btn {
   display: none;
 }
 
@@ -647,7 +647,7 @@ div.app__recipe {
 
 @media screen and (max-width: 720px) {
   
-  /*
+
   .app__nav-items{
 
     position: fixed;
@@ -660,10 +660,10 @@ div.app__recipe {
     height: 100vh;
     background-color: #ffffff;
     font-size: 1.2rem;
-
+    
     
   }
-
+  
   .app__nav-items li{
     
     padding: .5rem;
@@ -676,7 +676,7 @@ div.app__recipe {
     border-bottom: 2px solid #000000;
     
 
-  }*/
+  }
 
   .app__hero-line {
     font-size: 3.2rem;
@@ -696,10 +696,6 @@ div.app__recipe {
 
   .app__navbar-login {
     display: none;
-  }
-
-  .app__menu-icon {
-    display: unset;
   }
 
   .app__hero-img {
