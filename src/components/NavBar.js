@@ -1,9 +1,11 @@
-import React from "react";
-import { Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
+import React, { useState } from "react";
+import { MyHiMenu, MyHiXCircle, Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
 import Logo from "./Logo";
 
 
 export default function NavBar() {
+
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -11,7 +13,7 @@ export default function NavBar() {
         <NavLink to="/">
           <Logo />
         </NavLink>
-        <NavMenu>
+        <NavMenu open={open}>
           <NavLink to="/" activeStyle>
             Home
           </NavLink>
@@ -25,10 +27,11 @@ export default function NavBar() {
             Miscellaneous
           </NavLink>
         </NavMenu>
-
         <NavBtn>
           <NavBtnLink to="/signup">Login / Sign Up</NavBtnLink>
         </NavBtn>
+        <MyHiMenu size={25} open={open} onClick={() => setOpen(!open)} className="app__hi-menu" />
+        <MyHiXCircle size={25} open={open} onClick={() => setOpen(!open)} className="app__hiX-circle" />
       </Nav>
     </>
   );

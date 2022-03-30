@@ -61,18 +61,6 @@ body {
   padding-left: 0.5rem;
 }
 
-.app__hero-img {
-  margin: 0;
-  padding: 0;
-  background-image: url("../assets/hero-img.png");
-  position: absolute;
-  width: 100%;
-  height: 90vh;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
 .app__hero-container {
   display: flex;
   flex-direction: column;
@@ -702,6 +690,7 @@ div.app__recipe {
   
 }
 
+
 @media screen and (max-width:1380px){
 
 
@@ -722,37 +711,6 @@ div.app__recipe {
 
 @media screen and (max-width: 720px) {
   
-
-  .app__nav-items{
-
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    height: 100vh;
-    background-color: #ffffff;
-    font-size: 1.2rem;
-    
-    
-  }
-  
-  .app__nav-items li{
-    
-    padding: .5rem;
-    
-
-  }
-
-  .app__nav-items li:hover {
-    
-    border-bottom: 2px solid #000000;
-    
-
-  }
-
   .app__hero-line {
     font-size: 3.2rem;
     font-weight: 400;
@@ -767,15 +725,6 @@ div.app__recipe {
     margin: 2rem 1.5rem 2rem 0rem;
     line-height: 1.8rem;
     text-align: center;
-  }
-
-  .app__navbar-login {
-    display: none;
-  }
-
-  .app__hero-img {
-    background-size: cover;
-    height: 100vh;
   }
 
   .app__hero-container {
@@ -832,7 +781,6 @@ div.app__recipe {
     width: 30vw;
     margin: auto;
   }
-
 
 }
 
