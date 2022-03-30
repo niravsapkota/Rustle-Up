@@ -11,6 +11,9 @@
 # production
 /build
 
+#Documentation
+/Rustle-Up
+
 # misc
 .DS_Store
 .env.local
