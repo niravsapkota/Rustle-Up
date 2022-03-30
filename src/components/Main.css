@@ -626,6 +626,10 @@ div.app__recipe {
 
 }
 
+.app__recipeImg{
+  width: 22vw;
+}
+
 /* TRENDING */
 
 .app__trending-title {

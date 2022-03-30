@@ -8,13 +8,6 @@ export default function recipe() {
       <div className="app__recipe">
         <div className="app__recipeProfile">
           <RecipeProfile img={pic} title="Title" />
-          <p className="app__prepTime">Preparation Time : N hrs</p>
-          <p className="app__difficultyRaing">Difficulty : 3/5</p>
-          <p className="app__recipeRating">Rating : 4/5</p>
-          <span className="app__recipeButtons">
-            <button className="app__ratingButton">Give a Rating</button>
-            <button className="app__reviewButton">Leave a Review</button>
-          </span>
         </div>
 
         <div className="app__recipedetails">
