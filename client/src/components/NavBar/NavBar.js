@@ -30,8 +30,8 @@ export default function NavBar() {
         <NavBtn>
           <NavBtnLink to="/signup">Login / Sign Up</NavBtnLink>
         </NavBtn>
-        <MyHiMenu size={25} open={open} onClick={() => setOpen(!open)} className="app__hi-menu" />
-        <MyHiXCircle size={25} open={open} onClick={() => setOpen(!open)} className="app__hiX-circle" />
+        <MyHiMenu size={30} open={open} onClick={() => setOpen(!open)} className="app__hi-menu" style={{position:"absolute",right:'5vw',top:'4vh'}}/>
+        <MyHiXCircle size={30} open={open} onClick={() => setOpen(!open)} className="app__hiX-circle" style={{position:"absolute",right:'5vw',top:'4vh'}}/>
       </Nav>
     </>
   );
