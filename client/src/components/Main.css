@@ -22,16 +22,21 @@
 .theme {
   background-color: var(--bg);
   font-family: "Cormorant Upright";
-
   color: var(--text-primary);
 }
 
 .theme-toggle {
   color: var(--primary-color);
   position: absolute;
-  top: 4vh;
-  left: 70vw;
+  top: 0;
   cursor: pointer;
+  
+}
+
+@keyframes identifier {
+  
+  
+
 }
 
 body {
@@ -311,7 +316,8 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-
+  margin: 0;
+  padding: 0;
 }
 
 .app__signup-box {
@@ -322,6 +328,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 10vh;
+  padding: 0;
 
 }
 
@@ -345,8 +352,8 @@ body {
 }
 
 .app__sign-up {
+  display: block;
   font-family: "Montserrat";
-  width: 100%;
   text-align: center;
   font-weight: 800;
   color: var(--primary-color);
@@ -764,8 +771,8 @@ div.app__recipe {
 
   .app__footer{
 
-    margin-top: 40vh;
-
+    margin-top: 30vh;
+    min-height: 40vh;
   }
 
   .app__signup-box {

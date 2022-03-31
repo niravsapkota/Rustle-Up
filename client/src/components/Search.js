@@ -14,7 +14,7 @@ export default function Search() {
           placeholder="Search Recipe you want..."
         ></input>
         <a href="#" className="app__search-btn">
-          <GoSearch size={40} />
+          <GoSearch style={{width:'3.5vw', height:'3.5vw'}} />
         </a>
       </div>
     </>

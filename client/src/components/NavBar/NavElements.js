@@ -28,11 +28,9 @@ export const Nav = styled.nav`
 
 export const NavLink = styled(Link)`
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
+  align-self: center;
   text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
+  padding: 1rem 1rem;
   cursor: pointer;
   &.active {
     font-weight: bold;
@@ -43,7 +41,8 @@ export const NavMenu = styled.div`
   font-family: "Montserrat";
   font-size: 1.2vw;
   display: flex;
-  align-items: center;  
+  align-items: end;  
+  justify-content: center;
   @media (max-width: 720px) {   
     position: fixed;
     top: 0;

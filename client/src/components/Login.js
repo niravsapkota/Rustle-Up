@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
-    <>
+    
+    <div className="app__signup-container">
       <form className="app__signup-box">
         <h1 className="app__sign-up">Login</h1>
         <Formfield labeltitle="Email Address" fieldtype="email" />
@@ -20,6 +21,6 @@ export default function Login() {
         </p>
         <button className="app__signup-btn">Login</button>
       </form>
-    </>
+    </div>
   );
 }
