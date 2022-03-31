@@ -238,7 +238,7 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  margin-top: 100vh;
+  margin-top: 80vh;
   text-align: center;
 }
 
@@ -314,18 +314,15 @@ body {
 
 }
 
-
 .app__signup-box {
   
   position: relative;
-  border: 2px solid #7e7a05;
-  position: absolute;
   border: 2px solid var(--primary-color);
-  display: inline-block;
   width: 40vw;
   display: flex;
   flex-direction: column;
   margin-top: 10vh;
+
 }
 
 .app__form-field {
@@ -719,7 +716,7 @@ div.app__recipe {
 
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   
   .app__hero-line {
     font-size: 3.2rem;
@@ -765,6 +762,11 @@ div.app__recipe {
     float: right;
   }
 
+  .app__footer{
+
+    margin-top: 40vh;
+
+  }
 
   .app__signup-box {
 
@@ -789,7 +791,7 @@ div.app__recipe {
   .app__signup-btn {
     
     width: 30vw;
-    margin: auto;
+    margin-bottom: .5rem;
   }
 
 }
