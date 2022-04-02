@@ -3,7 +3,11 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
+import recipeRoute  from "./routes/recipe_post.js";//error w/o .js
+
 const app = express();
+
+app.use('/recipe_post',recipeRoute); // added /recipe_post to routes in other file
 
 app.use(bodyParser.json(
     {limit:"50mb", extended:true}
@@ -15,8 +19,8 @@ app.use(bodyParser.urlencoded(
 
 app.use(cors());
 
-const CONNECTION_URL =
-  "mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority";
+const CONNECTION_URL = "mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority";
+
 const PORT=process.env.PORT || 5000;
  
 mongoose.connect(CONNECTION_URL)
@@ -27,5 +31,5 @@ mongoose.connect(CONNECTION_URL)
         ))
     .catch((error)=>console.log(error.message));
 
-// mongoose.set("useFindAndModify",false);
+// mongoose.set("useFindAndModify",false); not exist in mongoose 6
 

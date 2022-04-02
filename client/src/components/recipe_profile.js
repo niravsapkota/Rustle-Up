@@ -5,6 +5,7 @@ export default function RecipeProfile(props) {
     <div className="app__recipe_profile">
       <img className="app__recipeImg" src={props.img} alt="none" />
       <h2 className="app__image_title">{props.title}</h2>
+      <p className="app__recipeAuthor">Author</p>
       <p className="app__prepTime">Preparation Time : N hrs</p>
       <p className="app__difficultyRaing">Difficulty : 3/5</p>
       <p className="app__recipeRating">Rating : 4/5</p>
