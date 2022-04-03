@@ -649,11 +649,6 @@ div.app__recipe {
   color: var(--primary-color);
 }
 
-.app__recipeImg{
-  width: 22vw;
-}
-
-
 /* TRENDING */
 
 .app__trending-title {

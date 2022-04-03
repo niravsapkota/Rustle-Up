@@ -3,8 +3,8 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Search from "./components/Search";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import SignUp from "./components/Auth/Signup";
+import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
 import ProfileMyRecipe from "./components/Profile/ProfileMyRecipe";
 import Recipe from "./components/Recipe";
@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-function App() {
+const App = () => {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
 
   const switchTheme = () => {
@@ -35,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Main />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile-my-recipe" element={<ProfileMyRecipe />} />
@@ -47,6 +47,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
