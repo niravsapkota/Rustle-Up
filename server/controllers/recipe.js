@@ -1,10 +1,11 @@
-import PostRecipe from "../models/recipe.js";
+//import RecipeDetails from "../models/recipe_det.js";
+import RecipeProfile from "../models/recipe_prof.js";
 
 export const getRecipe = async (req, res) => {
   try {
-    const postRecipes = await PostRecipe.find();
+    const RecipeProfile = await RecipeProfile.find();
 
-    res.status(200).json(postRecipes);
+    res.status(200).json(RecipeProfile);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -12,7 +13,7 @@ export const getRecipe = async (req, res) => {
 
 export const createRecipe = async (req, res) => {
   const recipe = req.body;
-  const newRecipe = new PostRecipe(recipe);
+  const newRecipe = new RecipeProfile(recipe);
 
   try {
     await newRecipe.save();

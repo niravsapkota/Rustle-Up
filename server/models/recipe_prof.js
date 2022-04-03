@@ -12,17 +12,17 @@ const recipeSchema = mongoose.Schema(
         rating : {
             type : Number,
             default : 0
+        },
+        view_count: {
+            type: Number,
+            default: 0,
+        },
+        created_at: {
+            type: Date,
+            default: new Date(),
         }
     }
 );
 
-const recipeSchema2 = mongoose.Schema(
-    {
-        ingredients : [String],
-        utensils : [String],
-        procedure : [String]
-    }
-);
-
-const RecipeMessage = mongoose.model('recipeMessage',recipeSchema);
-export default RecipeMessage;
+const RecipeProfile = mongoose.model('recipeProfile',recipeSchema);
+export default RecipeProfile;
