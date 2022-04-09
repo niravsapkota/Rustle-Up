@@ -24,5 +24,5 @@ const recipeSchema = mongoose.Schema(
     }
 );
 
-const RecipeProfile = mongoose.model('recipeProfile',recipeSchema);
+const RecipeProfile = mongoose.model('recipe_prof',recipeSchema);
 export default RecipeProfile;

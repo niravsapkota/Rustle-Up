@@ -7,7 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile/Profile";
 import ProfileMyRecipe from "./components/Profile/ProfileMyRecipe";
-import Recipe from "./components/Recipe";
+import Recipe from "./components/Recipe/Recipe";
 import CreateRecipe from "./components/CreateRecipe";
 import Trending from "./components/Trending/Trending";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

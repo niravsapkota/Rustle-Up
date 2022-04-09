@@ -28,7 +28,9 @@
 .theme-toggle {
   color: var(--primary-color);
   position: absolute;
-  top: 0;
+  
+  top: 4vh;
+  right: 25%;
   cursor: pointer;
   
 }
@@ -534,9 +536,13 @@ body {
 /*RECIPE PAGE*/
 div.app__recipe {
   display: grid;
-  grid-template-columns: 3fr 9fr;
   margin-left: 8.5vw;
   margin-right: 8.5vw;
+}
+
+.app__recipebody{
+  display: grid;
+  grid-template-columns: 3fr 9fr;
 }
 
 .app__recipeProfile {
@@ -554,6 +560,36 @@ div.app__recipe {
   border-color: var(--primary-color);
   margin: 2px;
   padding: 1%;
+}
+
+.app__recipeReview{
+  border: 2px solid;
+  border-color: var(--primary-color);
+  color: (var(--text-primary));
+  padding: 1%;
+}
+
+.app__recipeReview_header{
+  color: var(--primary-color);
+}
+
+.app__reviewUsername{
+  text-decoration: none;
+  font-size: 15px ;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.app__reviewdate{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: var(--text-primary);
+}
+
+.app__reviewRate{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: var(--text-primary);
 }
 
 .app__recipedetails button {

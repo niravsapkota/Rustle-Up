@@ -3,11 +3,15 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
-import recipeRoute  from "./routes/recipe_post.js";//error w/o .js
+import recipeRoute  from "./routes/recipe.js";//error w/o .js
+import authRoute from "./routes/auth.js";
 
 const app = express();
 
-app.use('/recipe_post',recipeRoute); // added /recipe_post to routes in other file
+app.use('/recipe',recipeRoute); // added /recipe_post to routes in other file
+
+app.use('/auth',authRoute);
+
 
 app.use(bodyParser.json(
     {limit:"50mb", extended:true}

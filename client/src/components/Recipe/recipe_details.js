@@ -1,19 +1,9 @@
 import React from "react";
-import pic from "../assets/unsplash_8T9AVksyt7s.png";
-import RecipeProfile from "./recipe_profile";
 
-export default function recipe() {
-  return (
-    <>
-      <div className="app__recipe">
-        <div className="app__recipeProfile">
-          <RecipeProfile img={pic} title="Title" />
-        </div>
-
-        <div className="app__recipedetails">
-          <button className="app__printButton">Print</button>
-
-          <div className="app__ingredients">
+export default function RecipeDetails(){
+    return(
+        <>
+        <div className="app__ingredients">
             <h2>Ingredients</h2>
             <ol>
               <li>Ingredient A</li>
@@ -21,9 +11,9 @@ export default function recipe() {
               <li>Ingredient C</li>
               <li>Ingredient D</li>
             </ol>
-          </div>
+         </div>
 
-          <div className="app__utensilsreq">
+        <div className="app__utensilsreq">
             <h2>Utensils</h2>
             <ol>
               <li>Utensil A</li>
@@ -31,9 +21,9 @@ export default function recipe() {
               <li>Utensil C</li>
               <li>Utensil d</li>
             </ol>
-          </div>
+        </div>
 
-          <div className="app__procedure">
+        <div className="app__procedure">
             <h2>Procedure</h2>
             <ol>
               <li>
@@ -69,9 +59,7 @@ export default function recipe() {
                 vulputate vestibulum ex.
               </li>
             </ol>
-          </div>
         </div>
-      </div>
-    </>
-  );
+        </>
+    );
 }
