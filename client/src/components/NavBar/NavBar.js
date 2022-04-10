@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-import { MyHiMenu, MyHiXCircle, Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
+import React, { useEffect, useState } from "react";
+import { Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
 import Logo from "./Logo";
-
+import axios from "axios";
 
 export default function NavBar() {
-
-  const [open, setOpen] = useState(false);
-
   return (
     <>
       <Nav>
         <NavLink to="/">
           <Logo />
         </NavLink>
-        <NavMenu open={open}>
+        <NavMenu>
           <NavLink to="/" activeStyle>
             Home
           </NavLink>
@@ -30,8 +27,6 @@ export default function NavBar() {
         <NavBtn>
           <NavBtnLink to="/signup">Login / Sign Up</NavBtnLink>
         </NavBtn>
-        <MyHiMenu size={30} open={open} onClick={() => setOpen(!open)} className="app__hi-menu" style={{position:"absolute",right:'5vw',top:'4vh'}}/>
-        <MyHiXCircle size={30} open={open} onClick={() => setOpen(!open)} className="app__hiX-circle" style={{position:"absolute",right:'5vw',top:'4vh'}}/>
       </Nav>
     </>
   );

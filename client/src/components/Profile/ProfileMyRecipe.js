@@ -1,10 +1,53 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import userimg from "../../assets/userimg.jpg";
 import RecipeTile from "./RecipeTile";
+import axios from "axios";
 import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 
 export default function ProfileMyRecipe() {
+  const navigate = useNavigate();
+  const [info, setInfo] = useState([]);
+
+  const callProfile = async () => {
+    try {
+      const res = await axios.get("/profile", {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res) {
+        throw new Error("cant login");
+      } else {
+        const value = res.data;
+        setInfo(value);
+      }
+    } catch (error) {
+      navigate("/login");
+    }
+  };
+
+  useEffect(() => {
+    callProfile();
+  }, []);
+
+  const btnLogout = async (e) => {
+    e.preventDefault();
+    axios
+      .get("auth/logout", {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        window.alert("Unsuccessfull");
+      });
+  };
+
   return (
     <>
       <div className="app__profile-container">
@@ -12,14 +55,16 @@ export default function ProfileMyRecipe() {
           <div>
             <img src={userimg}></img>
           </div>
-          <span className="app__profile-user-card-name">John Doe</span>
-          <p>Member Since: 2022/03/05</p>
-          <p>Favourites: 4</p>
-          <p>Recipes Posted: 3</p>
+          <span className="app__profile-user-card-name">{info.name}</span>
+          <p>Member Since: {info.created_at}</p>
+          <p>Favourites: {info.favourites}</p>
+          <p>Recipes Posted: {info.myrecipe}</p>
           <p className="app__profile-user-card-options">
-            <span>Create Recipe</span>
-            <span>Manage Profile</span>
-            <span>Logout</span>
+            <btn>Create Recipe</btn>
+            <btn>Manage Profile</btn>
+            <btn type="submit" onClick={btnLogout}>
+              Logout
+            </btn>
           </p>
         </div>
         <div className="app__profile-recipe-card">
