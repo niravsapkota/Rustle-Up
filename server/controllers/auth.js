@@ -25,9 +25,12 @@ export const signin = async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.cookie("authToken", token);
     // Response
-    res.status(200).json({ result: oldUser, token });
+    res.cookie("jwtoken", token, {
+      expires: new Date(Date.now() + 3600000),
+      httpOnly: true,
+    });
+    res.status(200).json({ result: oldUser, token: token });
   } catch (error) {
     // Error
     res.status(500).json({ message: "Something went wrong" });
@@ -62,4 +65,12 @@ export const signup = async (req, res) => {
 
     console.log(error);
   }
+};
+
+export const getMe = async (req, res) => {
+  res.status(200).json(req.user);
+};
+
+export const logout = async (req, res) => {
+  res.status(200).clearCookie("jwtoken", { path: "/" }).send("Logout success");
 };

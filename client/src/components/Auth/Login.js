@@ -31,14 +31,10 @@ export default function Login() {
           navigate("/profile");
         })
         .catch((error) => {
-          if (error.response.status === 404 || 400) {
-            window.alert("Invalid Credentials");
-          } else {
-            window.alert("Something went wrong");
-          }
+          window.alert("Invalid Credentials");
         });
     } else {
-      window.alert("Invalid credentials");
+      window.alert("Type all fields");
     }
   };
 
