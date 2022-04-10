@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Formfield from "./Formfield";
+import {TextField} from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -50,25 +50,25 @@ const SignUp = () => {
     <div>
       <form className="app__signup-box">
         <h1 className="app__sign-up">Sign Up</h1>
-        <Formfield
+        <TextField
           labeltitle="Name"
           name="name"
           fieldtype={Text}
           onChange={handleChange}
         />
-        <Formfield
+        <TextField
           labeltitle="Email Address"
           name="email"
           fieldtype="email"
           onChange={handleChange}
         />
-        <Formfield
+        <TextField
           labeltitle="Password"
           name="password"
           fieldtype="password"
           onChange={handleChange}
         />
-        <Formfield
+        <TextField
           labeltitle="Confirm Password"
           name="confirmPassword"
           fieldtype="password"
