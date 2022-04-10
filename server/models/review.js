@@ -14,13 +14,13 @@ const reviewSchema=new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref:'Recipe'
         },
-        likes: [{
+        rating: [{
                 type : mongoose.Schema.Types.ObjectId,
-                ref: 'Like'
+                ref: 'rating'
             }]
     },
     {timestamps:true}
 )
 
-const Review=mongoose.model('review',reviewSchema);
-module.exports=Review;
+const ReviewDetails=mongoose.model('ReviewDetails',reviewSchema);
+export default ReviewDetails;

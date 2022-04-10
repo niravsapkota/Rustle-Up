@@ -587,6 +587,7 @@ body {
   border-radius: 2rem;
   width: 15vw;
   margin-bottom: 3vw;
+  margin-left: 2rem;
 }
 
 /*RECIPE PAGE*/
@@ -617,6 +618,12 @@ div.app__recipe {
   margin: 2px;
   padding: 1%;
 }
+.app__reviewbtn{
+  text-decoration: none;
+  color:var(--text-primary);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
 
 .app__recipeReview {
   border: 2px solid;
@@ -627,6 +634,7 @@ div.app__recipe {
 
 .app__recipeReview_header {
   color: var(--primary-color);
+  display: flex;
 }
 
 .app__reviewUsername {
