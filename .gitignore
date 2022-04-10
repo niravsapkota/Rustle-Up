@@ -4,6 +4,7 @@
 node_modules/
 /.pnp
 .pnp.js
+/Rustle-Up
 
 # testing
 /coverage
