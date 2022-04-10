@@ -1,5 +1,6 @@
-import RecipeDetails from "../models/recipe_det.js";
+//import RecipeDetails from "../models/recipe_det.js";
 import RecipeProfile from "../models/recipe_prof.js";
+import PostRecipe from "../models/recipe.js";
 
 export const getRecipe = async (req, res) => {
   try {
