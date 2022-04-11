@@ -22,7 +22,7 @@ export default function recipe() {
 
         <div className="app__recipeReview">
           <h2 className="app__recipeReview_header">Reviews</h2>
-          <a href="/create-review" className="app__reviewbtn">Add Review</a>
+          <a href="/create-review" className="app__reviewbtn">+ Review</a>
           <hr></hr>
           <RecipeReview/>
           <hr></hr>
