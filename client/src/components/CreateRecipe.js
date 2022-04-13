@@ -1,18 +1,89 @@
-import React from "react";
-import {TextField,DropdownMenu} from "./Auth/Formfield";
+import React,{useState,useEffect} from "react";
+import {FormField} from "./Auth/Formfield";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function CreateRecipe() {
+export default function() {
+
+/*  const navigate = useNavigate();
+  const [info, setInfo] = useState([]);
+
+  const callRecipe = async () => {
+    try {
+      const res = await axios.get("/create-recipe", {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res) {
+        throw new Error("cant login");
+      } else {
+        const value = res.data;
+        setInfo(value);
+      }
+    } catch (error) {
+      navigate("/login");
+    }
+  };
+
+  useEffect(() => {
+    callRecipe();
+  }, []);*/
+
+  // initial blank state of form
+  const [recipe, setRecipe] = useState({
+
+    title: "",
+    user_id:"",
+    difficulty:"",
+    prep_time: "",
+    ingredients: "",
+    utensils: "",
+    steps:"",
+    files:"",
+  });
+
+  // function to dynamically update fields
+  const handleChange = (e) => {
+    console.log(recipe);
+    const { name, value } = e.target;
+    setRecipe({
+      ...recipe,
+      [name]: value,
+    });
+  };
+
+  const btnCreaterecipe = async (e) => {
+    e.preventDefault();
+    axios
+        .post("/recipe/create", recipe)
+        .then((response) => {
+          console.log(response.data);
+        }).catch(()=>console.log("Something is wrong!"))
+  }
+
   return (
     <>
-      <form className="app__create-box">
-        <h1 className="app__sign-up">Create Recipe</h1>
-        <TextField labeltitle="Name" fieldtype={Text} phvalue="Provide full name if possible"/>
-        <DropdownMenu labeltitle="Difficulty" fieldtype={Text}/>
-        <DropdownMenu labeltitle="Preparation Time" fieldtype={Text}/>
-        <TextField labeltitle="Ingredients" fieldtype={Text} />
-        <DropdownMenu labeltitle="Utensils Required"/>
-        <button className="app__create-btn">Submit</button>
-      </form>
-    </>
+      <form method="POST" className="app__create-box" enctype="multipart/form-data">
+        <h1 className="app__sign-up">Add a Recipe</h1>
+        <FormField labeltitle="Name" name="title" fieldtype={Text} onChange={handleChange}/>
+        <FormField labeltitle="Difficulty" name="difficulty" fieldtype={Text} onChange={handleChange}/>
+        <FormField labeltitle="Preparation Time" name="prep_time" fieldtype={Text} onChange={handleChange}/>
+        <FormField labeltitle="Ingredients" name="ingredients" fieldtype={Text} onChange={handleChange}/>
+        <FormField labeltitle="Utensils Required" name="utensils" fieldtype={Text} onChange={handleChange}/>
+        <FormField labeltitle="Steps" name="steps" fieldtype="TextArea" onChange={handleChange}/>
+        <input type="file" id="app_recipe-img" name="image" />
+
+        <Link
+            style={{ color: "#7e7a05", textDecoration: "inherit" }}
+            to="/profile-my-recipe"
+        >
+        <button className="app__create-btn" type="submit" onClick={btnCreaterecipe}>
+          Submit
+        </button>
+        </Link>
+      </form> 
+  </>
   );
 }

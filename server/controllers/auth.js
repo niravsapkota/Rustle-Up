@@ -40,7 +40,6 @@ export const signin = async (req, res) => {
 //Sign Up
 export const signup = async (req, res) => {
   const { name, email, password } = req.body;
-
   try {
     // Check Duplicate Email
     const oldUser = await User.findOne({ email });

@@ -1,6 +1,26 @@
-import React from "react";
+import React,{useState} from "react";
+import axios from "axios";
 
 export default function RecipeDetails() {
+
+  const [data,setData] = useState({});
+  async function showNext(){
+
+    try{
+      const config = {
+        method:'GET',
+        url:'/recipe/get',
+      }
+      const res = await axios(config);
+      console.log(res.data);
+      
+    }
+    catch(error){
+      console.log(error);
+    }
+
+  }
+
   return (
     <>
       <div className="app__ingredients">
@@ -58,6 +78,7 @@ export default function RecipeDetails() {
           </li>
         </ol>
       </div>
+      <input type="submit" name="next" value="Next>>>>>>>>>>>>>" onClick={showNext}/>
     </>
   );
 }

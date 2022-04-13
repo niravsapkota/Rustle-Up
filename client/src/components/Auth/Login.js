@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {TextField} from "./Formfield";
+import {FormField} from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -42,13 +42,13 @@ export default function Login() {
     <>
       <form className="app__signup-box">
         <h1 className="app__sign-up">Login</h1>
-        <TextField
+        <FormField
           labeltitle="Email Address"
           name="email"
           fieldtype="email"
           onChange={handleChange}
         />
-        <TextField
+        <FormField
           labeltitle="Password"
           name="password"
           fieldtype="password"

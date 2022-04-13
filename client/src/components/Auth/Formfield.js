@@ -1,6 +1,6 @@
 import React from "react";
 
-export function TextField(props) {
+export function FormField(props) {
   return (
     <div className="app__form-field">
       <label className="app__name-label" htmlFor="name">
@@ -17,7 +17,7 @@ export function TextField(props) {
     </div>
   );
 }
-
+/*
 export function DropdownMenu(props) {
   return (
     <div className="app__form-field">
@@ -33,4 +33,4 @@ export function DropdownMenu(props) {
       ></select>
     </div>
   );
-}
+}*/
