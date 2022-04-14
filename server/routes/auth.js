@@ -5,6 +5,7 @@ import {
   getMe,
   logout,
   deleteProfile,
+  changePassword,
 } from "../controllers/auth.js";
 import authenticate from "../middleware/auth.js";
 
@@ -14,6 +15,7 @@ router.post("/login", signin);
 router.post("/signup", signup);
 router.get("/logout", logout);
 router.get("/me", authenticate, getMe);
-router.post("/delete-profile", authenticate, deleteProfile);
+router.get("/delete-profile", authenticate, deleteProfile);
+router.post("/change-password", authenticate, changePassword);
 
 export default router;

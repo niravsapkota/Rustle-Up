@@ -75,12 +75,31 @@ export const logout = (req, res) => {
   res.status(200).clearCookie("jwtoken", { path: "/" }).send("Logout success");
 };
 
+//deletes the profile details from db
 export const deleteProfile = async (req, res) => {
-  const { email } = req.user.email;
+  const currentEmail = req.user.email;
   try {
-    await User.deleteOne({ email });
-    res.status(200).send("Delete Success");
+    await User.deleteOne({ email: currentEmail });
+    res
+      .status(200)
+      .clearCookie("jwtoken", { path: "/" })
+      .send("Delete Successful");
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+export const changePassword = async (req, res) => {
+  const currentEmail = req.user.email;
+  const { password } = req.body;
+  if (password) {
+    const hashedPassword = await bcrypt.hash(password, 12);
+    await User.findOneAndUpdate(
+      { email: currentEmail },
+      { password: hashedPassword }
+    );
+    res.status(200).send("success");
+  } else {
+    res.status(500).send("something went wrong");
   }
 };

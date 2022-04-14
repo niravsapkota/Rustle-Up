@@ -1,18 +1,57 @@
 import React, { useState } from "react";
 import Formfield from "../Auth/Formfield";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function ManageProfile() {
-  const [password, setPassword] = useState({
+  const navigate = useNavigate();
+  const [pass, setPass] = useState({
     password: "",
     confirmPassword: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPassword({
-      ...password,
+    setPass({
+      ...pass,
       [name]: value,
     });
+  };
+
+  const btnChange = async (e) => {
+    e.preventDefault();
+    const { password, confirmPassword } = pass;
+    if (password && password === confirmPassword) {
+      axios
+        .post("/auth/change-password", pass)
+        .then((res) => {
+          window.alert("Password change successful!");
+          navigate("/profile");
+        })
+        .catch((error) => {
+          window.alert("Something went wrong");
+        });
+    } else {
+      alert("Passwords do not match.");
+    }
+  };
+
+  const btnDelete = async (e) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure?") === true) {
+      axios
+        .get("auth/delete-profile", {
+          headers: {
+            "Access-Control-Allow-Credentials": true,
+          },
+        })
+        .then((res) => {
+          navigate("/");
+        })
+        .catch((error) => {
+          window.alert("Unsuccessfull");
+        });
+    }
   };
 
   return (
@@ -32,14 +71,14 @@ export default function ManageProfile() {
           fieldtype="password"
           onChange={handleChange}
         />
-        <button className="app__signup-btn" type="submit">
+        <button className="app__signup-btn" type="submit" onClick={btnChange}>
           Change Password
         </button>
       </form>
       <div className="app__delete-profile">
         <p>
           Delete Account
-          <btn className="app__delete-btn" type="submit">
+          <btn className="app__delete-btn" type="submit" onClick={btnDelete}>
             Delete
           </btn>
         </p>

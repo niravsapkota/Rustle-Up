@@ -11,13 +11,13 @@ export default function Header() {
         </span>
       </Link>
       <div className="app_social-pages">
-        <a href="#">
+        <a href="fb.com">
           <FaFacebook size={35} />
         </a>
-        <a href="#">
+        <a href="twitter.com">
           <FaTwitter size={35} />
         </a>
-        <a href="#">
+        <a href="instagram.com">
           <FaInstagram size={35} />
         </a>
       </div>
