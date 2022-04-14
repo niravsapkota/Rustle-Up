@@ -589,6 +589,51 @@ body {
   margin-bottom: 3vw;
 }
 
+/*MANAGE PROFILE*/
+.app__manage-profile {
+  font-family: "Montserrat";
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
+  color: var(--primary-color);
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+.app__change-password {
+  font-family: "Montserrat";
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+.app__delete-profile {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.app__delete-btn {
+  cursor: pointer;
+  font-family: "Cormorant Upright";
+  font-weight: 600;
+  color: #ff0000;
+  font-size: 1.3rem;
+  outline-style: solid;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  margin-left: 8vw;
+  margin-bottom: 15vh;
+}
+
 /*RECIPE PAGE*/
 div.app__recipe {
   display: grid;

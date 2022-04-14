@@ -7,6 +7,7 @@ import SignUp from "./components/Auth/Signup";
 import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
 import ProfileMyRecipe from "./components/Profile/ProfileMyRecipe";
+import ManageProfile from "./components/Profile/ManageProfile";
 import Recipe from "./components/Recipe";
 import CreateRecipe from "./components/CreateRecipe";
 import Trending from "./components/Trending/Trending";
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile-my-recipe" element={<ProfileMyRecipe />} />
+          <Route path="/manage-profile" element={<ManageProfile />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/recipe" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />

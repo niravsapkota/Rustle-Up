@@ -71,6 +71,16 @@ export const getMe = async (req, res) => {
   res.status(200).json(req.user);
 };
 
-export const logout = async (req, res) => {
+export const logout = (req, res) => {
   res.status(200).clearCookie("jwtoken", { path: "/" }).send("Logout success");
+};
+
+export const deleteProfile = async (req, res) => {
+  const { email } = req.user.email;
+  try {
+    await User.deleteOne({ email });
+    res.status(200).send("Delete Success");
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
 };

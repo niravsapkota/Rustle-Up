@@ -1,5 +1,11 @@
 import express from "express";
-import { signin, signup, getMe, logout } from "../controllers/auth.js";
+import {
+  signin,
+  signup,
+  getMe,
+  logout,
+  deleteProfile,
+} from "../controllers/auth.js";
 import authenticate from "../middleware/auth.js";
 
 const router = express.Router();
@@ -8,5 +14,6 @@ router.post("/login", signin);
 router.post("/signup", signup);
 router.get("/logout", logout);
 router.get("/me", authenticate, getMe);
+router.post("/delete-profile", authenticate, deleteProfile);
 
 export default router;
