@@ -11,6 +11,7 @@ import ManageProfile from "./components/Profile/ManageProfile";
 import Recipe from "./components/Recipe";
 import CreateRecipe from "./components/CreateRecipe";
 import Trending from "./components/Trending/Trending";
+import ErrorPage from "./components/ErrorPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/trending" element={<Trending />} />
           <Route path="/recipe" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </Router>

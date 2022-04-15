@@ -339,6 +339,24 @@ body {
   }
 }
 
+/* ERROR PAGE */
+.app__error404 {
+  margin-top: 10%;
+  margin-bottom: 0;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 6rem;
+}
+
+.app__error-desc {
+  text-align: center;
+  font-family: "Montserrat";
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
 /* For search bar only */
 .app__search-bar {
   display: grid;
@@ -402,6 +420,7 @@ body {
   font-family: "Cormorant Upright";
   font-size: 1rem;
   background-color: var(--bg);
+  color: var(--primary-color);
   border: var(--primary-color) solid;
   display: inline-block;
   width: 65%;
@@ -590,6 +609,10 @@ body {
 }
 
 /*MANAGE PROFILE*/
+.app__manage-form {
+  position: absolute;
+}
+
 .app__manage-profile {
   font-family: "Montserrat";
   width: 100%;
