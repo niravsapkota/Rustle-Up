@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FcEmptyTrash, FcExpand, FcFullBattery, FcFullTrash } from "react-icons/fc";
+import { FcFullTrash } from "react-icons/fc";
 import { HiPencil } from "react-icons/hi"
 import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
 import RecipeReview from "./recipeReview";
 import axios from "axios";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
-import CreateRecipe from "../CreateRecipe";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Formfield from "../Auth/Formfield";
-import createReview from "./reviewaxios";
+import { useParams, useNavigate } from "react-router-dom";
+import createReview from "../CreateReview";
 
 
 export default function Recipe() {
@@ -63,7 +60,9 @@ export default function Recipe() {
                 then(
                   navigate(`/create-recipe/${id}`)
                 )} />
-            <FcFullBattery size={35} onClick={
+            {/* <button className="app__printButton">Print</button> */}
+
+            <FcFullTrash size={35} onClick={
               () => axios.delete(`/recipe/delete/${id}`).
                 then(
                   navigate("/profile-my-recipe")
@@ -74,16 +73,17 @@ export default function Recipe() {
         </div>
 
         <div className="app__recipeReview">
-          <h2 className="app__recipeReview_header">Reviews</h2>
-          <form className="app__create-box">
-            <Formfield labeltitle="Review" fieldtype={Text} />
-            <button className="app__create-btn"> Recipe </button>
-          </form>
-          <createReview />
-          <hr></hr>
-          <RecipeReview />
-          <hr></hr>
-          <RecipeReview />
+          
+          {/* <form className="app__create-box">
+            <h1 className="app__recipeReview_header">Reviews</h1>
+            <Formfield labeltitle="" fieldtype={Text} />
+            <button className="app__create-btn"> Add Review </button>  */}
+            <createReview/>
+            <hr></hr>
+            <RecipeReview />
+          {/* </form> */}
+          {/* <createReview/> */}
+         
         </div>
 
       </div>

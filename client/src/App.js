@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
