@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Formfield from "./Formfield";
+import Formfield from "../Formfield";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import ReviewDetails from "../../../server/models/review";
+// import ReviewDetails from "../../../../server/models/review";
 
 const createReview = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const createReview = () => {
     e.preventDefault();
     const { review } = details;
       axios
-    .post("/recipe", details)
+    .post("/recipe/create-review", details)
     .then((response) => {
           window.alert("Posted.");
           navigate("/recipe");
@@ -42,6 +42,7 @@ const createReview = () => {
       <form className="app__create-box">
         <Formfield 
          labeltitle="Review"
+         name="review"
          fieldtype={Text}
          onChange={handleChange}
         />

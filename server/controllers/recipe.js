@@ -1,5 +1,5 @@
-import RecipeDetails from "../models/recipe_det.js";
-import RecipeProfile from "../models/recipe_prof.js";
+import RecipeDetails from "../models/recipe.js";
+//import RecipeProfile from "../models/recipe_prof.js";
 import ReviewDetails from "../models/review.js";
 
 /*Recipe Profile*/

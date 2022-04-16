@@ -6,13 +6,11 @@ import Jwt from "jsonwebtoken";
     const {review} = req.body;
   
     try {
-      await newReview.save();
-
-      const vari = ReviewDetails.create({
-
+           const vari = ReviewDetails.create({
+        review,
       });
 
-      res.status(201).json(newReview);
+      res.status(201).send('Success');
     }
     catch (error) {
       res.status(409).json({ message: error.message });
