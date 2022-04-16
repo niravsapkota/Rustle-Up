@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {FormField} from "./Formfield";
+import FormField from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 

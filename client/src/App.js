@@ -8,7 +8,7 @@ import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
 import ProfileMyRecipe from "./components/Profile/ProfileMyRecipe";
 import Recipe from "./components/Recipe/Recipe";
-import CreateRecipe from "./components/CreateRecipe";
+import {CreateRecipe,EditRecipe} from "./components/CreateRecipe";
 import CreateReview from "./components/CreateReview";
 import Trending from "./components/Trending/Trending";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -43,6 +43,7 @@ const App = () => {
           <Route path="/trending" element={<Trending />} />
           <Route path="/recipe/:id" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />}/>
+          <Route path="/create-recipe/:id" element={<EditRecipe />}></Route>
           <Route path="/create-review" element={<CreateReview />}/>
         </Routes>
         <Footer />

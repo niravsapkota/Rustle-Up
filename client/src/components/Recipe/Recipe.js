@@ -6,7 +6,7 @@ import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
 import RecipeReview from "./recipeReview";
 import axios from "axios";
-import { Navigate, useParams ,useNavigate } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import CreateRecipe from "../CreateRecipe";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Formfield from "../Auth/Formfield";
@@ -22,22 +22,22 @@ export default function Recipe() {
   let { id } = useParams();
 
   const getRecipe = async () => {
-  try {
-    const res = await axios.get(`/recipe/get/${id}`, {
-      headers: {
-        "Access-Control-Allow-Credentials": true,
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res) {
-      throw new Error("cant find the recipe");
-    } else {
-      const allData = res.data;
-      setData(allData);
+    try {
+      const res = await axios.get(`/recipe/get/${id}`, {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res) {
+        throw new Error("cant find the recipe");
+      } else {
+        const allData = res.data;
+        setData(allData);
+      }
+    } catch (error) {
+      console.log("Error Caught!");
     }
-  } catch (error) {
-    console.log("Error Caught!");
-  }
 
   }
 
@@ -58,7 +58,11 @@ export default function Recipe() {
 
           <div className="app__recipedetails">
             <button className="app__printButton">Print</button>
-            <HiPencil size={35}/>
+            <HiPencil size={35} onClick={
+              () => axios.get(`/recipe/get/${id}`).
+                then(
+                  navigate(`/create-recipe/${id}`)
+                )} />
             <FcFullBattery size={35} onClick={
               () => axios.delete(`/recipe/delete/${id}`).
                 then(
@@ -73,9 +77,9 @@ export default function Recipe() {
           <h2 className="app__recipeReview_header">Reviews</h2>
           <form className="app__create-box">
             <Formfield labeltitle="Review" fieldtype={Text} />
-            <button className="app__create-btn"> +Recipe </button>
+            <button className="app__create-btn"> Recipe </button>
           </form>
-          <createReview/>
+          <createReview />
           <hr></hr>
           <RecipeReview />
           <hr></hr>
