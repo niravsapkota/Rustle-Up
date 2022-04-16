@@ -36,8 +36,8 @@ export default function recipeReview() {
     }, []);
 
 
-    const {review: review} = data;
-    document.getElementById("app__review_details").innerHTML=`<h4>${review}</h4>`
+    // const {review: review} = data;
+    // document.getElementById("app__review_details").innerHTML=`<h4>${review}</h4>`
     return(
         <>               
             {/* <FcFullBattery size={35} onClick={
@@ -48,7 +48,9 @@ export default function recipeReview() {
 
         <a href="/Profile" className="app__reviewUsername">Username</a>
         <span className="app__reviewdate">yyyy-mm-dd</span>
-        <div className="app__reviewContent" id="app__review_details"></div>
+        <div className="app__reviewContent" id="app__review_details">
+            <span></span>
+        </div>
                
         </>
         );
