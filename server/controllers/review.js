@@ -6,7 +6,7 @@ import Jwt from "jsonwebtoken";
     const {review} = req.body;
   
     try {
-           const vari = ReviewDetails.create({
+           const reviewBody = ReviewDetails.create({
         review,
       });
 

@@ -6,32 +6,6 @@ import PropTypes from "prop-types"
 
 export default function CreateRecipe(props) {
 
-/*  const navigate = useNavigate();
-  const [info, setInfo] = useState([]);
-
-  const callRecipe = async () => {
-    try {
-      const res = await axios.get("/create-recipe", {
-        headers: {
-          "Access-Control-Allow-Credentials": true,
-          "Content-Type": "application/json",
-        },
-      });
-      if (!res) {
-        throw new Error("cant login");
-      } else {
-        const value = res.data;
-        setInfo(value);
-      }
-    } catch (error) {
-      navigate("/login");
-    }
-  };
-
-  useEffect(() => {
-    callRecipe();
-  }, []);*/
-
   // initial blank state of form
   const [recipe, setRecipe] = useState({
 

@@ -10,7 +10,7 @@ import { Navigate, useParams ,useNavigate } from "react-router-dom";
 import CreateRecipe from "../CreateRecipe";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Formfield from "../Auth/Formfield";
-import createReview from "./reviewaxios";
+import createReview from "../CreateReview";
 
 
 export default function Recipe() {
@@ -57,7 +57,7 @@ export default function Recipe() {
           </div>
 
           <div className="app__recipedetails">
-            <button className="app__printButton">Print</button>
+            {/* <button className="app__printButton">Print</button> */}
             <HiPencil size={35}/>
             <FcFullBattery size={35} onClick={
               () => axios.delete(`/recipe/delete/${id}`).
@@ -70,16 +70,16 @@ export default function Recipe() {
         </div>
 
         <div className="app__recipeReview">
-          <h2 className="app__recipeReview_header">Reviews</h2>
+          
           <form className="app__create-box">
-            <Formfield labeltitle="Review" fieldtype={Text} />
-            <button className="app__create-btn"> +Recipe </button>
+            <h1 className="app__recipeReview_header">Reviews</h1>
+            <Formfield labeltitle="" fieldtype={Text} />
+            <button className="app__create-btn"> Add Review </button> 
+            <hr></hr>
+            <RecipeReview />
           </form>
-          <createReview/>
-          <hr></hr>
-          <RecipeReview />
-          <hr></hr>
-          <RecipeReview />
+          {/* <createReview/> */}
+         
         </div>
 
       </div>
