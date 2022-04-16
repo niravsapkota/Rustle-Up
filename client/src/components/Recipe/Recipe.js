@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FcFullTrash } from "react-icons/fc";
+import { FcEmptyTrash, FcExpand, FcFullBattery, FcFullTrash } from "react-icons/fc";
 import { HiPencil } from "react-icons/hi"
 import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
 import RecipeReview from "./recipeReview";
 import axios from "axios";
+import FormField from "../Auth/Formfield";
 import { useParams, useNavigate } from "react-router-dom";
 import createReview from "../CreateReview";
 
@@ -61,7 +62,7 @@ export default function Recipe() {
                 then(
                   navigate(`/create-recipe/${id}`)
                 )} />
-            {/* <button className="app__printButton">Print</button> */}
+            <button className="app__printButton">Print</button>
 
             <HiPencil size={35}/>
             <FcFullBattery size={35} onClick={
@@ -78,9 +79,9 @@ export default function Recipe() {
           
           <form className="app__create-box">
             <h1 className="app__recipeReview_header">Reviews</h1>
-            <Formfield labeltitle="" fieldtype={Text} />
+            <FormField labeltitle="" fieldtype={Text} />
             <button className="app__create-btn"> Add Review </button> 
-            <createReview/>
+            {/* <createReview/> */}
             <hr></hr>
             <RecipeReview />
           </form>
