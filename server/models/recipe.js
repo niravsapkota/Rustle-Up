@@ -10,15 +10,14 @@ const recipeSchema = new Schema({
     type:String,
     required:true
   },
-  numberOfviews:String,
-  user_id:{
-    type:Schema.Types.ObjectId , ref:"User"
-  },
+  viewsCount:String,
+  user:String,
   difficulty: String,
   prep_time: String,
   ingredients:Array,
   utensils:Array,
   steps:Array,
+  tags:Array,
 });
 
 

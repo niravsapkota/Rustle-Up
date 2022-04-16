@@ -1,32 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FcEmptyTrash, FcExpand, FcFullBattery, FcFullTrash } from "react-icons/fc";
+import { HiPencil } from "react-icons/hi"
 import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
 import RecipeReview from "./recipeReview";
+import axios from "axios";
+import { Navigate, useParams ,useNavigate } from "react-router-dom";
+import CreateRecipe from "../CreateRecipe";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-export default function recipe() {
+
+export default function Recipe() {
+
+  const navigate = useNavigate();
+
+  const [data, setData] = useState([])
+
+  let { id } = useParams();
+
+  const getRecipe = async () => {
+  try {
+    const res = await axios.get(`/recipe/get/${id}`, {
+      headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res) {
+      throw new Error("cant find the recipe");
+    } else {
+      const allData = res.data;
+      setData(allData);
+    }
+  } catch (error) {
+    console.log("Error Caught!");
+  }
+
+  }
+
+  useEffect(() => {
+
+    getRecipe();
+
+  }, []);
+
   return (
     <>
       <div className="app__recipe">
-      <div className="app__recipebody">
-        <div className="app__recipeProfile">
-          <RecipeProfile img={pic} title="Title" />
-        </div>
+        <div className="app__recipebody">
+          <div className="app__recipeProfile">
+            <RecipeProfile img={pic} title={data.title} />
+          </div>
 
-        <div className="app__recipedetails">
-          <button className="app__printButton">Print</button>
-          <RecipeDetails/>
+          <div className="app__recipedetails">
+            <button className="app__printButton">Print</button>
+            <HiPencil size={35} onClick={
+              async () => {
+                
+                )
+                }
+              }
+              />
+            <FcFullBattery size={35} onClick={
+              () => axios.delete(`/recipe/delete/${id}`).
+                then(
+                  navigate("/profile-my-recipe")
+                )} />
+            <RecipeDetails data={data} />
+          </div>
+
         </div>
-      
-      </div>
 
         <div className="app__recipeReview">
           <h2 className="app__recipeReview_header">Reviews</h2>
           <a href="/create-review" className="app__reviewbtn">Add Review</a>
           <hr></hr>
-          <RecipeReview/>
+          <RecipeReview />
           <hr></hr>
-          <RecipeReview/>
+          <RecipeReview />
         </div>
 
       </div>

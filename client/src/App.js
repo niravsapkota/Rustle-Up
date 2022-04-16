@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
@@ -41,9 +41,9 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile-my-recipe" element={<ProfileMyRecipe />} />
           <Route path="/trending" element={<Trending />} />
-          <Route path="/recipe" element={<Recipe />} />
-          <Route path="/create-recipe" element={<CreateRecipe />} />
-          <Route path="/create-review" element={<CreateReview />} />
+          <Route path="/recipe/:id" element={<Recipe />} />
+          <Route path="/create-recipe" element={<CreateRecipe />}/>
+          <Route path="/create-review" element={<CreateReview />}/>
         </Routes>
         <Footer />
       </Router>

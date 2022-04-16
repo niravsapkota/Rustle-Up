@@ -2,8 +2,9 @@ import React,{useState,useEffect} from "react";
 import {FormField} from "./Auth/Formfield";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types"
 
-export default function() {
+export default function CreateRecipe(props) {
 
 /*  const navigate = useNavigate();
   const [info, setInfo] = useState([]);
@@ -66,7 +67,7 @@ export default function() {
   return (
     <>
       <form method="POST" className="app__create-box" enctype="multipart/form-data">
-        <h1 className="app__sign-up">Add a Recipe</h1>
+        <h1 className="app__sign-up">{props.heading}</h1>
         <FormField labeltitle="Name" name="title" fieldtype={Text} onChange={handleChange}/>
         <FormField labeltitle="Difficulty" name="difficulty" fieldtype={Text} onChange={handleChange}/>
         <FormField labeltitle="Preparation Time" name="prep_time" fieldtype={Text} onChange={handleChange}/>
@@ -86,4 +87,17 @@ export default function() {
       </form> 
   </>
   );
+}
+
+CreateRecipe.propTypes = {
+
+  labeltitle:PropTypes.string.isRequired
+
+};
+
+
+CreateRecipe.defaultProps = {
+
+  labeltitle:"ADD A RECIPE"
+
 }

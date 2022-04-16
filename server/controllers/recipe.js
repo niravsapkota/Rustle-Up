@@ -1,21 +1,29 @@
 //import RecipeDetails from "../models/recipe_det.js";
 //import RecipeProfile from "../models/recipe_prof.js";
-import axios from "axios";
+import mongoose from "mongoose";
 import PostRecipe from "../models/recipe.js";
 import ReviewDetails from "../models/review.js";
-
-axios.get('/recipe/create').then((response)=>console.log(response)).catch(()=>console.log("GET REQUEST UNSUCCESSFUL"));
 
 /*Recipe Profile*/
 export const getRecipe = async (req, res) => {
   try {
-    const allRecipes = await PostRecipe.find();
-
-    res.status(200).json(allRecipes);
+    const recipe = await PostRecipe.findById(req.params.id);
+    res.status(200).json(recipe);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const deleteRecipe = async (req,res) => {
+
+  try {
+    const recipe = await PostRecipe.findByIdAndDelete(req.params.id);
+    res.status(202).json({message: `Deleted Successfully`});
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+
+}
 
 export const createRecipe = async (req, res) => {
   
@@ -95,3 +103,13 @@ export const createReview = async (req, res) => {
   }
 };
 
+export const editRecipe = async (req,res) =>{
+
+  const { id:_id } = req.params.id;
+  const {name:title,difficulty:difficulty,prep_time:prep_time,ingredients:ingredients,utensils:utensils,steps:steps} = req.body;
+  if(!mongoose.Types.ObjectId.isValid(_id)) 
+    return res.status(404).send('No recipe with that id.')
+  const updatedRecipe = PostRecipe.findByIdAndUpdate(_id, post, {new: true})
+  res.json(updatedRecipe);
+
+}
