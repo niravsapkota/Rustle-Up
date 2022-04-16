@@ -1,12 +1,12 @@
-<<<<<<< HEAD
+
 //import RecipeDetails from "../models/recipe_det.js";
 //import RecipeProfile from "../models/recipe_prof.js";
 import mongoose from "mongoose";
 import PostRecipe from "../models/recipe.js";
-=======
+
 import RecipeDetails from "../models/recipe.js";
 //import RecipeProfile from "../models/recipe_prof.js";
->>>>>>> 21c7538d1c70084203acdbfca468b6d2607798fa
+
 import ReviewDetails from "../models/review.js";
 
 /*Recipe Profile*/
@@ -19,11 +19,11 @@ export const getRecipe = async (req, res) => {
   }
 };
 
-export const deleteRecipe = async (req,res) => {
+export const deleteRecipe = async (req, res) => {
 
   try {
     const recipe = await PostRecipe.findByIdAndDelete(req.params.id);
-    res.status(202).json({message: `Deleted Successfully`});
+    res.status(202).json({ message: `Deleted Successfully` });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -31,7 +31,7 @@ export const deleteRecipe = async (req,res) => {
 }
 
 export const createRecipe = async (req, res) => {
-  
+
   const title = req.body.title;
   const difficulty = req.body.difficulty;
   const prep_time = req.body.prep_time;
@@ -108,13 +108,23 @@ export const createReview = async (req, res) => {
   }
 };
 
-export const editRecipe = async (req,res) =>{
+export const editRecipe = async (req, res) => {
 
-  const { id:_id } = req.params.id;
-  const {name:title,difficulty:difficulty,prep_time:prep_time,ingredients:ingredients,utensils:utensils,steps:steps} = req.body;
-  if(!mongoose.Types.ObjectId.isValid(_id)) 
-    return res.status(404).send('No recipe with that id.')
-  const updatedRecipe = PostRecipe.findByIdAndUpdate(_id, post, {new: true})
-  res.json(updatedRecipe);
+  const id = req.params.id;
+  const title = req.body.title;
+  const difficulty = req.body.difficulty;
+  const prep_time = req.body.prep_time;
+  const ingredients = req.body.ingredients.split(',');
+  const utensils = req.body.utensils.split(',');
+  const steps = req.body.steps.split('->');
 
+  try {
+    const updatedRecipe = await PostRecipe.findByIdAndUpdate(id, {
+      title, difficulty, prep_time, ingredients, utensils, steps
+    })
+    res.json(updatedRecipe);
+  }
+  catch (error) {
+    console.log(error);
+  }
 }
