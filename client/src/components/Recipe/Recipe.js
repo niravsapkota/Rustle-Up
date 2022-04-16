@@ -71,13 +71,14 @@ export default function Recipe() {
 
         <div className="app__recipeReview">
           
-          <form className="app__create-box">
+          {/* <form className="app__create-box">
             <h1 className="app__recipeReview_header">Reviews</h1>
             <Formfield labeltitle="" fieldtype={Text} />
-            <button className="app__create-btn"> Add Review </button> 
+            <button className="app__create-btn"> Add Review </button>  */}
+            <createReview/>
             <hr></hr>
             <RecipeReview />
-          </form>
+          {/* </form> */}
           {/* <createReview/> */}
          
         </div>

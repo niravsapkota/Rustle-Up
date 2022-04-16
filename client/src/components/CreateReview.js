@@ -3,13 +3,12 @@ import Formfield from "./Auth/Formfield";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { prototype } from "events";
-// import ReviewDetails from "../../../../server/models/review";
 
 const createReview = () => {
   const navigate = useNavigate();
 
   // initial blank state of form
-  const [details, setReview] = useState({
+  const [reviewDetails, setReview] = useState({
     review : "",
     userID: "",
     recipeID: ""
@@ -17,19 +16,18 @@ const createReview = () => {
 
   // function to dynamically update fields
   const handleChange = (e) => {
-    const { review, value } = e.target;
+    const { name, value } = e.target;
     setReview({
-      ...details,
-      [review]: value,
+      ...reviewDetails,
+      [name]: value,
     });
   };
 
   // Function for button
   const btnSubmit = async (e) => {
     e.preventDefault();
-    const { review } = details;
-      axios
-    .post("/recipe/create-review", details)
+    axios
+    .post("/recipe/create-review", reviewDetails)
     .then((response) => {
           window.alert("Posted.");
           navigate("/recipe");
@@ -49,7 +47,7 @@ const createReview = () => {
         fieldtype={Text}
         onChange={handleChange}
         />
-        <button className="app__create-btn" type="submit" onClick={btnSubmit}>Submit</button>
+        <button className="app__create-btn" type="submit" onClick={btnSubmit}> Add Review </button>
       </form>
     </div>
   );
