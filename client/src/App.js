@@ -7,10 +7,12 @@ import SignUp from "./components/Auth/Signup";
 import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
 import ProfileMyRecipe from "./components/Profile/ProfileMyRecipe";
+import ManageProfile from "./components/Profile/ManageProfile";
 import Recipe from "./components/Recipe/Recipe";
-import {CreateRecipe,EditRecipe} from "./components/CreateRecipe";
+import { CreateRecipe, EditRecipe } from "./components/CreateRecipe";
 import CreateReview from "./components/CreateReview";
 import Trending from "./components/Trending/Trending";
+import ErrorPage from "./components/ErrorPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -40,11 +42,13 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile-my-recipe" element={<ProfileMyRecipe />} />
+          <Route path="/manage-profile" element={<ManageProfile />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/recipe/:id" element={<Recipe />} />
-          <Route path="/create-recipe" element={<CreateRecipe />}/>
+          <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/create-recipe/:id" element={<EditRecipe />}></Route>
-          <Route path="/create-review" element={<CreateReview />}/>
+          <Route path="/create-review" element={<CreateReview />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import userimg from "../../assets/userimg.jpg";
 import RecipeTile from "./RecipeTile";
 import axios from "axios";
@@ -60,8 +60,22 @@ export default function ProfileMyRecipe() {
           <p>Favourites: {info.favourites}</p>
           <p>Recipes Posted: {info.myrecipe}</p>
           <p className="app__profile-user-card-options">
-            <btn>Create Recipe</btn>
-            <btn>Manage Profile</btn>
+            <btn>
+              <Link
+                style={{ color: "inherit", textDecoration: "inherit" }}
+                to="/create-recipe"
+              >
+                Create Recipe
+              </Link>
+            </btn>
+            <btn>
+              <Link
+                style={{ color: "inherit", textDecoration: "inherit" }}
+                to="/manage-profile"
+              >
+                Manage Profile
+              </Link>
+            </btn>
             <btn type="submit" onClick={btnLogout}>
               Logout
             </btn>
