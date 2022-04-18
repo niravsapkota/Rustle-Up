@@ -1,21 +1,28 @@
+import User from "./user.js";
 import mongoose from "mongoose";
+// import multer from "multer";
+// import fs from "fs";
+const Schema = mongoose.Schema;
 
-const recipeSchema = mongoose.Schema({
-  title: String,
-  prep_time: String,
-  about: String,
+const recipeSchema = new Schema({
+
+  title: {
+    type:String,
+    required:true
+  },
+  viewsCount:String,
+  user:String,
   difficulty: String,
-  description: String,
-  user: String,
-  view_count: {
-    type: Number,
-    default: 0,
-  },
-  created_at: {
-    type: Date,
-    default: new Date(),
-  },
+  prep_time: String,
+  ingredients:Array,
+  utensils:Array,
+  steps:Array,
+  tags:Array,
 });
 
+
 const PostRecipe = mongoose.model("PostRecipe", recipeSchema);
-export default PostRecipe;
+
+export default PostRecipe; //Default ES6 export
+
+

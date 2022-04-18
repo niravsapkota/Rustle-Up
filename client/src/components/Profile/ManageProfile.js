@@ -75,6 +75,7 @@ export default function ManageProfile() {
           Change Password
         </button>
       </form>
+
       <div className="app__delete-profile">
         <p>
           Delete Account

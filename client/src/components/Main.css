@@ -31,7 +31,7 @@
   position: absolute;
   top: 4vh;
   z-index: 2;
-  left: 70vw;
+  right: 25%;
   cursor: pointer;
 }
 
@@ -548,7 +548,7 @@ body {
 }
 
 .profile-inactive {
-  color: #000000;
+  color: var(--text-primary);
   font-weight: 400;
   text-decoration: none;
   font-size: 2vw;
@@ -606,12 +606,10 @@ body {
   border-radius: 2rem;
   width: 15vw;
   margin-bottom: 3vw;
+  margin-left: 2rem;
 }
 
 /*MANAGE PROFILE*/
-.app__manage-form {
-  position: absolute;
-}
 
 .app__manage-profile {
   font-family: "Montserrat";
@@ -660,9 +658,13 @@ body {
 /*RECIPE PAGE*/
 div.app__recipe {
   display: grid;
-  grid-template-columns: 3fr 9fr;
   margin-left: 8.5vw;
   margin-right: 8.5vw;
+}
+
+.app__recipebody {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
 }
 
 .app__recipeProfile {
@@ -680,6 +682,43 @@ div.app__recipe {
   border-color: var(--primary-color);
   margin: 2px;
   padding: 1%;
+}
+.app__reviewbtn {
+  text-decoration: none;
+  color: var(--text-primary);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.app__recipeReview {
+  border: 2px solid;
+  border-color: var(--primary-color);
+  color: (var(--text-primary));
+  padding: 1%;
+}
+
+.app__recipeReview_header {
+  color: var(--primary-color);
+  display: flex;
+}
+
+.app__reviewUsername {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.app__reviewdate {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: var(--text-primary);
+}
+
+.app__reviewRate {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: var(--text-primary);
 }
 
 .app__recipedetails button {

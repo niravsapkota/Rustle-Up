@@ -40,7 +40,6 @@ export const signin = async (req, res) => {
 //Sign Up
 export const signup = async (req, res) => {
   const { name, email, password } = req.body;
-
   try {
     // Check Duplicate Email
     const oldUser = await User.findOne({ email });
@@ -71,7 +70,7 @@ export const getMe = async (req, res) => {
   res.status(200).json(req.user);
 };
 
-export const logout = (req, res) => {
+export const logout = async (req, res) => {
   res.status(200).clearCookie("jwtoken", { path: "/" }).send("Logout success");
 };
 

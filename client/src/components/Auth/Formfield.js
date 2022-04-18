@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function (props) {
+export default function FormField(props) {
   return (
     <div className="app__form-field">
       <label className="app__name-label" htmlFor="name">
@@ -11,6 +11,8 @@ export default function (props) {
         name={props.name}
         type={props.fieldtype}
         onChange={props.onChange}
+        placeholder={props.phvalue}
+        value={props.value}
         required
       ></input>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function RecipeProfile(props) {
+
   return (
     <div className="app__recipe_profile">
       <img className="app__recipeImg" src={props.img} alt="none" />

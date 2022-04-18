@@ -18,6 +18,12 @@ app.use("/recipe", recipeRoutes);
 app.use("/auth", authRoutes);
 app.use("/", protectedRoutes);
 
+// app.use(multer({ dest: "./uploads/",
+//  rename: function (fieldname, filename) {
+//    return filename;
+//  },
+// }));
+
 const CONNECTION_URL =
   "mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority";
 

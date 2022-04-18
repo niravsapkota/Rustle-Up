@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Formfield from "./Formfield";
+import FormField from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -25,6 +25,7 @@ const SignUp = () => {
 
   // signup function for button
   const btnSignup = async (e) => {
+    console.log(user);
     e.preventDefault();
     const { name, email, password, confirmPassword } = user;
     if (name && email && password && password === confirmPassword) {
@@ -50,25 +51,25 @@ const SignUp = () => {
     <div>
       <form className="app__signup-box">
         <h1 className="app__sign-up">Sign Up</h1>
-        <Formfield
+        <FormField
           labeltitle="Name"
           name="name"
           fieldtype={Text}
           onChange={handleChange}
         />
-        <Formfield
+        <FormField
           labeltitle="Email Address"
           name="email"
           fieldtype="email"
           onChange={handleChange}
         />
-        <Formfield
+        <FormField
           labeltitle="Password"
           name="password"
           fieldtype="password"
           onChange={handleChange}
         />
-        <Formfield
+        <FormField
           labeltitle="Confirm Password"
           name="confirmPassword"
           fieldtype="password"

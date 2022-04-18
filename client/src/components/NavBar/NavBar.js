@@ -19,9 +19,6 @@ export default function NavBar() {
           <NavLink to="/search" activeStyle>
             Search
           </NavLink>
-          {/* <NavLink to="/miscellaneous" activeStyle>
-            Miscellaneous
-          </NavLink> */}
         </NavMenu>
         <NavBtn>
           <NavBtnLink to="/signup">Login / Sign Up</NavBtnLink>
