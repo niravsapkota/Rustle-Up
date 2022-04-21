@@ -18,12 +18,8 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-
-userSchema
-.virtual('objId')
-.get(
-  function(){
-    return this._id;
+userSchema.virtual("objId").get(function () {
+  return this._id;
 });
 
 const User = mongoose.model("USER", userSchema);

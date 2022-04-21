@@ -28,6 +28,7 @@ export default function Login() {
       axios
         .post("/auth/login", user)
         .then((res) => {
+          //localStorage.setItem("user", JSON.stringify(res));
           navigate("/profile");
         })
         .catch((error) => {
