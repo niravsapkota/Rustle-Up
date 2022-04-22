@@ -62,18 +62,6 @@ body {
   padding-left: 0.5rem;
 }
 
-.app__hero-img {
-  margin: 0;
-  padding: 0;
-  background-image: url("../assets/hero-img.png");
-  position: absolute;
-  width: 100%;
-  height: 90vh;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
 .app__hero-container {
   display: flex;
   flex-direction: column;
@@ -685,12 +673,28 @@ div.app__recipe {
   margin: 2px;
 }
 
+.app__recipe-card-name {
+  width: 100%;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 5vh;
+}
+
+.app__recipe_profile-details {
+  font-size: 0.9vw;
+  font-weight: 600;
+  margin-bottom: 1.4vh;
+}
+
 .app__recipedetails {
+  font-size: 0.9vw;
   border: 2px solid;
   border-color: var(--primary-color);
   margin: 2px;
   padding: 1%;
 }
+
 .app__reviewbtn {
   text-decoration: none;
   color: var(--text-primary);
