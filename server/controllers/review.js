@@ -1,18 +1,17 @@
 import ReviewDetails from "../models/review.js";
-import Jwt from "jsonwebtoken"; 
 
-//
+// 
   export const createReview = async (req, res) => {
-    const {review} = req.body;
-  
-    try {
-           const reviewBody = ReviewDetails.create({
-        review,
-      });
+    const review = req.body.review;
 
-      res.status(201).send('Success');
-    }
-    catch (error) {
+    const newReview = new ReviewDetails(
+      review,
+    );
+    try {
+      
+      await newReview.save();
+      res.status(201).json(newReview);
+    } catch (error) {
       res.status(409).json({ message: error.message });
     }
   };

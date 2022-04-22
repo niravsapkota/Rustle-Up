@@ -11,9 +11,9 @@ router.get("/get/:id",getRecipe);
 router.post("/create",createRecipe);
 router.patch("/edit/:id",editRecipe);
 router.delete("/delete/:id",deleteRecipe);
+
 router.get('/get-review/:id',getReview);
 router.post('/create-review',createReview);
 router.delete('/delete-rev/:id',deleteReview);
-
 
 export default router;

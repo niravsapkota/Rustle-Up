@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Formfield from "./Auth/Formfield";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { prototype } from "events";
 
 const createReview = () => {
   const navigate = useNavigate();

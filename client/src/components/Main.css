@@ -589,20 +589,28 @@ body {
 
 /*CREATE A RECIPE*/
 .app__create-box {
-  position: absolute;
+  position: relative;
   border: 2px solid var(--primary-color);
   display: inline-block;
   width: 55vw;
   flex-direction: column;
   margin: 8vh 25% 0 25%;
 }
+.app__create-box2 {
+  position: relative;
+  border: 2px dotted var(--primary-color);
+  display: inline-block;
+  width: 75vw;
+  flex-direction: column;
+  margin: 0vh 25% 0 0%;
+}
 
 .app__create-btn {
   font-family: "Cormorant Upright";
   font-weight: 600;
   background-color: var(--primary-color);
-  color: #ffffff;
-  font-size: 2rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
   border-radius: 2rem;
   width: 15vw;
   margin-bottom: 3vw;
