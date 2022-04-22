@@ -80,9 +80,10 @@ export default function Recipe() {
             <FaTrash
               size={35}
               onClick={() =>
-                axios
-                  .delete(`/recipe/delete/${id}`)
-                  .then(navigate("/profile-my-recipe"))
+                axios.delete(`/recipe/delete/${id}`).then(() => {
+                  window.alert("Deleted");
+                  navigate("/profile-my-recipe");
+                })
               }
             />
             <RecipeDetails data={data} />

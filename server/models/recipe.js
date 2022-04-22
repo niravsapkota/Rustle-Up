@@ -5,24 +5,24 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
-
   title: {
-    type:String,
-    required:true
+    type: String,
+    required: true,
   },
-  viewsCount:String,
-  user:String,
+  viewsCount: String,
+  user: String,
   difficulty: String,
   prep_time: String,
-  ingredients:Array,
-  utensils:Array,
-  steps:Array,
-  tags:Array,
+  ingredients: Array,
+  utensils: Array,
+  steps: Array,
+  tags: Array,
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
-
 
 const PostRecipe = mongoose.model("PostRecipe", recipeSchema);
 
 export default PostRecipe; //Default ES6 export
-
-
