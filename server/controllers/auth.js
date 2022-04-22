@@ -39,7 +39,7 @@ export const signin = async (req, res) => {
 
 //Sign Up
 export const signup = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, url } = req.body;
   try {
     // Check Duplicate Email
     const oldUser = await User.findOne({ email });
@@ -54,6 +54,7 @@ export const signup = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      image_url: url,
     });
 
     // Response
@@ -90,12 +91,12 @@ export const deleteProfile = async (req, res) => {
 
 export const changePassword = async (req, res) => {
   const currentEmail = req.user.email;
-  const { password } = req.body;
+  const { password, url } = req.body;
   if (password) {
     const hashedPassword = await bcrypt.hash(password, 12);
     await User.findOneAndUpdate(
       { email: currentEmail },
-      { password: hashedPassword }
+      { password: hashedPassword, image_url: url }
     );
     res.status(200).send("success");
   } else {

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
 import Logo from "./Logo";
+import axios from "axios";
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <>
       <Nav>

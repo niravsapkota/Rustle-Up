@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import userimg from "../../assets/userimg.jpg";
 import RecipeTile from "./RecipeTile";
 import axios from "axios";
 import pic from "../../assets/unsplash_8T9AVksyt7s.png";
@@ -53,7 +52,7 @@ export default function ProfileMyRecipe() {
       <div className="app__profile-container">
         <div className="app__profile-user-card">
           <div>
-            <img src={userimg}></img>
+            <img src={info.image_url}></img>
           </div>
           <span className="app__profile-user-card-name">{info.name}</span>
           <p>Member Since: {info.created_at}</p>

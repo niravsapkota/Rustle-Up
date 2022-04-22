@@ -1,4 +1,3 @@
-import User from "./user.js";
 import mongoose from "mongoose";
 // import multer from "multer";
 // import fs from "fs";
@@ -16,6 +15,7 @@ const recipeSchema = new Schema({
   ingredients: Array,
   utensils: Array,
   steps: Array,
+  image_url: String,
   tags: Array,
   creator: {
     type: mongoose.Schema.Types.ObjectId,

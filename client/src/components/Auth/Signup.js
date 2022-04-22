@@ -12,7 +12,10 @@ const SignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    url: "",
   });
+
+  const [image, setImage] = useState("");
 
   // function to dynamically update fields
   const handleChange = (e) => {
@@ -23,12 +26,28 @@ const SignUp = () => {
     });
   };
 
+  const handleFileChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
   // signup function for button
   const btnSignup = async (e) => {
     console.log(user);
     e.preventDefault();
-    const { name, email, password, confirmPassword } = user;
-    if (name && email && password && password === confirmPassword) {
+    if (image) {
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "rustleup");
+      const dataRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/nrvserver/image/upload",
+        formData
+      );
+      const imageUrl = dataRes.data.url;
+      console.log(imageUrl);
+      user.url = imageUrl;
+    }
+    const { name, email, password, confirmPassword, url } = user;
+    if (name && email && password && image && password === confirmPassword) {
       axios
         .post("/auth/signup", user)
         .then((response) => {
@@ -74,6 +93,13 @@ const SignUp = () => {
           name="confirmPassword"
           fieldtype="password"
           onChange={handleChange}
+        />
+        <FormField
+          labeltitle="Profile Image"
+          name="image"
+          fieldtype="file"
+          accept="image/"
+          onChange={handleFileChange}
         />
         <p className="app__login-link">
           Already have an account?{" "}

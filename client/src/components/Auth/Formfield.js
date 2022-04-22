@@ -11,6 +11,7 @@ export default function FormField(props) {
         name={props.name}
         type={props.fieldtype}
         onChange={props.onChange}
+        accept={props.accept}
         placeholder={props.phvalue}
         value={props.value}
         required

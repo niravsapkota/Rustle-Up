@@ -5,9 +5,13 @@ import axios from "axios";
 
 export default function ManageProfile() {
   const navigate = useNavigate();
+
+  const [image, setImage] = useState("");
+
   const [pass, setPass] = useState({
     password: "",
     confirmPassword: "",
+    url: "",
   });
 
   const handleChange = (e) => {
@@ -18,21 +22,37 @@ export default function ManageProfile() {
     });
   };
 
+  const handleFileChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
   const btnChange = async (e) => {
     e.preventDefault();
-    const { password, confirmPassword } = pass;
-    if (password && password === confirmPassword) {
+    if (image) {
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "rustleup");
+      const dataRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/nrvserver/image/upload",
+        formData
+      );
+      const imageUrl = dataRes.data.url;
+      console.log(imageUrl);
+      pass.url = imageUrl;
+    }
+    const { password, confirmPassword, url } = pass;
+    if (password && image && password === confirmPassword) {
       axios
         .post("/auth/change-password", pass)
         .then((res) => {
-          window.alert("Password change successful!");
+          window.alert("Update successful!");
           navigate("/profile");
         })
         .catch((error) => {
           window.alert("Something went wrong");
         });
     } else {
-      alert("Passwords do not match.");
+      alert("Fill all details correctly");
     }
   };
 
@@ -58,7 +78,7 @@ export default function ManageProfile() {
     <div>
       <h1 className="app__manage-profile">Manage Profile</h1>
       <form className="app__signup-box">
-        <h1 className="app__change-password">Change Password</h1>
+        <h1 className="app__change-password">Update Info</h1>
         <Formfield
           labeltitle="Password"
           name="password"
@@ -70,6 +90,13 @@ export default function ManageProfile() {
           name="confirmPassword"
           fieldtype="password"
           onChange={handleChange}
+        />
+        <Formfield
+          labeltitle="Profile Image"
+          name="image"
+          fieldtype="file"
+          accept="image/"
+          onChange={handleFileChange}
         />
         <button className="app__signup-btn" type="submit" onClick={btnChange}>
           Change Password

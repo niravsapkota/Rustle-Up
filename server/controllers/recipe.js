@@ -46,6 +46,7 @@ export const createRecipe = async (req, res) => {
   const ingredients = req.body.ingredients.split(",");
   const utensils = req.body.utensils.split(",");
   const steps = req.body.steps.split("->");
+  const url = req.body.url;
 
   const newRecipe = new PostRecipe({
     title,
@@ -54,6 +55,7 @@ export const createRecipe = async (req, res) => {
     ingredients,
     utensils,
     steps,
+    image_url: url,
   });
 
   try {
