@@ -81,25 +81,28 @@ export default function ManageProfile() {
         <h1 className="app__change-password">Update Info</h1>
         <Formfield
           labeltitle="Password"
+          id="app__name-input"
           name="password"
           fieldtype="password"
           onChange={handleChange}
         />
         <Formfield
           labeltitle="Confirm Password"
+          id="app__name-input"
           name="confirmPassword"
           fieldtype="password"
           onChange={handleChange}
         />
         <Formfield
           labeltitle="Profile Image"
+          id="app-name-file"
           name="image"
           fieldtype="file"
           accept="image/"
           onChange={handleFileChange}
         />
         <button className="app__signup-btn" type="submit" onClick={btnChange}>
-          Change Password
+          UPDATE
         </button>
       </form>
 
