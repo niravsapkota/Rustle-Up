@@ -10,7 +10,6 @@ import ProfileMyRecipe from "./components/Profile/ProfileMyRecipe";
 import ManageProfile from "./components/Profile/ManageProfile";
 import Recipe from "./components/Recipe/Recipe";
 import { CreateRecipe, EditRecipe } from "./components/CreateRecipe";
-import CreateReview from "./components/CreateReview";
 import Trending from "./components/Trending/Trending";
 import ErrorPage from "./components/ErrorPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -47,7 +46,6 @@ const App = () => {
           <Route path="/recipe/:id" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/create-recipe/:id" element={<EditRecipe />}></Route>
-          <Route path="/create-review" element={<CreateReview />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

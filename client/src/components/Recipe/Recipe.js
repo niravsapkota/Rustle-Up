@@ -8,7 +8,6 @@ import RecipeReview from "./recipeReview";
 import axios from "axios";
 import FormField from "../Auth/Formfield";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import createReview from "../CreateReview";
 
 export default function Recipe() {
   const navigate = useNavigate();
