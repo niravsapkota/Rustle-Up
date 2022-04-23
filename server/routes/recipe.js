@@ -14,6 +14,7 @@ import {
   deleteReview,
 } from "../controllers/review.js";
 import { signin, getMe } from "../controllers/auth.js";
+import authenticate from "../middleware/auth.js";
 
 
 const router = express.Router();
