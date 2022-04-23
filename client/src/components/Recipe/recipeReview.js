@@ -46,6 +46,12 @@ export default function recipeReview() {
         <div className="app__reviewContent" id="app__review_details">
             {/* {Details.review} */}
         </div>
+        <a href="/Profile" className="app__reviewUsername">Username</a>
+        <span className="app__reviewdate">yyyy-mm-dd</span>
+        <div className="app__reviewContent" id="app__review_details">
+            <span></span>
+        </div>
+               
         </>
         );
 }
