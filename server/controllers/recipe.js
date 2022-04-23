@@ -119,3 +119,38 @@ export const editRecipe = async (req, res) => {
     console.log(error);
   }
 }
+
+
+export const addToFav = async (req, res) => {
+  const currentEmail = req.user.email;
+  const { recipeId } = req.body;
+  if (recipeId) {
+    const addFav = await User.findOneAndUpdate(
+      { email: currentEmail },
+      {
+        $inc: { favourites: 1 },
+        fav_id: recipeId,
+      }
+    );
+    res.status(200).json("added");
+  } else {
+    res.status(500).send("something went wrong");
+  }
+};
+
+export const deletefromFav = async (req, res) => {
+  const currentEmail = req.user.email;
+  const recipeId = req.body.recipeId;
+  const recId = mongoose.Types.ObjectId(recipeId);
+  if (recipeId) {
+    const delFav = await User.findOneAndUpdate(
+      { email: currentEmail },
+      { $pull: { fav_id: recId }, $inc: { favourites: -1 } },
+      { new: true }
+    );
+
+    res.status(200).json("deleted");
+  } else {
+    res.status(500).send("something went wrong");
+  }
+};

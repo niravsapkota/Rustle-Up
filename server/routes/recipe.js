@@ -5,8 +5,8 @@ import {
   createRecipe,
   editRecipe,
   deleteRecipe,
-  //addToFav,
-  //deletefromFav,
+  addToFav,
+  deletefromFav,
 } from "../controllers/recipe.js";
 import {
   getReview,
@@ -14,7 +14,6 @@ import {
   deleteReview,
 } from "../controllers/review.js";
 import { signin, getMe } from "../controllers/auth.js";
-import authenticate from "../middleware/auth.js";
 
 
 const router = express.Router();
@@ -29,8 +28,8 @@ router.get("/get-review/:id", getReview);
 router.post("/create-review", createReview);
 router.delete("/delete-rev/:id", deleteReview);
 
-//router.post("/addtofav", authenticate, addToFav);
-//router.post("/delfromfav", authenticate, deletefromFav);
+router.post("/addtofav", authenticate, addToFav);
+router.post("/delfromfav", authenticate, deletefromFav);
 
 
 export default router;

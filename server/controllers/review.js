@@ -5,7 +5,7 @@ import ReviewDetails from "../models/review.js";
     const review = req.body.review;
 
     const newReview = new ReviewDetails(
-      review,
+      review
     );
     try {
       

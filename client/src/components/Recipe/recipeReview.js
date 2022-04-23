@@ -6,9 +6,8 @@ import { FcEmptyTrash} from "react-icons/fc";
 
 
 export default function recipeReview() {
-    const [data, setData] = useState([])
-
-    let { id } = useParams();
+    const [Details, setDetails] = useState([])
+    let {id} = useParams();
 
     const getReview = async () => {
         try {
@@ -19,8 +18,8 @@ export default function recipeReview() {
                 },
             });
                 if (res) {
-                    const allData = res.data;
-                    setData(allData);
+                    const allDetails = res.Details;
+                    setDetails(allDetails);
                 }
         } catch (error) {
             console.log("Error Caught!");
@@ -36,20 +35,17 @@ export default function recipeReview() {
     // document.getElementById("app__review_details").innerHTML=`<h4>${review}</h4>`
     return(
         <>               
-            {/* <FcEmptyTrash size={35} onClick={
-
+        <a href="/Profile" className="app__reviewUsername">Username</a>
+        {/* <span className="app__reviewdate">{Details.created_at}</span> */}
+        {/* <FcEmptyTrash size={35} onClick={
             () => axios.delete(`/recipe/delete-rev/${id}`).
               then(
                 useNavigate("/profile-my-recipe")
-              )} /> */}
-
-        <a href="/Profile" className="app__reviewUsername">Username</a>
-        <span className="app__reviewdate">yyyy-mm-dd</span>
+        )} /> */}
 
         <div className="app__reviewContent" id="app__review_details">
-            <span></span>
+            {/* {Details.review} */}
         </div>
-               
         </>
         );
 }

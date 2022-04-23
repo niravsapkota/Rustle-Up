@@ -8,7 +8,6 @@ import RecipeReview from "./recipeReview";
 import axios from "axios";
 import FormField from "../Auth/Formfield";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import createReview from "../CreateReview";
 
 export default function Recipe() {
   const navigate = useNavigate();
@@ -64,19 +63,26 @@ export default function Recipe() {
     } catch (error) {
       console.log("Error Caught!");
     }
-  };
+
+  }
 
   useEffect(() => {
     getRecipe();
   }, []);
 
+// Return
+
   return (
     <>
       <div className="app__recipe">
         <div className="app__recipebody">
+          
+{/* Recipe Profile */}        
           <div className="app__recipeProfile">
             <RecipeProfile img={data.image_url} title={data.title} viewsCount={data.viewsCount} />
           </div>
+          
+{/*Recipe Details*/}
 
           <div className="app__recipedetails">
             <FcPrint size={35} />
@@ -101,7 +107,9 @@ export default function Recipe() {
             <RecipeDetails data={data} />
           </div>
         </div>
-        {/**/}
+
+{/*Review Section*/}
+
         <div className="app__recipeReview">
           <h1 className="app__recipeReview_header">Reviews</h1>
           <form className="app__create-box2">
