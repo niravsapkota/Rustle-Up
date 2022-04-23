@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import userimg from "../../assets/userimg.jpg";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import RecipeTile from "./RecipeTile";
 import axios from "axios";
 import pic from "../../assets/unsplash_8T9AVksyt7s.png";
@@ -53,15 +52,29 @@ export default function ProfileMyRecipe() {
       <div className="app__profile-container">
         <div className="app__profile-user-card">
           <div>
-            <img src={userimg}></img>
+            <img src={info.image_url}></img>
           </div>
           <span className="app__profile-user-card-name">{info.name}</span>
           <p>Member Since: {info.created_at}</p>
           <p>Favourites: {info.favourites}</p>
           <p>Recipes Posted: {info.myrecipe}</p>
           <p className="app__profile-user-card-options">
-            <btn>Create Recipe</btn>
-            <btn>Manage Profile</btn>
+            <btn>
+              <Link
+                style={{ color: "inherit", textDecoration: "inherit" }}
+                to="/create-recipe"
+              >
+                Create Recipe
+              </Link>
+            </btn>
+            <btn>
+              <Link
+                style={{ color: "inherit", textDecoration: "inherit" }}
+                to="/manage-profile"
+              >
+                Manage Profile
+              </Link>
+            </btn>
             <btn type="submit" onClick={btnLogout}>
               Logout
             </btn>

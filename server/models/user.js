@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
+  image_url: String,
   favourites: {
     type: Number,
     default: 0,
@@ -16,14 +17,8 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
-});
-
-
-userSchema
-.virtual('objId')
-.get(
-  function(){
-    return this._id;
+  fav_id: { type: [mongoose.Schema.Types.ObjectId], ref: "PostRecipe" },
+  myrecipe_id: { type: [mongoose.Schema.Types.ObjectId], ref: "PostRecipe" },
 });
 
 const User = mongoose.model("USER", userSchema);

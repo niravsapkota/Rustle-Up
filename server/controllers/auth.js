@@ -39,7 +39,7 @@ export const signin = async (req, res) => {
 
 //Sign Up
 export const signup = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, url } = req.body;
   try {
     // Check Duplicate Email
     const oldUser = await User.findOne({ email });
@@ -54,6 +54,7 @@ export const signup = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      image_url: url,
     });
 
     // Response
@@ -72,4 +73,33 @@ export const getMe = async (req, res) => {
 
 export const logout = async (req, res) => {
   res.status(200).clearCookie("jwtoken", { path: "/" }).send("Logout success");
+};
+
+//deletes the profile details from db
+export const deleteProfile = async (req, res) => {
+  const currentEmail = req.user.email;
+  try {
+    await User.deleteOne({ email: currentEmail });
+    res
+      .status(200)
+      .clearCookie("jwtoken", { path: "/" })
+      .send("Delete Successful");
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+export const changePassword = async (req, res) => {
+  const currentEmail = req.user.email;
+  const { password, url } = req.body;
+  if (password) {
+    const hashedPassword = await bcrypt.hash(password, 12);
+    await User.findOneAndUpdate(
+      { email: currentEmail },
+      { password: hashedPassword, image_url: url }
+    );
+    res.status(200).send("success");
+  } else {
+    res.status(500).send("something went wrong");
+  }
 };

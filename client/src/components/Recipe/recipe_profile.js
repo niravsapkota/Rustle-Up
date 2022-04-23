@@ -5,8 +5,19 @@ export default function RecipeProfile(props) {
   return (
     <div className="app__recipe_profile">
       <img className="app__recipeImg" src={props.img} alt="none" />
-      <h2 className="app__image_title">{props.title}</h2>
-      <h2>This recipe is viewed {props.viewsCount} times</h2>
+      <span className="app__profile-user-card-name">{props.title}</span>
+      <p className="app__recipe_profile-details">
+        Difficulty: {props.difficulty}
+      </p>
+      <p>This recipe is viewed {props.viewsCount} times</p>
+      <p className="app__recipe_profile-details">
+        Preparation time: {props.prep_time}
+      </p>
+      <p className="app__profile-user-card-options">
+        <btn>Add to Favourites</btn>
+        <btn>Leave a review</btn>
+      </p>
+
     </div>
   );
 }

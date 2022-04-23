@@ -1,8 +1,11 @@
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import { Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
 import Logo from "./Logo";
+import axios from "axios";
 
-export default function NavBar() {
+export default function NavBar(props) {
+
   return (
     <>
       <Nav>
@@ -18,9 +21,6 @@ export default function NavBar() {
           </NavLink>
           <NavLink to="/search" activeStyle>
             Search
-          </NavLink>
-          <NavLink to="/miscellaneous" activeStyle>
-            Miscellaneous
           </NavLink>
         </NavMenu>
         <NavBtn>

@@ -19,4 +19,6 @@ export default function TrendingTile(props) {
       </div>
     </div>
   );
+
 }
+

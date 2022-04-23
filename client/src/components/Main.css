@@ -339,6 +339,24 @@ body {
   }
 }
 
+/* ERROR PAGE */
+.app__error404 {
+  margin-top: 10%;
+  margin-bottom: 0;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 6rem;
+}
+
+.app__error-desc {
+  text-align: center;
+  font-family: "Montserrat";
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
 /* For search bar only */
 .app__search-bar {
   display: grid;
@@ -402,6 +420,7 @@ body {
   font-family: "Cormorant Upright";
   font-size: 1rem;
   background-color: var(--bg);
+  color: var(--primary-color);
   border: var(--primary-color) solid;
   display: inline-block;
   width: 65%;
@@ -529,7 +548,7 @@ body {
 }
 
 .profile-inactive {
-  color: #000000;
+  color: var(--text-primary);
   font-weight: 400;
   text-decoration: none;
   font-size: 2vw;
@@ -570,24 +589,78 @@ body {
 
 /*CREATE A RECIPE*/
 .app__create-box {
-  position: absolute;
+  position: relative;
   border: 2px solid var(--primary-color);
   display: inline-block;
   width: 55vw;
   flex-direction: column;
   margin: 8vh 25% 0 25%;
 }
+.app__create-box2 {
+  position: relative;
+  border: 2px dotted var(--primary-color);
+  display: inline-block;
+  width: 75vw;
+  flex-direction: column;
+  margin: 0vh 25% 0 0%;
+}
 
 .app__create-btn {
   font-family: "Cormorant Upright";
   font-weight: 600;
   background-color: var(--primary-color);
-  color: #ffffff;
-  font-size: 2rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
   border-radius: 2rem;
   width: 15vw;
   margin-bottom: 3vw;
   margin-left: 2rem;
+}
+
+/*MANAGE PROFILE*/
+
+.app__manage-profile {
+  font-family: "Montserrat";
+  width: 100%;
+  text-align: center;
+  font-weight: 900;
+  color: var(--primary-color);
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+.app__change-password {
+  font-family: "Montserrat";
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+.app__delete-profile {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.app__delete-btn {
+  cursor: pointer;
+  font-family: "Cormorant Upright";
+  font-weight: 600;
+  color: #ff0000;
+  font-size: 1.3rem;
+  outline-style: solid;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  margin-left: 8vw;
+  margin-bottom: 15vh;
 }
 
 /*RECIPE PAGE*/
@@ -612,15 +685,31 @@ div.app__recipe {
   margin: 2px;
 }
 
+.app__recipe-card-name {
+  width: 100%;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 5vh;
+}
+
+.app__recipe_profile-details {
+  font-size: 0.9vw;
+  font-weight: 600;
+  margin-bottom: 1.4vh;
+}
+
 .app__recipedetails {
+  font-size: 0.9vw;
   border: 2px solid;
   border-color: var(--primary-color);
   margin: 2px;
   padding: 1%;
 }
-.app__reviewbtn{
+
+.app__reviewbtn {
   text-decoration: none;
-  color:var(--text-primary);
+  color: var(--text-primary);
   background-color: var(--primary-color);
   border-radius: 10px;
 }

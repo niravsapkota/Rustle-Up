@@ -14,6 +14,7 @@ export default function Tile(props) {
         then(
           navigate(`/recipe/${props.element._id}`)
         )}>
+
         See More...
       </a>
       <img className="app_web_view-show" src={props.img} alt="none" />
