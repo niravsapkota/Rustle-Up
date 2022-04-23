@@ -5,10 +5,12 @@ import PostRecipe from "../models/recipe.js";
 // 
   export const createReview = async (req, res) => {
     const review = req.body.review;
-
+    // const {recipe} = PostRecipe.find(_id);
+    // const {user} = User.findOne(_id);
     const newReview = new ReviewDetails(
       review
     );
+      console.log(review);
     try {
       
       await newReview.save();

@@ -21,6 +21,7 @@ const recipeSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  reviews: Array
 });
 
 const PostRecipe = mongoose.model("PostRecipe", recipeSchema);

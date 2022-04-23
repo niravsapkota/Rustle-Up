@@ -22,6 +22,7 @@ export const getAll = async (req, res) => {
   }
 };
 
+/*Recipe*/
 export const getRecipe = async (req, res) => {
   try {
     const recipe = await PostRecipe.findById(req.params.id);
@@ -30,7 +31,7 @@ export const getRecipe = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
-
+/*delete recepie*/
 export const deleteRecipe = async (req, res) => {
   try {
     // const userId = req.user._id;
@@ -55,6 +56,28 @@ export const deleteRecipe = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const makeRev = async (req, res) => {
+  const reviews = req.body.reviews;
+  
+  try{
+    const newreview = await PostRecipe.findByIdAndUpdate(id,{
+      reviews
+    });
+  res.status(201).json(newreview);
+  } catch (error) {
+  res.status(409).json({ message: error.message });
+  }
+};
+
+export const getRev = async (req, res) => {
+  try {
+    const recipe = await PostRecipe.findById(req.params.id);
+    reviews = recipe.reviews;
+    res.status(200).json(reviews);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }};
 
 export const createRecipe = async (req, res) => {
   const currentEmail = req.user.email;

@@ -43,6 +43,8 @@ export default function recipeReview() {
             <div className="app__reviewContent" id="app__review_details">
             {Details.review} 
         </div>`*/
+    
+    
     return(
         <div id="app__review_details">               
         

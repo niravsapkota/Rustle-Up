@@ -8,11 +8,11 @@ const reviewSchema = new mongoose.Schema(
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "UserID",
+      ref: "User",
     },
     recipe: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "RecipeID",
+      ref: "PosrtRecipe",
     },
   },
   { timestamps: true }
