@@ -12,39 +12,10 @@ import createReview from "../CreateReview";
 
 export default function Recipe() {
   const navigate = useNavigate();
-
-  // initial blank state of form
-  const [reviewDetails, setReview] = useState({
-    review: "",
-    userID: "",
-    recipeID: "",
-  });
-
-  // function to dynamically update fields
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setReview({
-      ...reviewDetails,
-      [name]: value,
-    });
-  };
-
-  // Function for button
-  const btnSubmit = async (e) => {
-    e.preventDefault();
-    axios
-      .post("/recipe/create-review", reviewDetails)
-      .then((response) => {
-        window.alert("Posted.");
-        navigate("/recipe");
-      })
-      .catch((error) => {
-        window.alert("Something went wrong");
-      });
-  };
-
-  const [data, setData] = useState([]);
-  let { id } = useParams();
+  
+  //Recipe
+  const [data, setData] = useState([])
+  let {id} = useParams();
 
   const getRecipe = async () => {
     try {
@@ -63,19 +34,54 @@ export default function Recipe() {
     } catch (error) {
       console.log("Error Caught!");
     }
-  };
+
+  }
 
   useEffect(() => {
     getRecipe();
   }, []);
 
+  // initial blank state of form
+  const [reviewDetails, setReview] = useState({
+    review : ""
+  });
+
+  // function to dynamically update fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setReview({
+      ...reviewDetails,
+      [name]: value,
+    });
+  };
+
+  // Function for button
+  const btnSubmit = async (e) => {
+    e.preventDefault();
+    axios
+    .post("/recipe/create-review", reviewDetails)
+    .then((response) => {
+          window.alert("Posted.");
+          navigate("/recipe");
+    })
+    .catch((error) => {
+            window.alert("Something went wrong");
+    });
+  }
+
+// Return
+
   return (
     <>
       <div className="app__recipe">
         <div className="app__recipebody">
+          
+{/* Recipe Profile */}        
           <div className="app__recipeProfile">
             <RecipeProfile img={data.image_url} title={data.title} />
           </div>
+          
+{/*Recipe Details*/}
 
           <div className="app__recipedetails">
             <FcPrint size={35} />
@@ -100,7 +106,9 @@ export default function Recipe() {
             <RecipeDetails data={data} />
           </div>
         </div>
-        {/**/}
+
+{/*Review Section*/}
+
         <div className="app__recipeReview">
           <h1 className="app__recipeReview_header">Reviews</h1>
           <form className="app__create-box2">

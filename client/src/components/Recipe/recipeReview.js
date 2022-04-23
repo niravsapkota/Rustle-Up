@@ -5,8 +5,7 @@ import { Navigate, useParams ,useNavigate } from "react-router-dom";
 import { FcEmptyTrash} from "react-icons/fc";
 
 export default function recipeReview() {
-    const [data, setData] = useState([])
-
+    const [Details, setDetails] = useState([])
     let { id } = useParams();
 
     const getReview = async () => {
@@ -18,8 +17,8 @@ export default function recipeReview() {
                 },
             });
                 if (res) {
-                    const allData = res.data;
-                    setData(allData);
+                    const allDetails = res.Details;
+                    setDetails(allDetails);
                 }
         } catch (error) {
             console.log("Error Caught!");
@@ -42,7 +41,7 @@ export default function recipeReview() {
               )} /> */}
 
         <a href="/Profile" className="app__reviewUsername">Username</a>
-        <span className="app__reviewdate">yyyy-mm-dd</span>
+        {/* <span className="app__reviewdate">{Details.created_at}</span> */}
         <div className="app__reviewContent" id="app__review_details">
             <span></span>
         </div>
