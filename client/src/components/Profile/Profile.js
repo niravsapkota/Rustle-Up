@@ -55,7 +55,7 @@ export default function Profile() {
         },
       })
       .then((res) => {
-        navigate("/");
+        window.location.reload();
       })
       .catch((error) => {
         window.alert("Unsuccessfull");

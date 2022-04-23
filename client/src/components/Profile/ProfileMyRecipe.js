@@ -40,7 +40,7 @@ export default function ProfileMyRecipe() {
         },
       })
       .then((res) => {
-        navigate("/");
+        window.location.reload();
       })
       .catch((error) => {
         window.alert("Unsuccessfull");
