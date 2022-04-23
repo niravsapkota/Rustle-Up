@@ -31,20 +31,21 @@ export default function recipeReview() {
 
 
     // const {review: review} = data;
-    // document.getElementById("app__review_details").innerHTML=`<h4>${review}</h4>`
-    return(
-        <>               
-        <a href="/Profile" className="app__reviewUsername">Username</a>
-        {/* <span className="app__reviewdate">{Details.created_at}</span> */}
-        {/* <FcEmptyTrash size={35} onClick={
-            () => axios.delete(`/recipe/delete-rev/${id}`).
+    /* document.getElementById("app__review_details").innerHTML=
+        `   Username
+            <span className="app__reviewdate">{Details.created_at}</span> 
+            <FcEmptyTrash size={35} onClick={
+                () => axios.delete(`/recipe/delete-rev/${id}`).
               then(
                 useNavigate("/profile-my-recipe")
-        )} /> */}
+            )} /> 
 
-        <div className="app__reviewContent" id="app__review_details">
-            {/* {Details.review} */}
+            <div className="app__reviewContent" id="app__review_details">
+            {Details.review} 
+        </div>`*/
+    return(
+        <div id="app__review_details">               
+        
         </div>
-        </>
         );
 }
