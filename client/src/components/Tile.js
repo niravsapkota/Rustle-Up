@@ -1,11 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Tile(props) {
+  const navigate = useNavigate();
+
   return (
     <div className="app__grid-element">
-      
-      <h3 className="image__title">{props.title}</h3>
-      <a className="see__more-link" href="./recipe">
+      <h3 className="image__title">{props.element.title}</h3>
+      <a
+        className="see__more-link"
+        onClick={() =>
+          axios
+            .get(`/recipe/get/${props.element._id}`)
+            .then(navigate(`/recipe/${props.element._id}`))
+        }
+      >
         See More...
       </a>
       <img className="app_web_view-show" src={props.img} alt="none" />

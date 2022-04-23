@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getAll,
   getRecipe,
   createRecipe,
   editRecipe,
@@ -12,12 +13,11 @@ import {
   createReview,
   deleteReview,
 } from "../controllers/review.js";
-import { signin, getMe } from "../controllers/auth.js";
 import authenticate from "../middleware/auth.js";
-import store from "../middleware/multer.js";
 
 const router = express.Router();
 
+router.get("/trending", getAll);
 router.get("/get/:id", getRecipe);
 router.post("/create", authenticate, createRecipe);
 router.patch("/edit/:id", authenticate, editRecipe);
