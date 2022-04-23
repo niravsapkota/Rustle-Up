@@ -264,6 +264,7 @@ export default function Recipe() {
     </form>
 
     <hr></hr>
+    <RecipeReview rev = {rev}/>
     </div>
   {/* <div className="app__recipeReview">
     <h1 className="app__recipeReview_header">Reviews</h1>
