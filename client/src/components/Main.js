@@ -49,9 +49,13 @@ export default function Main() {
         }),
       5000
     );
-    trending();
   }, [index]);
 
+  useEffect(()=>{
+
+    trending();
+
+  },[]);
   const HeroImg = styled.div`
     margin: 0;
     padding: 0;
