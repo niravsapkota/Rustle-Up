@@ -4,32 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 export function CreateRecipe() {
-  /*  const navigate = useNavigate();
-    const [info, setInfo] = useState([]);
-  
-    const callRecipe = async () => {
-      try {
-        const res = await axios.get("/create-recipe", {
-          headers: {
-            "Access-Control-Allow-Credentials": true,
-            "Content-Type": "application/json",
-          },
-        });
-        if (!res) {
-          throw new Error("cant login");
-        } else {
-          const value = res.data;
-          setInfo(value);
-        }
-      } catch (error) {
-        navigate("/login");
-      }
-    };
-  
-    useEffect(() => {
-      callRecipe();
-    }, []);*/
-
   // initial blank state of form
   const [recipe, setRecipe] = useState({
     title: "",
@@ -90,44 +64,51 @@ export function CreateRecipe() {
         <h1 className="app__sign-up">ADD A RECIPE</h1>
         <FormField
           labeltitle="Name"
+          id="app__name-input"
           name="title"
           fieldtype={Text}
           onChange={handleChange}
         />
         <FormField
           labeltitle="Difficulty"
+          id="app__name-input"
           name="difficulty"
           fieldtype={Text}
           onChange={handleChange}
         />
         <FormField
           labeltitle="Preparation Time"
+          id="app__name-input"
           name="prep_time"
           fieldtype={Text}
           onChange={handleChange}
         />
         <FormField
           labeltitle="Ingredients"
+          id="app__name-input"
           name="ingredients"
           fieldtype={Text}
           onChange={handleChange}
         />
         <FormField
           labeltitle="Utensils Required"
+          id="app__name-input"
           name="utensils"
           fieldtype={Text}
           onChange={handleChange}
         />
         <FormField
           labeltitle="Steps"
+          id="app__name-input"
           name="steps"
           fieldtype="TextArea"
           onChange={handleChange}
         />
-        <input
-          type="file"
-          id="app_recipe-img"
+        <FormField
+          labeltitle="Profile Image"
+          id="app-name-file"
           name="image"
+          fieldtype="file"
           accept="image/"
           onChange={handleFileChange}
         />
@@ -150,33 +131,6 @@ export function CreateRecipe() {
 }
 
 export function EditRecipe() {
-  /*  const navigate = useNavigate();
-  
-    const [info, setInfo] = useState([]);
-  
-    const callRecipe = async () => {
-      try {
-        const res = await axios.get("/create-recipe", {
-          headers: {
-            "Access-Control-Allow-Credentials": true,
-            "Content-Type": "application/json",
-          },
-        });
-        if (!res) {
-          throw new Error("cant login");
-        } else {
-          const value = res.data;
-          setInfo(value);
-        }
-      } catch (error) {
-        navigate("/login");
-      }
-    };
-  
-    useEffect(() => {
-      callRecipe();
-    }, []);*/
-
   // initial fill state of form
   const [recipe, setRecipe] = useState({});
 
@@ -221,19 +175,6 @@ export function EditRecipe() {
   };
 
   const btnUpdaterecipe = async (e) => {
-    if (image) {
-      const formData = new FormData();
-      formData.append("file", image);
-      formData.append("upload_preset", "rustleup");
-      const dataRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/nrvserver/image/upload",
-        formData
-      );
-      const imageUrl = dataRes.data.url;
-      console.log(imageUrl);
-      recipe.image_url = imageUrl;
-    }
-
     e.preventDefault();
     axios
       .patch(`/recipe/edit/${id}`, recipe)
@@ -253,6 +194,7 @@ export function EditRecipe() {
         <h1 className="app__sign-up">UPDATE THE RECIPE</h1>
         <FormField
           labeltitle="Name"
+          id="app__name-input"
           name="title"
           fieldtype={Text}
           onChange={handleChange}
@@ -260,6 +202,7 @@ export function EditRecipe() {
         />
         <FormField
           labeltitle="Difficulty"
+          id="app__name-input"
           name="difficulty"
           fieldtype={Text}
           onChange={handleChange}
@@ -267,6 +210,7 @@ export function EditRecipe() {
         />
         <FormField
           labeltitle="Preparation Time"
+          id="app__name-input"
           name="prep_time"
           fieldtype={Text}
           onChange={handleChange}
@@ -274,6 +218,7 @@ export function EditRecipe() {
         />
         <FormField
           labeltitle="Ingredients"
+          id="app__name-input"
           name="ingredients"
           fieldtype={Text}
           onChange={handleChange}
@@ -281,6 +226,7 @@ export function EditRecipe() {
         />
         <FormField
           labeltitle="Utensils Required"
+          id="app__name-input"
           name="utensils"
           fieldtype={Text}
           onChange={handleChange}
@@ -288,17 +234,11 @@ export function EditRecipe() {
         />
         <FormField
           labeltitle="Steps"
+          id="app__name-input"
           name="steps"
           fieldtype="TextArea"
           onChange={handleChange}
           value={recipe.steps}
-        />
-        <input
-          type="file"
-          id="app_recipe-img"
-          name="image"
-          accept="image/"
-          onChange={handleFileChange}
         />
 
         <Link

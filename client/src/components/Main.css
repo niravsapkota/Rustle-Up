@@ -415,6 +415,16 @@ body {
   height: 4vh;
 }
 
+#app-name-file {
+  font-family: "Cormorant Upright";
+  font-size: 1rem;
+  background-color: var(--bg);
+  color: var(--primary-color);
+  display: inline-block;
+  width: 65%;
+  height: 4vh;
+}
+
 .app__sign-up {
   font-family: "Montserrat";
   width: 100%;

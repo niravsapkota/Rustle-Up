@@ -7,7 +7,7 @@ export default function FormField(props) {
         {props.labeltitle}
       </label>
       <input
-        id="app__name-input"
+        id={props.id}
         name={props.name}
         type={props.fieldtype}
         onChange={props.onChange}

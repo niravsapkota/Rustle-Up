@@ -119,7 +119,7 @@ export const editRecipe = async (req, res) => {
 
 export const addToFav = async (req, res) => {
   const currentEmail = req.user.email;
-  const { recipeId } = req.body;
+  const recipeId = req.params.id;
   if (recipeId) {
     const addFav = await User.findOneAndUpdate(
       { email: currentEmail },
