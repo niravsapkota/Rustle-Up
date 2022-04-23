@@ -13,7 +13,7 @@ export default function NavBar() {
           <NavLink to="/" activeStyle>
             Home
           </NavLink>
-          <NavLink to="/trending" activeStyle>
+          <NavLink to="/trending?page=1&size=3" activeStyle>
             Trending
           </NavLink>
           <NavLink to="/search" activeStyle>

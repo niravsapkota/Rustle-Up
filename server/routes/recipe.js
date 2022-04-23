@@ -1,12 +1,13 @@
 import express from "express";
-import { getRecipe, createRecipe, editRecipe, deleteRecipe } from "../controllers/recipe.js";
+import { getAll, getRecipe, createRecipe, editRecipe, deleteRecipe } from "../controllers/recipe.js";
 import { getReview, createReview, deleteReview } from "../controllers/review.js";
 import {signin,getMe} from "../controllers/auth.js"
 import authenticate from "../middleware/auth.js";
-import store from "../middleware/multer.js"
+import upload from "../middleware/multer.js";
 
 const router = express.Router();
 
+router.get("/trending",getAll);
 router.get("/get/:id",getRecipe);
 router.post("/create",createRecipe);
 router.patch("/edit/:id",editRecipe);

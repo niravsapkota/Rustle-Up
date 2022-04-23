@@ -40,7 +40,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile-my-recipe" element={<ProfileMyRecipe />} />
-          <Route path="/trending" element={<Trending />} />
+          <Route path="/trending/" element={<Trending />} />
           <Route path="/recipe/:id" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />}/>
           <Route path="/create-recipe/:id" element={<EditRecipe />}></Route>

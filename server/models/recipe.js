@@ -10,7 +10,10 @@ const recipeSchema = new Schema({
     type:String,
     required:true
   },
-  viewsCount:String,
+  viewsCount:{
+    type:Number,
+    default:0
+  },
   user:String,
   difficulty: String,
   prep_time: String,
@@ -18,6 +21,8 @@ const recipeSchema = new Schema({
   utensils:Array,
   steps:Array,
   tags:Array,
+  image:String,
+  createdAt:Date
 });
 
 

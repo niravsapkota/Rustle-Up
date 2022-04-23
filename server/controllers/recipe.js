@@ -2,12 +2,39 @@ import mongoose from "mongoose";
 import PostRecipe from "../models/recipe.js";
 import RecipeDetails from "../models/recipe.js";
 import ReviewDetails from "../models/review.js";
+import storage from "../middleware/multer.js";
+import multer from "multer";
+import { readdirSync } from "fs";
 
-/*Recipe Profile*/
+export const getAll = async (req, res) => {
+  let { page, size } = req.query;
+  if (!page) {
+    page = 1
+  }
+  if (!size) {
+    size = 3
+  }
+  const limit = parseInt(size);
+  const startIndex = (page-1) * limit;
+  const endIndex = page * limit;
+
+  try {
+    
+    const recipes = await PostRecipe.find().sort({ viewsCount: -1, createdAt: -1 }).limit(limit).skip(startIndex);
+    res.status(200).json(recipes);
+
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export const getRecipe = async (req, res) => {
   try {
-    const recipe = await PostRecipe.findById(req.params.id);
+    let recipe = await PostRecipe.findById(req.params.id);
+    const viewsCount = ++recipe.viewsCount;
+    recipe = await PostRecipe.findByIdAndUpdate(req.params.id, { viewsCount })
     res.status(200).json(recipe);
+
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -26,6 +53,13 @@ export const deleteRecipe = async (req, res) => {
 
 export const createRecipe = async (req, res) => {
 
+  let upload = multer({ storage: storage }).single('file');
+  upload(req, res, function (err) {
+
+    console.log(req.file);
+
+  })
+
   const title = req.body.title;
   const difficulty = req.body.difficulty;
   const prep_time = req.body.prep_time;
@@ -34,45 +68,21 @@ export const createRecipe = async (req, res) => {
   const steps = req.body.steps.split('->');
 
 
-  const newRecipe = new PostRecipe(
-    {
-      title,
-      difficulty,
-      prep_time,
-      ingredients,
-      utensils,
-      steps
-    });
+  // const newRecipe = new PostRecipe(
+  //   {
+  //     title,
+  //     difficulty,
+  //     prep_time,
+  //     ingredients,
+  //     utensils,
+  //     steps,
+  //     image
+  //   });
 
   try {
-    await newRecipe.save();
+    //await newRecipe.save();
     res.status(201).json(newRecipe);
   } catch (error) {
-    res.status(409).json({ message: error.message });
-  }
-};
-
-/*Recipe Details*/
-export const getRecipeDet = async (req, res) => {
-  try {
-    const RecipeDetails = await RecipeDetails.find();
-
-    res.status(200).json(RecipeDetails);
-  }
-  catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-export const createRecipeDet = async (req, res) => {
-  const recipe = req.body;
-  const newRecipe = new RecipeDetails(recipe);
-
-  try {
-    await newRecipe.save();
-    res.status(201).json(newRecipe);
-  }
-  catch (error) {
     res.status(409).json({ message: error.message });
   }
 };

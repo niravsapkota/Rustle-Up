@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import FormField from "./Auth/Formfield";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import FileInput from "react-file-input";
 
 export function CreateRecipe() {
 
@@ -35,29 +36,34 @@ export function CreateRecipe() {
   const [recipe, setRecipe] = useState({
 
     title: "",
-    user_id: "",
     difficulty: "",
     prep_time: "",
     ingredients: "",
     utensils: "",
     steps: "",
-    files: "",
+    file: ""
+
   });
 
   // function to dynamically update fields
   const handleChange = (e) => {
-    console.log(recipe);
     const { name, value } = e.target;
     setRecipe({
       ...recipe,
       [name]: value,
+      file:e.target.files
+      
     });
   };
 
   const btnCreaterecipe = async (e) => {
     e.preventDefault();
+    const formdata = new FormData();
+    formdata.append('file',recipe.file);
     axios
-      .post("/recipe/create", recipe)
+      .post("/recipe/create", recipe ,{headers:{
+        "Content-Type":"multipart/form-data"
+        }})
       .then((response) => {
         console.log(response.data);
       }).catch(() => console.log("Something is wrong!"))
@@ -65,15 +71,36 @@ export function CreateRecipe() {
 
   return (
     <>
-      <form method="POST" className="app__create-box" enctype="multipart/form-data">
+      <form className="app__create-box">
         <h1 className="app__sign-up">ADD A RECIPE</h1>
-        <FormField labeltitle="Name" name="title" fieldtype={Text} onChange={handleChange} />
-        <FormField labeltitle="Difficulty" name="difficulty" fieldtype={Text} onChange={handleChange} />
-        <FormField labeltitle="Preparation Time" name="prep_time" fieldtype={Text} onChange={handleChange} />
-        <FormField labeltitle="Ingredients" name="ingredients" fieldtype={Text} onChange={handleChange} />
-        <FormField labeltitle="Utensils Required" name="utensils" fieldtype={Text} onChange={handleChange} />
-        <FormField labeltitle="Steps" name="steps" fieldtype="TextArea" onChange={handleChange} />
-        <input type="file" id="app_recipe-img" name="image" />
+        <FormField labeltitle="Name" 
+                   name="title" 
+                   fieldtype={Text} 
+                   onChange={handleChange} />
+        <FormField labeltitle="Difficulty" 
+                   name="difficulty" 
+                   fieldtype={Text} 
+                   onChange={handleChange} />
+        <FormField labeltitle="Preparation Time" 
+                   name="prep_time" 
+                   fieldtype={Text} 
+                   onChange={handleChange} />
+        <FormField labeltitle="Ingredients" 
+                   name="ingredients" 
+                   fieldtype={Text} 
+                   onChange={handleChange} />
+        <FormField labeltitle="Utensils Required" 
+                   name="utensils" 
+                   fieldtype={Text} 
+                   onChange={handleChange} />
+        <FormField labeltitle="Steps" 
+                   name="steps"
+                   fieldtype={Text} 
+                   onChange={handleChange} />
+        <FormField name="file"
+                   placeholder="Upload"
+                   fieldtype="file"
+                   onChange={handleChange} />
 
         <Link
           style={{ color: "#7e7a05", textDecoration: "inherit" }}

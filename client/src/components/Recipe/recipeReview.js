@@ -37,7 +37,7 @@ export default function recipeReview() {
 
 
     const {review: review} = data;
-    document.getElementById("app__review_details").innerHTML=`<h4>${review}</h4>`
+    //document.getElementById("app__review_details").innerHTML=`<h4>${review}</h4>`
     return(
         <>               
             {/* <FcFullBattery size={35} onClick={

@@ -8,6 +8,7 @@ import RecipeReview from "./recipeReview";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import createReview from "../CreateReview";
+import FormField from "../Auth/Formfield";
 
 
 export default function Recipe() {
@@ -50,7 +51,7 @@ export default function Recipe() {
       <div className="app__recipe">
         <div className="app__recipebody">
           <div className="app__recipeProfile">
-            <RecipeProfile img={pic} title={data.title} />
+            <RecipeProfile img={pic} title={data.title} viewsCount={data.viewsCount} />
           </div>
 
           <div className="app__recipedetails">
@@ -63,8 +64,7 @@ export default function Recipe() {
                 )} />
             {/* <button className="app__printButton">Print</button> */}
 
-            <HiPencil size={35}/>
-            <FcFullBattery size={35} onClick={
+            <FcFullTrash size={35} onClick={
               () => axios.delete(`/recipe/delete/${id}`).
                 then(
                   navigate("/profile-my-recipe")
@@ -78,11 +78,11 @@ export default function Recipe() {
           
           <form className="app__create-box">
             <h1 className="app__recipeReview_header">Reviews</h1>
-            <Formfield labeltitle="" fieldtype={Text} />
+            <FormField labeltitle="" fieldtype={Text} />
             <button className="app__create-btn"> Add Review </button> 
             <createReview/>
             <hr></hr>
-            <RecipeReview />
+            {/* <RecipeReview /> */}
           </form>
           {/* <createReview/> */}
          

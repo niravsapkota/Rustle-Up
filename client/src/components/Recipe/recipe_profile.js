@@ -6,6 +6,7 @@ export default function RecipeProfile(props) {
     <div className="app__recipe_profile">
       <img className="app__recipeImg" src={props.img} alt="none" />
       <h2 className="app__image_title">{props.title}</h2>
+      <h2>This recipe is viewed {props.viewsCount} times</h2>
     </div>
   );
 }
