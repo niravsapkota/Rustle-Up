@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import FormField from "./Auth/Formfield";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 export function CreateRecipe() {
   // initial blank state of form
   const [recipe, setRecipe] = useState({
     title: "",
+    description: "",
     user_id: "",
     difficulty: "",
     prep_time: "",
@@ -15,6 +16,8 @@ export function CreateRecipe() {
     steps: "",
     url: "",
   });
+
+  const navigate = useNavigate();
 
   const [image, setImage] = useState("");
 
@@ -50,6 +53,7 @@ export function CreateRecipe() {
       .post("/recipe/create", recipe)
       .then((response) => {
         window.alert("Recipe created.");
+        navigate("/profile");
       })
       .catch(() => window.alert("Something went wrong!"));
   };
@@ -66,6 +70,13 @@ export function CreateRecipe() {
           labeltitle="Name"
           id="app__name-input"
           name="title"
+          fieldtype={Text}
+          onChange={handleChange}
+        />
+        <FormField
+          labeltitle="Description"
+          id="app__name-input"
+          name="description"
           fieldtype={Text}
           onChange={handleChange}
         />
@@ -113,18 +124,13 @@ export function CreateRecipe() {
           onChange={handleFileChange}
         />
 
-        <Link
-          style={{ color: "#7e7a05", textDecoration: "inherit" }}
-          to="/profile-my-recipe"
+        <button
+          className="app__create-btn"
+          type="submit"
+          onClick={btnCreaterecipe}
         >
-          <button
-            className="app__create-btn"
-            type="submit"
-            onClick={btnCreaterecipe}
-          >
-            Submit
-          </button>
-        </Link>
+          Submit
+        </button>
       </form>
     </>
   );
@@ -199,6 +205,14 @@ export function EditRecipe() {
           fieldtype={Text}
           onChange={handleChange}
           value={recipe.title}
+        />
+        <FormField
+          labeltitle="Description"
+          id="app__name-input"
+          name="description"
+          fieldtype={Text}
+          onChange={handleChange}
+          value={recipe.description}
         />
         <FormField
           labeltitle="Difficulty"

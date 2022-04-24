@@ -14,10 +14,10 @@ export default function TrendingTile(props) {
           .then(navigate(`/recipe/${props.element._id}`))
       }
     >
-      <img className="trending-img" src={props.img} alt="none" />
+      <img className="trending-img" src={props.element.image_url} alt="none" />
       <div className="trending-text-container">
         <h3 className="trending-img-title">{props.element.title}</h3>
-        <p className="trending-description">{props.description}</p>
+        <p className="trending-description">{props.element.description}</p>
       </div>
     </div>
   );

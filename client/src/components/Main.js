@@ -98,10 +98,10 @@ export default function Main() {
         <div className="app__grid-container">
           {data.map((element) => (
             <Tile
-              img={pic}
+              img={element.image_url}
               key={element.title}
               element={element}
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
+              description={element.description}
             />
           ))}
         </div>

@@ -8,8 +8,11 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  viewsCount: String,
-  user: String,
+  viewsCount: {
+    type: Number,
+    default: 0,
+  },
+  description: String,
   difficulty: String,
   prep_time: String,
   ingredients: Array,
@@ -21,7 +24,7 @@ const recipeSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  reviews: Array
+  reviews: Array,
 });
 
 const PostRecipe = mongoose.model("PostRecipe", recipeSchema);

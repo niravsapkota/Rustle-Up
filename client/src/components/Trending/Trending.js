@@ -39,12 +39,7 @@ export default function Trending() {
 
       <div className="app__trending-container">
         {data.map((element) => (
-          <TrendingTile
-            img={pic}
-            key={element.title}
-            element={element}
-            description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-          />
+          <TrendingTile key={element.title} element={element} />
         ))}
       </div>
     </>

@@ -1,3 +1,4 @@
+import e from "express";
 import mongoose from "mongoose";
 import PostRecipe from "../models/recipe.js";
 import ReviewDetails from "../models/review.js";
@@ -25,7 +26,9 @@ export const getAll = async (req, res) => {
 /*Recipe*/
 export const getRecipe = async (req, res) => {
   try {
-    const recipe = await PostRecipe.findById(req.params.id);
+    let recipe = await PostRecipe.findById(req.params.id);
+    const viewsCount = recipe.viewsCount + 1;
+    recipe = await PostRecipe.findByIdAndUpdate(req.params.id, { viewsCount });
     res.status(200).json(recipe);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -59,14 +62,14 @@ export const deleteRecipe = async (req, res) => {
 
 export const makeRev = async (req, res) => {
   const reviews = req.body.reviews;
-  
-  try{
-    const newreview = await PostRecipe.findByIdAndUpdate(id,{
-      reviews
+
+  try {
+    const newreview = await PostRecipe.findByIdAndUpdate(id, {
+      reviews,
     });
-  res.status(201).json(newreview);
+    res.status(201).json(newreview);
   } catch (error) {
-  res.status(409).json({ message: error.message });
+    res.status(409).json({ message: error.message });
   }
 };
 
@@ -77,11 +80,13 @@ export const getRev = async (req, res) => {
     res.status(200).json(reviews);
   } catch (error) {
     res.status(404).json({ message: error.message });
-  }};
+  }
+};
 
 export const createRecipe = async (req, res) => {
-  const currentEmail = req.user.email;
+  const userId = req.user._id.toString();
   const title = req.body.title;
+  const description = req.body.description;
   const difficulty = req.body.difficulty;
   const prep_time = req.body.prep_time;
   const ingredients = req.body.ingredients.split(",");
@@ -91,26 +96,28 @@ export const createRecipe = async (req, res) => {
 
   const newRecipe = new PostRecipe({
     title,
+    description,
     difficulty,
     prep_time,
     ingredients,
     utensils,
     steps,
     image_url: url,
+    creator: userId,
   });
 
   try {
     await newRecipe.save();
     const savedRecipe = await PostRecipe.findOne({ title });
-    const recipeId = savedRecipe._id.toString();
+    const recipeId = savedRecipe._id;
     const recUpdate = await User.findOneAndUpdate(
       { email: currentEmail },
       {
         $inc: { myrecipe: 1 },
-        myrecipe_id: recipeId,
+        $push: { myrecipe_id: recipeId },
       }
     );
-    res.status(201).json(savedRecipe);
+    res.status(201).json(recUpdate);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }

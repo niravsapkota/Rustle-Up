@@ -25,15 +25,14 @@ router.post("/create", authenticate, createRecipe);
 router.patch("/edit/:id", authenticate, editRecipe);
 router.delete("/delete/:id", authenticate, deleteRecipe);
 
-router.get("/getrev/:id", getRev );
-router.post("/makerev/:id", authenticate ,makeRev );
-
+router.get("/getrev/:id", getRev);
+router.post("/makerev/:id", authenticate, makeRev);
 
 router.get("/get-review/:id", getReview);
 router.post("/create-review", authenticate, createReview);
-router.delete("/delete-rev/:id", authenticate,deleteReview);
+router.delete("/delete-rev/:id", authenticate, deleteReview);
 
-router.post("/addtofav", authenticate, addToFav);
+router.post("/addtofav/:id", authenticate, addToFav);
 router.post("/delfromfav", authenticate, deletefromFav);
 
 export default router;
