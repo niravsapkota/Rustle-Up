@@ -50,7 +50,8 @@ export default function NavBar() {
           {logged ? (
             <NavBtnLink to="/profile">{info.name}</NavBtnLink>
           ) : (
-            <NavBtnLink to="/signup">Login / Sign Up</NavBtnLink>
+            <NavBtnLink to="/login">Login</NavBtnLink>/
+            <NavBtnLink to="/signup">Sign Up</NavBtnLink>
           )}
         </NavBtn>
       </Nav>
