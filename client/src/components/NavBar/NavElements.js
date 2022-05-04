@@ -49,11 +49,9 @@ export const NavMenu = styled.div`
 
 export const NavLink = styled(Link)`
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
+  align-self: center;
   text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
+  padding: 1rem 1rem;
   cursor: pointer;
   &.active {
     font-weight: bold;

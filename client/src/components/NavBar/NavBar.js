@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import axios from "axios";
 
 export default function NavBar() {
+  const [open, setOpen] = useState(false);
   const [logged, setLogged] = useState(false);
   const [info, setInfo] = useState([]);
 
