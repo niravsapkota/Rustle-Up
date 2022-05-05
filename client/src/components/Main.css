@@ -880,6 +880,8 @@ div.app__recipe {
   font-size: 1rem;
 }
 
+/*Tips*/
+
 .tips-box {
   position: absolute;
   border: 2px solid var(--primary-color);
@@ -908,4 +910,32 @@ div.app__recipe {
 .tips-content li {
   margin: 1.7vh;
   margin-left: 4%;
+}
+
+/*About Us*/
+
+.app__Aboutusheader{
+  color:var(--primary-color);
+  font-family: "Montserrat";
+}
+
+.app__aboutus{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+}
+
+.app__aboutus1{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.app__aboutus2{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.app__Aboutustext{
+  color:var(--text-primary);
+  font-family: "Montserrat";
 }
