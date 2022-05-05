@@ -212,6 +212,20 @@ body {
   cursor: pointer;
 }
 
+.app_about-title {
+  margin-top: 15%;
+  color: var(--primary-color);
+  font-size: 3vw;
+}
+
+.app_about-us {
+  font-family: "Montserrat";
+  margin: 0 15%;
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 1.2vw;
+}
+
 .app__footer-logo {
   text-decoration: none;
   display: inline-block;
@@ -864,4 +878,34 @@ div.app__recipe {
   font-family: "Montserrat";
   margin-top: 0;
   font-size: 1rem;
+}
+
+.tips-box {
+  position: absolute;
+  border: 2px solid var(--primary-color);
+  display: inline-block;
+  width: 70vw;
+  flex-direction: column;
+  margin-top: 8vh;
+  left: 15vw;
+}
+
+.tips-title {
+  margin-top: 2vh;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+.tips-content {
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.tips-content li {
+  margin: 1.7vh;
+  margin-left: 4%;
 }

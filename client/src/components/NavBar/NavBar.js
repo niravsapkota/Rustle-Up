@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { MyHiMenu, MyHiXCircle, Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from "./NavElements";
+import {
+  MyHiMenu,
+  MyHiXCircle,
+  Nav,
+  NavLink,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+} from "./NavElements";
 import Logo from "./Logo";
 import axios from "axios";
 
@@ -46,6 +54,9 @@ export default function NavBar() {
           <NavLink to="/search" activeStyle>
             Search
           </NavLink>
+          <NavLink to="/tips" activeStyle>
+            Tips
+          </NavLink>
         </NavMenu>
         <NavBtn>
           {logged ? (
@@ -55,10 +66,21 @@ export default function NavBar() {
             <NavBtnLink to="/signup">Log In / Sign Up</NavBtnLink>
           )}
         </NavBtn>
-        <MyHiMenu size={30} open={open} onClick={() => setOpen(!open)} className="app__hi-menu" style={{position:"absolute",right:'5vw',top:'4vh'}}/>
-        <MyHiXCircle size={30} open={open} onClick={() => setOpen(!open)} className="app__hiX-circle" style={{position:"absolute",right:'5vw',top:'4vh'}}/>
+        <MyHiMenu
+          size={30}
+          open={open}
+          onClick={() => setOpen(!open)}
+          className="app__hi-menu"
+          style={{ position: "absolute", right: "5vw", top: "4vh" }}
+        />
+        <MyHiXCircle
+          size={30}
+          open={open}
+          onClick={() => setOpen(!open)}
+          className="app__hiX-circle"
+          style={{ position: "absolute", right: "5vw", top: "4vh" }}
+        />
       </Nav>
     </>
   );
 }
-

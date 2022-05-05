@@ -121,6 +121,15 @@ export default function Main() {
             Register Here
           </Link>
         </div>
+
+        <h1 className="app_about-title">About Us</h1>
+        <p className="app_about-us">
+          Rustle Up is a website developed by Amir Bhattarai, Nirav Sapkota and
+          Sankalpa Satyal. We are the students of Computer Engineering Batch
+          2019 of Kathmandu University, Dhulikhel. This website is developed for
+          the partial fulfillment of COMP 207 (Computer Project) of II Year/II
+          Sem.
+        </p>
       </section>
     </>
   );

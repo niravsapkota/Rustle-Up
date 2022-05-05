@@ -12,6 +12,7 @@ import Recipe from "./components/Recipe/Recipe";
 import { CreateRecipe, EditRecipe } from "./components/CreateRecipe";
 import Trending from "./components/Trending/Trending";
 import ErrorPage from "./components/ErrorPage";
+import Tips from "./components/Tips";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/recipe/:id" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/create-recipe/:id" element={<EditRecipe />}></Route>
+          <Route path="/tips" element={<Tips />}></Route>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
