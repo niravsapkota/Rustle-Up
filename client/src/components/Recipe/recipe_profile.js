@@ -13,7 +13,6 @@ export default function RecipeProfile(props) {
       </p>
       <p className="app__profile-user-card-options">
         <btn>Add to Favourites</btn>
-        <btn>Leave a review</btn>
       </p>
     </div>
   );
