@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FcEmptyTrash, FcPrint } from "react-icons/fc";
-import { HiPencil } from "react-icons/hi";
+import { MdEdit, MdDelete } from "react-icons/md";
 import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
 import axios from "axios";
@@ -53,25 +52,25 @@ export default function Recipe() {
           {/*Recipe Details*/}
 
           <div className="app__recipedetails">
-            <FcPrint size={35} />
+            <div className="app__recipecontrols">
+              <MdEdit
+                size={35}
+                onClick={() =>
+                  axios
+                    .get(`/recipe/get/${id}`)
+                    .then(navigate(`/create-recipe/${id}`))
+                }
+              />
 
-            <HiPencil
-              size={35}
-              onClick={() =>
-                axios
-                  .get(`/recipe/get/${id}`)
-                  .then(navigate(`/create-recipe/${id}`))
-              }
-            />
-
-            <FcEmptyTrash
-              size={35}
-              onClick={() =>
-                axios
-                  .delete(`/recipe/delete/${id}`)
-                  .then(navigate("/profile-my-recipe"))
-              }
-            />
+              <MdDelete
+                size={35}
+                onClick={() =>
+                  axios
+                    .delete(`/recipe/delete/${id}`)
+                    .then(navigate("/profile-my-recipe"))
+                }
+              />
+            </div>
             <RecipeDetails data={data} />
           </div>
         </div>

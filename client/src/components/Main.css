@@ -742,50 +742,17 @@ div.app__recipe {
   padding: 1%;
 }
 
-.app__reviewbtn {
-  text-decoration: none;
-  color: var(--text-primary);
-  background-color: var(--primary-color);
-  border-radius: 10px;
-}
-
-.app__recipeReview {
-  border: 2px solid;
-  border-color: var(--primary-color);
-  color: (var(--text-primary));
-  padding: 1%;
-}
-
-.app__recipeReview_header {
-  color: var(--primary-color);
-  display: flex;
-}
-
-.app__reviewUsername {
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.app__reviewdate {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  color: var(--text-primary);
-}
-
-.app__reviewRate {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  color: var(--text-primary);
-}
-
 .app__recipedetails button {
   color: var(--primary-color);
   margin: 1%;
   border: 0vw;
   background-color: rgba(0, 0, 0, 0);
   align-items: right;
+}
+
+.app__recipecontrols {
+  margin-left: 90%;
+  color: var(--primary-color);
 }
 
 .app__recipeProfile p {

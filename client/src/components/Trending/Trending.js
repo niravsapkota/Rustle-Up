@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import TrendingTile from "./TrendingTile";
-import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 import axios from "axios";
 import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
