@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function Recipe() {
   const navigate = useNavigate();
+  const [logged, setLogged] = useState(false);
 
   //Recipe
   const [data, setData] = useState([]);
@@ -52,7 +53,9 @@ export default function Recipe() {
           {/*Recipe Details*/}
 
           <div className="app__recipedetails">
+          { logged ? (
             <div className="app__recipecontrols">
+  
               <MdEdit
                 size={35}
                 onClick={() =>
@@ -70,7 +73,9 @@ export default function Recipe() {
                     .then(navigate("/profile-my-recipe"))
                 }
               />
-            </div>
+            </div>):(<></>)
+          }
+            
             <RecipeDetails data={data} />
           </div>
         </div>
