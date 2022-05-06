@@ -9,6 +9,23 @@ export default function Recipe() {
   const navigate = useNavigate();
   const [logged, setLogged] = useState(false);
 
+  //Logged boolean.
+  const callProfile = async () => {
+    const res = await axios.get("/profile", {
+      headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json",
+      },
+    });
+    if (res) {
+      const value = res.data;
+      setInfo(value);
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+  };
+
   //Recipe
   const [data, setData] = useState([]);
   let { id } = useParams();
@@ -33,6 +50,9 @@ export default function Recipe() {
   };
 
   useEffect(() => {
+    setInterval(() => {
+      callProfile();
+    }, 1000),
     getRecipe();
   }, []);
 
