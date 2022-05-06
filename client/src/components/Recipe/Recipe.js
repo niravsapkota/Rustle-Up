@@ -18,8 +18,7 @@ export default function Recipe() {
       },
     });
     if (res) {
-      const value = res.data;
-      setInfo(value);
+
       setLogged(true);
     } else {
       setLogged(false);
@@ -52,9 +51,12 @@ export default function Recipe() {
   useEffect(() => {
     setInterval(() => {
       callProfile();
-    }, 1000),
-    getRecipe();
+    }, 1000)
   }, []);
+
+  useEffect(() => {
+    getRecipe();
+  },[]);
 
   return (
     <>
