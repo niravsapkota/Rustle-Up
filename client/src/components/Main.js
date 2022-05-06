@@ -2,7 +2,6 @@ import "./Main.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Tile from "./Tile";
-import pic from "../assets/unsplash_8T9AVksyt7s.png";
 import axios from "axios";
 import heroimga from "../assets/heroimga.png";
 import heroimgb from "../assets/heroimgb.png";

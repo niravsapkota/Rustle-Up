@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import Search from "./components/Search";
-import AboutUs from "./components/AboutUs";
 import SignUp from "./components/Auth/Signup";
 import Login from "./components/Auth/Login";
 import Profile from "./components/Profile/Profile";
@@ -48,7 +47,6 @@ const App = () => {
           <Route path="/recipe/:id" element={<Recipe />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/create-recipe/:id" element={<EditRecipe />}></Route>
-          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/tips" element={<Tips />}></Route>
           <Route path="*" element={<ErrorPage />} />
         </Routes>

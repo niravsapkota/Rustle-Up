@@ -1,7 +1,5 @@
-import e from "express";
 import mongoose from "mongoose";
 import PostRecipe from "../models/recipe.js";
-import ReviewDetails from "../models/review.js";
 import User from "../models/user.js";
 
 /*Recipe Profile*/
@@ -55,29 +53,6 @@ export const deleteRecipe = async (req, res) => {
     const recipeId = req.params.id;
     const recipe = await PostRecipe.findByIdAndDelete(recipeId);
     res.status(202).json({ message: `Deleted Successfully` });
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-export const makeRev = async (req, res) => {
-  const reviews = req.body.reviews;
-
-  try {
-    const newreview = await PostRecipe.findByIdAndUpdate(id, {
-      reviews,
-    });
-    res.status(201).json(newreview);
-  } catch (error) {
-    res.status(409).json({ message: error.message });
-  }
-};
-
-export const getRev = async (req, res) => {
-  try {
-    const recipe = await PostRecipe.findById(req.params.id);
-    reviews = recipe.reviews;
-    res.status(200).json(reviews);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
