@@ -57,9 +57,6 @@ export default function NavBar() {
           <NavLink to="/tips" activeStyle>
             Tips
           </NavLink>
-          <NavLink to="/about-us" activeStyle>
-            About Us
-          </NavLink>
         </NavMenu>
         <NavBtn>
           {logged ? (
