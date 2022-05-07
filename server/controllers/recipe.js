@@ -23,7 +23,8 @@ export const getAll = async (req, res) => {
 
 export const getMyRecipe = async (req, res) => {
   try {
-    const recipes = await PostRecipe.find();
+    const userId = req.user._id.toString();
+    const recipes = await PostRecipe.find({ creator: userId });
     res.status(200).json(recipes);
   } catch (error) {
     res.status(404).json({ message: error.message });

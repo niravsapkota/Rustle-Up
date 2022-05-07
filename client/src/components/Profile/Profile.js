@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import RecipeTile from "./RecipeTile";
 import axios from "axios";
-import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -103,8 +102,7 @@ export default function Profile() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-{/* 
-            {data.map((element) => (
+            {/* {data.map((element) => (
               <RecipeTile key={element.title} element={element} />
             ))} */}
           </div>

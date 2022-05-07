@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import RecipeTile from "./RecipeTile";
 import axios from "axios";
-import pic from "../../assets/unsplash_8T9AVksyt7s.png";
 
 export default function ProfileMyRecipe() {
   const navigate = useNavigate();
   const [info, setInfo] = useState([]);
+  const [data, setData] = useState([]);
 
   const callProfile = async () => {
     try {
@@ -27,8 +27,26 @@ export default function ProfileMyRecipe() {
     }
   };
 
+  const myrecipe = async () => {
+    try {
+      const res = await axios.get("/recipe/getmyrecipe");
+      if (!res) {
+        throw new Error("cant find the recipe");
+      } else {
+        const allData = res.data;
+        setData(allData);
+      }
+    } catch (error) {
+      console.log("Error Caught!");
+    }
+  };
+
   useEffect(() => {
     callProfile();
+  }, []);
+
+  useEffect(() => {
+    myrecipe();
   }, []);
 
   const btnLogout = async (e) => {
@@ -103,21 +121,9 @@ export default function ProfileMyRecipe() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-            <RecipeTile
-              img={pic}
-              title="Samosa"
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-            />
-            <RecipeTile
-              img={pic}
-              title="Samosa"
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-            />
-            <RecipeTile
-              img={pic}
-              title="Samosa"
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-            />
+            {data.map((element) => (
+              <RecipeTile key={element.title} element={element} />
+            ))}
           </div>
           <p className="app__profile-next">Next</p>
         </div>

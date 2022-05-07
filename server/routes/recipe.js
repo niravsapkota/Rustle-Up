@@ -2,6 +2,7 @@ import express from "express";
 import {
   getAll,
   getRecipe,
+  getMyRecipe,
   createRecipe,
   editRecipe,
   deleteRecipe,
@@ -14,6 +15,7 @@ const router = express.Router();
 
 router.get("/trending", getAll);
 router.get("/get/:id", getRecipe);
+router.get("/getmyrecipe", authenticate, getMyRecipe);
 router.post("/create", authenticate, createRecipe);
 router.patch("/edit/:id", authenticate, editRecipe);
 router.delete("/delete/:id", authenticate, deleteRecipe);
