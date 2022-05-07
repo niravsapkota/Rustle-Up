@@ -751,6 +751,7 @@ div.app__recipe {
 }
 
 .app__recipecontrols {
+  cursor: pointer;
   margin-left: 90%;
   color: var(--primary-color);
 }

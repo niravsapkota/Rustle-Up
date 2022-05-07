@@ -50,15 +50,15 @@ export default function Recipe() {
   };
 
   useEffect(() => {
-      callProfile();
+    callProfile();
   }, []);
 
   useEffect(() => {
     getRecipe();
-  },[]);
+  }, []);
 
-  let idmatch = (info._id == data.creator) 
-  let logUser = (idmatch && logged)
+  let idmatch = info._id == data.creator;
+  let logUser = idmatch && logged;
   return (
     <>
       <div className="app__recipe">
@@ -78,29 +78,32 @@ export default function Recipe() {
           {/*Recipe Details*/}
 
           <div className="app__recipedetails">
-          { logUser ? (
-            <div className="app__recipecontrols">
-  
-              <MdEdit
-                size={35}
-                onClick={() =>
-                  axios
-                    .get(`/recipe/get/${id}`)
-                    .then(navigate(`/create-recipe/${id}`))
-                }
-              />
+            {logUser ? (
+              <div className="app__recipecontrols">
+                <MdEdit
+                  size={35}
+                  onClick={() =>
+                    axios
+                      .get(`/recipe/get/${id}`)
+                      .then(navigate(`/create-recipe/${id}`))
+                  }
+                />
 
-              <MdDelete
-                size={35}
-                onClick={() =>
-                  axios
-                    .delete(`/recipe/delete/${id}`)
-                    .then(navigate("/profile-my-recipe"))
-                }
-              />
-            </div>):(<></>)
-          }
-            
+                <MdDelete
+                  size={35}
+                  onClick={() => {
+                    if (window.confirm("Are you sure?") === true) {
+                      axios
+                        .delete(`/recipe/delete/${id}`)
+                        .then(navigate("/profile-my-recipe"));
+                    }
+                  }}
+                />
+              </div>
+            ) : (
+              <></>
+            )}
+
             <RecipeDetails data={data} />
           </div>
         </div>
