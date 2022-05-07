@@ -50,9 +50,7 @@ export default function Recipe() {
   };
 
   useEffect(() => {
-    setInterval(() => {
       callProfile();
-    }, 1000)
   }, []);
 
   useEffect(() => {
