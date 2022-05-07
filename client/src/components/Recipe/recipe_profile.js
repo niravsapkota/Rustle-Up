@@ -16,7 +16,12 @@ export default function RecipeProfile(props) {
         Preparation time: {props.prep_time}
       </p>
       <p className="app__profile-user-card-options">
-        {props.logged? (<btn>Add to Favourites</btn>):(<></>)}
+        {props.logged? (
+          <btn>Add to Favs</btn>
+        ):(
+          <></>
+        )
+        }
       </p>
     </div>
   );
