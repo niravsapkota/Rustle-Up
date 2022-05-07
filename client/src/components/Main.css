@@ -551,6 +551,15 @@ body {
   cursor: pointer;
 }
 
+.app__profile-user-card-options btn {
+  font-family: "Cormorant Upright";
+  color: var(--primary-color);
+  font-size: 1vw;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+  cursor: pointer;
+}
+
 .app__profile-recipe-card {
   height: 65vh;
   width: 100%;
