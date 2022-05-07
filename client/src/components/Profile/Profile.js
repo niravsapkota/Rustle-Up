@@ -123,9 +123,13 @@ export default function Profile() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-            {data.map((element) => (
+            {fav?(<>
+              {data.map((element) => (
               <RecipeTile key={element.title} element={element} />
             ))}
+            </>):(
+              <><h1>You Have Not Added Any Favourites.</h1></>
+            )}
           </div>
         </div>
       </div>
