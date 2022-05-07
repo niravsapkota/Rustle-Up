@@ -70,8 +70,9 @@ export default function Recipe() {
               title={data.title}
               difficulty={data.difficulty}
               prep_time={data.prep_time}
-              creator={info.name}
+              creator={info.name}//change, gives current username
               logged={logged}
+              fav={info.favourites}
             />
           </div>
 
@@ -104,7 +105,7 @@ export default function Recipe() {
               <></>
             )}
 
-            <RecipeDetails data={data} />
+            <RecipeDetails data={data}/>
           </div>
         </div>
       </div>
