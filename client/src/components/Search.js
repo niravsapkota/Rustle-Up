@@ -50,6 +50,7 @@ export default function Search() {
         />
         <GoSearch
           style={{
+            cursor: "pointer",
             color: "var(--primary-color)",
             marginLeft: "0.5vw",
             paddingTop: ".5vw",

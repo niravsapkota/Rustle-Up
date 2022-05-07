@@ -141,6 +141,8 @@ export function CreateRecipe() {
 
 export function EditRecipe() {
   // initial fill state of form
+  const navigate = useNavigate();
+
   const [recipe, setRecipe] = useState({});
 
   const [image, setImage] = useState("");
@@ -159,7 +161,15 @@ export function EditRecipe() {
         throw new Error("cant find the recipe");
       } else {
         const result = res.data;
-        setRecipe(result);
+        setRecipe({
+          title: result.title,
+          description: result.description,
+          difficulty: result.difficulty,
+          prep_time: result.prep_time,
+          ingredients: `${result.ingredients.join(",")}`,
+          utensils: `${result.utensils.join(",")}`,
+          steps: `${result.steps.join("->")}`,
+        });
       }
     } catch (error) {
       console.log("Error Caught!");
@@ -189,6 +199,8 @@ export function EditRecipe() {
       .patch(`/recipe/edit/${id}`, recipe)
       .then((response) => {
         console.log(response.data);
+        window.alert("updated");
+        navigate(`/recipe/${id}`);
       })
       .catch(() => console.log("Something is wrong!"));
   };

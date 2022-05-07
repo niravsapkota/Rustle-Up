@@ -111,9 +111,9 @@ export const editRecipe = async (req, res) => {
   const title = req.body.title;
   const difficulty = req.body.difficulty;
   const prep_time = req.body.prep_time;
-  const ingredients = req.body.ingredients;
-  const utensils = req.body.utensils;
-  const steps = req.body.steps;
+  const ingredients = req.body.ingredients.split(",");
+  const utensils = req.body.utensils.split(",");
+  const steps = req.body.steps.split("->");
 
   try {
     const updatedRecipe = await PostRecipe.findByIdAndUpdate(id, {

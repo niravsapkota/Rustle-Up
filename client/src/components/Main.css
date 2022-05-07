@@ -491,6 +491,7 @@ body {
   height: 10vh;
   margin-left: 12vw;
   margin-bottom: 3vw;
+  cursor: pointer;
 }
 
 .app__create-btn {
@@ -838,6 +839,7 @@ div.app__recipe {
 /* TRENDING TILE*/
 
 .app__trending-tile {
+  cursor: pointer;
   display: flex;
   height: 18vh;
   color: var(--primary-color);
