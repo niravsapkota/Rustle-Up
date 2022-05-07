@@ -33,7 +33,8 @@ export const getMyRecipe = async (req, res) => {
 
 export const getFavRecipe = async (req, res) => {
   try {
-    const recipes = await PostRecipe.find();
+    const userId = req.user._id.toString();
+    const recipes = await PostRecipe.find({ fav_users: userId });
     res.status(200).json(recipes);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -130,6 +131,7 @@ export const editRecipe = async (req, res) => {
 };
 
 export const addToFav = async (req, res) => {
+  const userId = req.user._id.toString();
   const currentEmail = req.user.email;
   const recipeId = req.params.id;
 
@@ -145,6 +147,9 @@ export const addToFav = async (req, res) => {
         $push: { fav_id: recipeId },
       }
     );
+    const addRec = await PostRecipe.findByIdAndUpdate(recipeId, {
+      $push: { fav_users: userId },
+    });
     res.status(200).json("added");
   } else if (oldRecipe) {
     res.status(400).send("This recipe is already added to favorites.");
@@ -160,6 +165,9 @@ export const deletefromFav = async (req, res) => {
     const userUpdate = await User.findByIdAndUpdate(userId, {
       $inc: { favourites: -1 },
       $pull: { fav_id: recipeId },
+    });
+    const recUpdate = await PostRecipe.findByIdAndUpdate(recipeId, {
+      $pull: { fav_users: userId },
     });
     res.status(202).json({ message: `Deleted Successfully` });
   } catch (error) {

@@ -6,6 +6,7 @@ import axios from "axios";
 export default function Profile() {
   const navigate = useNavigate();
   const [info, setInfo] = useState([]);
+  const [data, setData] = useState([]);
 
   const callProfile = async () => {
     try {
@@ -26,8 +27,26 @@ export default function Profile() {
     }
   };
 
+  const myfav = async () => {
+    try {
+      const res = await axios.get("/recipe/getmyfav");
+      if (!res) {
+        throw new Error("cant find the recipe");
+      } else {
+        const allData = res.data;
+        setData(allData);
+      }
+    } catch (error) {
+      console.log("Error Caught!");
+    }
+  };
+
   useEffect(() => {
     callProfile();
+  }, []);
+
+  useEffect(() => {
+    myfav();
   }, []);
 
   const btnLogout = async (e) => {
@@ -102,9 +121,9 @@ export default function Profile() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-            {/* {data.map((element) => (
+            {data.map((element) => (
               <RecipeTile key={element.title} element={element} />
-            ))} */}
+            ))}
           </div>
           <p className="app__profile-next">Next</p>
         </div>

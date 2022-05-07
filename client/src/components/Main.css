@@ -574,9 +574,11 @@ body {
 }
 
 .app__profile-recipe-card-container {
-  display: flexbox;
+  /* display: flexbox; */
   width: 100%;
+  height: 78%;
   margin-top: 5vh;
+  overflow-y: auto;
 }
 
 .app__profile-next {
