@@ -21,6 +21,24 @@ export const getAll = async (req, res) => {
   }
 };
 
+export const getMyRecipe = async (req, res) => {
+  try {
+    const recipes = await PostRecipe.find();
+    res.status(200).json(recipes);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getFavRecipe = async (req, res) => {
+  try {
+    const recipes = await PostRecipe.find();
+    res.status(200).json(recipes);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 /*Recipe*/
 export const getRecipe = async (req, res) => {
   try {
@@ -130,7 +148,7 @@ export const addToFav = async (req, res) => {
       { email: currentEmail },
       {
         $inc: { favourites: 1 },
-        fav_id: recipeId,
+        $push: { fav_id: recipeId },
       }
     );
     res.status(200).json("added");

@@ -55,7 +55,7 @@ export function CreateRecipe() {
         window.alert("Recipe created.");
         navigate("/profile");
       })
-      .catch(() => window.alert("Something went wrong!"));
+      .catch((error) => window.alert("Something went wrong!"));
   };
 
   return (
