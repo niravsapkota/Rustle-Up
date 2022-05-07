@@ -69,6 +69,7 @@ export default function Recipe() {
               title={data.title}
               difficulty={data.difficulty}
               prep_time={data.prep_time}
+              logged={logged}
             />
           </div>
 
