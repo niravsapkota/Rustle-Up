@@ -7,6 +7,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const [info, setInfo] = useState([]);
   const [data, setData] = useState([]);
+  const [fav, setFav] = useState(false);
 
   const callProfile = async () => {
     try {
@@ -35,6 +36,7 @@ export default function Profile() {
       } else {
         const allData = res.data;
         setData(allData);
+        setFav(true);
       }
     } catch (error) {
       console.log("Error Caught!");

@@ -7,7 +7,7 @@ export const getAll = async (req, res) => {
   let { size } = req.query;
 
   if (!size) {
-    size = 3;
+    size = 5;
   }
   const limit = parseInt(size);
 
@@ -187,5 +187,16 @@ export const checkFav = async (req, res) => {
     res.status(200).send(true);
   } else {
     res.status(500).send("something went wrong");
+  }
+};
+
+export const getRecipeBySearch = async (req, res) => {
+  const { searchQuery } = req.query;
+  try {
+    const title = new RegExp(searchQuery, "i");
+    const recipes = await PostRecipe.find({ title: title });
+    res.json(recipes);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };

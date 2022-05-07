@@ -209,7 +209,7 @@ body {
 
 .app__homepage_p {
   padding-top: 0%;
-  font-size : 24px
+  font-size: 24px;
 }
 
 .app__hightlight {
@@ -381,7 +381,8 @@ body {
 /* For search bar only */
 .app__search-bar {
   display: grid;
-  grid-template-columns: 30vw auto 20vw;
+  grid-template-columns: 60% auto;
+  justify-content: center;
   margin-top: 20vh;
 }
 
@@ -396,14 +397,11 @@ body {
 
 #app__search-input {
   background-color: var(--bg);
-  color: var(--primary-color);
   font-size: 1rem;
-  height: 4.5vw;
   border-style: solid;
   border-width: 2px;
   border-color: var(--primary-color);
-  font-family: inherit;
-  font-size: 1.8vw;
+  color: var(--primary-color);
   padding-left: 1vw;
 }
 
@@ -732,7 +730,7 @@ div.app__recipe {
   height: 75vh;
   margin: 2px;
   position: sticky;
-  top:0;
+  top: 0;
 }
 
 .app__recipe-card-name {
