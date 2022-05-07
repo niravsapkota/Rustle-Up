@@ -8,7 +8,7 @@ export default function RecipeProfile(props) {
     else{return true}
   }
 
-  let isnotfav = !isFav(props.fav)
+  let isfav = isFav(props.fav)
 
   return (
     <div className="app__recipe_profile">
@@ -26,7 +26,7 @@ export default function RecipeProfile(props) {
       <p className="app__profile-user-card-options">
         {props.logged? (
           <p>
-            {isnotfav?(
+            {isfav?(
               <btn>Delete from Favs</btn>
             ):(
               <btn>Add to Favs</btn>
