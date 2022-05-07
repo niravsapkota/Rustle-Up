@@ -7,7 +7,7 @@ export default function RecipeProfile(props) {
       <img className="app__recipeImg" src={props.img} alt="none" />
       <span className="app__profile-user-card-name">{props.title}</span>
       <p className="app__recipe_profile-details">
-        Creator:{props.creator}
+        Creator: {props.creator}
       </p>
       <p className="app__recipe_profile-details">
         Difficulty: {props.difficulty}
