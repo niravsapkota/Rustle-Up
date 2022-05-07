@@ -125,7 +125,6 @@ export default function Profile() {
               <RecipeTile key={element.title} element={element} />
             ))}
           </div>
-          <p className="app__profile-next">Next</p>
         </div>
       </div>
     </>
