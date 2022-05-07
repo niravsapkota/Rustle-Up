@@ -1,6 +1,13 @@
 import React from "react";
 
 export default function RecipeProfile(props) {
+  
+  function isFav(x){
+    if(x==0){return false}
+    else{return true}
+  }
+
+  isnotfav = !isFav(props.fav)
 
   return (
     <div className="app__recipe_profile">
