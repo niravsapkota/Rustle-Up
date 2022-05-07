@@ -8,6 +8,9 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function Recipe() {
   const navigate = useNavigate();
   const [logged, setLogged] = useState(false);
+  const [info, setInfo] = useState([]);
+  const [data, setData] = useState([]);
+  let { id } = useParams();
 
   //Logged boolean.
   const callProfile = async () => {
@@ -18,7 +21,8 @@ export default function Recipe() {
       },
     });
     if (res) {
-
+      const value = res.data;
+      setInfo(value);
       setLogged(true);
     } else {
       setLogged(false);
@@ -26,9 +30,6 @@ export default function Recipe() {
   };
 
   //Recipe
-  const [data, setData] = useState([]);
-  let { id } = useParams();
-
   const getRecipe = async () => {
     try {
       const res = await axios.get(`/recipe/get/${id}`, {
@@ -58,6 +59,8 @@ export default function Recipe() {
     getRecipe();
   },[]);
 
+  let idmatch = (info._id == data.creator) 
+  let logUser = (idmatch && logged)
   return (
     <>
       <div className="app__recipe">
@@ -69,6 +72,7 @@ export default function Recipe() {
               title={data.title}
               difficulty={data.difficulty}
               prep_time={data.prep_time}
+              creator={data.creator}
               logged={logged}
             />
           </div>
@@ -76,7 +80,7 @@ export default function Recipe() {
           {/*Recipe Details*/}
 
           <div className="app__recipedetails">
-          { logged ? (
+          { logUser ? (
             <div className="app__recipecontrols">
   
               <MdEdit
