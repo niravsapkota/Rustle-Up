@@ -36,6 +36,7 @@ export default function ProfileMyRecipe() {
       } else {
         const allData = res.data;
         setData(allData);
+        setRec(true);
       }
     } catch (error) {
       console.log("Error Caught!");

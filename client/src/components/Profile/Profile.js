@@ -36,6 +36,7 @@ export default function Profile() {
       } else {
         const allData = res.data;
         setData(allData);
+        setFav(true);
       }
     } catch (error) {
       console.log("Error Caught!");
@@ -48,11 +49,18 @@ export default function Profile() {
 
   useEffect(() => {
     myfav();
-  }, []);
+    checkFav();
+  }, [data]);
 
-  if (!data.favourites == 0) {
-    setFav(true);
-  }
+  const checkFav = () => {
+    if (!data.favourites == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  let response = "<h1>You have not added any fav</h1>";
 
   const btnLogout = async (e) => {
     e.preventDefault();
@@ -126,14 +134,17 @@ export default function Profile() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-            {fav ? (
+            {checkFav ? (
               <>
                 {data.map((element) => (
                   <RecipeTile key={element.title} element={element} />
                 ))}
               </>
             ) : (
-              <h1>You Have Not Added Any Favourites.</h1>
+              <>
+                {response}
+                {/* <h1>You Have Not Added Any Favourites.</h1> */}
+              </>
             )}
           </div>
         </div>
