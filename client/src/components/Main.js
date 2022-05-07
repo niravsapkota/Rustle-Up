@@ -14,6 +14,21 @@ export default function Main() {
 
   const [index, setIndex] = useState(0);
   const [data, setData] = useState([]);
+  const [logged, setLogged] = useState(false);
+
+  const callProfile = async () => {
+    const res = await axios.get("/profile", {
+      headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json",
+      },
+    });
+    if (res) {
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+  };
 
   const trending = async () => {
     try {
@@ -46,6 +61,10 @@ export default function Main() {
       5000
     );
   }, [index]);
+
+  useEffect(() => {
+    callProfile();
+  }, []);
 
   useEffect(() => {
     trending();
@@ -108,17 +127,28 @@ export default function Main() {
 
       <section className="app__last-section">
         <h1 className="app_perks-title">Amazing Perks for Registered Users</h1>
-        <h2>Rate the Recipes</h2>
-        <h2>Leave a Review</h2>
-        <h2>Add to your favourites</h2>
-        <h2>Post your own recipe</h2>
+        
+        <h2 className="app__homepage_perks">Post your own recipe</h2>
+        <p className="app__homepage_p">Make your own recipes and post them for everyone to see.</p>
+        
+        <h2 className="app__homepage_perks">Add to your favourites</h2>
+        <p className="app__homepage_p">Add recipes you like to your list of favourites for quick references.</p>
+        
         <div className="app__hightlight">
-          <Link
+          {logged ? 
+          (<Link
+            style={{ color: "inherit", textDecoration: "inherit" }}
+            to="/create-recipe"
+          >
+            Create a Recipie!!
+          </Link>)
+          :
+          (<Link
             style={{ color: "inherit", textDecoration: "inherit" }}
             to="/signup"
           >
             Register Here
-          </Link>
+          </Link>)}
         </div>
 
         <h1 className="app_about-title">About Us</h1>
