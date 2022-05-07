@@ -7,6 +7,7 @@ export default function ProfileMyRecipe() {
   const navigate = useNavigate();
   const [info, setInfo] = useState([]);
   const [data, setData] = useState([]);
+  const [rec, setRec] = useState(false);
 
   const callProfile = async () => {
     try {
@@ -48,6 +49,10 @@ export default function ProfileMyRecipe() {
   useEffect(() => {
     myrecipe();
   }, []);
+
+  if (!data.favourites == 0) {
+    setRec(true);
+  }
 
   const btnLogout = async (e) => {
     e.preventDefault();
@@ -121,17 +126,15 @@ export default function ProfileMyRecipe() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-            {/* if (!data) {
-              condition
-            } else {
-              data.map((element) => (
-                <RecipeTile key={element.title} element={element} />
-              )) 
-            } */}
-
-            {data.map((element) => (
-              <RecipeTile key={element.title} element={element} />
-            ))}
+            {rec ? (
+              <>
+                {data.map((element) => (
+                  <RecipeTile key={element.title} element={element} />
+                ))}
+              </>
+            ) : (
+              <h1>You Have Not Added Any Recipe.</h1>
+            )}
           </div>
         </div>
       </div>

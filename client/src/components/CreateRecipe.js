@@ -98,6 +98,7 @@ export function CreateRecipe() {
           labeltitle="Ingredients"
           id="app__name-input"
           name="ingredients"
+          phvalue="Separate with comma(,)"
           fieldtype={Text}
           onChange={handleChange}
         />
@@ -105,6 +106,7 @@ export function CreateRecipe() {
           labeltitle="Utensils Required"
           id="app__name-input"
           name="utensils"
+          phvalue="Separate with comma(,)"
           fieldtype={Text}
           onChange={handleChange}
         />
@@ -112,6 +114,7 @@ export function CreateRecipe() {
           labeltitle="Steps"
           id="app__name-input"
           name="steps"
+          phvalue="Separate with dashed-arrow(->)"
           fieldtype="TextArea"
           onChange={handleChange}
         />

@@ -6,15 +6,13 @@ export default function RecipeProfile(props) {
   let { id } = useParams();
   const navigate = useNavigate();
 
-  let f = props.fav;
-
   const btnAddToFav = async (e) => {
     e.preventDefault();
     axios
       .post(`/recipe/addToFav/${id}`)
       .then((response) => {
         window.alert("Added to Favourites!");
-        window.location.reload();
+        navigate("/profile");
       })
       .catch((error) => {
         if (error.response.status === 400) {
@@ -31,7 +29,6 @@ export default function RecipeProfile(props) {
       axios
         .post(`/recipe/delfromfav/${id}`)
         .then((response) => {
-          window.alert("Removed from Favourites!");
           navigate("/profile");
         })
         .catch((error) => window.alert("Something went wrong!"));
@@ -53,9 +50,9 @@ export default function RecipeProfile(props) {
         {props.logged ? (
           <p>
             {props.fav ? (
-              <button onClick={btnDelFromFav}>Delete from Favs</button>
+              <btn onClick={btnDelFromFav}>Delete from Favs</btn>
             ) : (
-              <button onClick={btnAddToFav}>Add to Favs</button>
+              <btn onClick={btnAddToFav}>Add to Favs</btn>
             )}
           </p>
         ) : (
