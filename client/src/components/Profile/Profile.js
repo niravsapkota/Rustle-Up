@@ -103,10 +103,10 @@ export default function Profile() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-
+{/* 
             {data.map((element) => (
               <RecipeTile key={element.title} element={element} />
-            ))}
+            ))} */}
           </div>
           <p className="app__profile-next">Next</p>
         </div>

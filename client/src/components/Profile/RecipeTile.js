@@ -1,9 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { MdDelete } from "react-icons/md";
 
 export default function RecipeTile(props) {
   const navigate = useNavigate();
 
+  let {id}=useParams();
   return (
     <div 
       className="app__recipe-tile"

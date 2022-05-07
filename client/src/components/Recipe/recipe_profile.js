@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function RecipeProfile(props) {
   
@@ -7,7 +8,7 @@ export default function RecipeProfile(props) {
     else{return true}
   }
 
-  isnotfav = !isFav(props.fav)
+  let isnotfav = !isFav(props.fav)
 
   return (
     <div className="app__recipe_profile">
