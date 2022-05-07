@@ -103,21 +103,10 @@ export default function Profile() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
-            <RecipeTile
-              img={pic}
-              title="Samosa"
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-            />
-            <RecipeTile
-              img={pic}
-              title="Samosa"
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-            />
-            <RecipeTile
-              img={pic}
-              title="Samosa"
-              description="A very well known snacks in south east asia. Its shell is made of flour and inside is the vegetables chopped off and served with sauces"
-            />
+
+            {data.map((element) => (
+              <RecipeTile key={element.title} element={element} />
+            ))}
           </div>
           <p className="app__profile-next">Next</p>
         </div>
