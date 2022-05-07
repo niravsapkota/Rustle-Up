@@ -121,11 +121,18 @@ export default function ProfileMyRecipe() {
           </NavLink>
 
           <div className="app__profile-recipe-card-container">
+            {/* if (!data) {
+              condition
+            } else {
+              data.map((element) => (
+                <RecipeTile key={element.title} element={element} />
+              )) 
+            } */}
+
             {data.map((element) => (
               <RecipeTile key={element.title} element={element} />
             ))}
           </div>
-          <p className="app__profile-next">Next</p>
         </div>
       </div>
     </>

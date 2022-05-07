@@ -132,7 +132,12 @@ export const editRecipe = async (req, res) => {
 export const addToFav = async (req, res) => {
   const currentEmail = req.user.email;
   const recipeId = req.params.id;
-  if (recipeId) {
+
+  const oldRecipe = await User.findOne({
+    fav_id: mongoose.Types.ObjectId(recipeId),
+  });
+
+  if (!oldRecipe) {
     const addFav = await User.findOneAndUpdate(
       { email: currentEmail },
       {
@@ -141,23 +146,37 @@ export const addToFav = async (req, res) => {
       }
     );
     res.status(200).json("added");
+  } else if (oldRecipe) {
+    res.status(400).send("This recipe is already added to favorites.");
   } else {
     res.status(500).send("something went wrong");
   }
 };
 
 export const deletefromFav = async (req, res) => {
-  const currentEmail = req.user.email;
-  const recipeId = req.body.recipeId;
-  const recId = mongoose.Types.ObjectId(recipeId);
-  if (recipeId) {
-    const delFav = await User.findOneAndUpdate(
-      { email: currentEmail },
-      { $pull: { fav_id: recId }, $inc: { favourites: -1 } },
-      { new: true }
-    );
+  try {
+    const userId = req.user._id.toString();
+    const recipeId = req.params.id;
+    const userUpdate = await User.findByIdAndUpdate(userId, {
+      $inc: { favourites: -1 },
+      $pull: { fav_id: recipeId },
+    });
+    res.status(202).json({ message: `Deleted Successfully` });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
 
-    res.status(200).json("deleted");
+export const checkFav = async (req, res) => {
+  const currentEmail = req.user.email;
+  const recipeId = req.params.id;
+
+  const oldRecipe = await User.findOne({
+    fav_id: mongoose.Types.ObjectId(recipeId),
+  });
+
+  if (oldRecipe) {
+    res.status(200).send(true);
   } else {
     res.status(500).send("something went wrong");
   }

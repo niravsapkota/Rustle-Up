@@ -1,16 +1,42 @@
+import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 export default function RecipeProfile(props) {
-  function isFav(x) {
-    if (x == 0) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  let { id } = useParams();
+  const navigate = useNavigate();
 
-  let isnotfav = !isFav(props.fav);
+  let f = props.fav;
+
+  const btnAddToFav = async (e) => {
+    e.preventDefault();
+    axios
+      .post(`/recipe/addToFav/${id}`)
+      .then((response) => {
+        window.alert("Added to Favourites!");
+        window.location.reload();
+      })
+      .catch((error) => {
+        if (error.response.status === 400) {
+          window.alert("Already added");
+        } else {
+          window.alert("Something went wrong");
+        }
+      });
+  };
+
+  const btnDelFromFav = async (e) => {
+    e.preventDefault();
+    if (window.confirm("Are you sure?") === true) {
+      axios
+        .post(`/recipe/delfromfav/${id}`)
+        .then((response) => {
+          window.alert("Removed from Favourites!");
+          navigate("/profile");
+        })
+        .catch((error) => window.alert("Something went wrong!"));
+    }
+  };
 
   return (
     <div className="app__recipe_profile">
@@ -26,10 +52,19 @@ export default function RecipeProfile(props) {
       <p className="app__profile-user-card-options">
         {props.logged ? (
           <p>
-            {isnotfav ? <btn>Delete from Favs</btn> : <btn>Add to Favs</btn>}
+            {props.fav ? (
+              <button onClick={btnDelFromFav}>Delete from Favs</button>
+            ) : (
+              <button onClick={btnAddToFav}>Add to Favs</button>
+            )}
           </p>
         ) : (
-          <Link to="/login">Log In to Favourite</Link>
+          <Link
+            style={{ color: "#7e7a05", textDecoration: "inherit" }}
+            to="/login"
+          >
+            Log In to Favourite
+          </Link>
         )}
       </p>
     </div>

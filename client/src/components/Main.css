@@ -542,9 +542,10 @@ body {
   font-weight: 700;
 }
 
-.app__profile-user-card-options btn {
+.app__profile-user-card-options button {
+  font-family: "Cormorant Upright";
   color: var(--primary-color);
-  font-size: 1vw;
+  font-size: 1.2rem;
   margin-left: 0.7vw;
   margin-right: 0.7vw;
   cursor: pointer;
@@ -560,6 +561,13 @@ body {
   text-align: center;
   margin-left: 0.5vw;
   padding: 5vh;
+}
+
+.app__profile-recipe-card-error {
+  color: var(--primary-color);
+  text-align: center;
+  font-family: "Cormorant Upright";
+  font-size: 2rem;
 }
 
 .app__profile-recipe-card-container {
@@ -719,7 +727,7 @@ div.app__recipe {
   height: 75vh;
   margin: 2px;
   position: sticky;
-  top:0;
+  top: 0;
 }
 
 .app__recipe-card-name {

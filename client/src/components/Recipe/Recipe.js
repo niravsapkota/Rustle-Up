@@ -8,6 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function Recipe() {
   const navigate = useNavigate();
   const [logged, setLogged] = useState(false);
+  const [isfav, setIsfav] = useState(false);
   const [info, setInfo] = useState([]);
   const [data, setData] = useState([]);
   let { id } = useParams();
@@ -49,12 +50,28 @@ export default function Recipe() {
     }
   };
 
+  const checkFav = async () => {
+    const res = await axios.get(`/recipe/checkfav/${id}`, {
+      headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json",
+      },
+    });
+    if (res) {
+      setIsfav(true);
+    }
+  };
+
   useEffect(() => {
     callProfile();
   }, []);
 
   useEffect(() => {
     getRecipe();
+  }, []);
+
+  useEffect(() => {
+    checkFav();
   }, []);
 
   let idmatch = info._id == data.creator;
@@ -70,9 +87,8 @@ export default function Recipe() {
               title={data.title}
               difficulty={data.difficulty}
               prep_time={data.prep_time}
-              creator={info.name}//change, gives current username
               logged={logged}
-              fav={info.favourites}
+              fav={isfav}
             />
           </div>
 
@@ -105,7 +121,7 @@ export default function Recipe() {
               <></>
             )}
 
-            <RecipeDetails data={data}/>
+            <RecipeDetails data={data} />
           </div>
         </div>
       </div>

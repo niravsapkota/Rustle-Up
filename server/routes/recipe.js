@@ -8,6 +8,7 @@ import {
   deleteRecipe,
   addToFav,
   deletefromFav,
+  checkFav,
 } from "../controllers/recipe.js";
 import authenticate from "../middleware/auth.js";
 
@@ -21,6 +22,8 @@ router.patch("/edit/:id", authenticate, editRecipe);
 router.delete("/delete/:id", authenticate, deleteRecipe);
 
 router.post("/addtofav/:id", authenticate, addToFav);
-router.post("/delfromfav", authenticate, deletefromFav);
+router.post("/delfromfav/:id", authenticate, deletefromFav);
+
+router.get("/checkfav/:id", authenticate, checkFav);
 
 export default router;
