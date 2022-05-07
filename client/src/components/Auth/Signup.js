@@ -60,7 +60,6 @@ const SignUp = () => {
         formData
       );
       const imageUrl = dataRes.data.url;
-      console.log(imageUrl);
       user.url = imageUrl;
     }
     const { name, email, password, confirmPassword, url } = user;

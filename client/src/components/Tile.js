@@ -6,9 +6,16 @@ export default function Tile(props) {
   const navigate = useNavigate();
 
   return (
-    <div className="app__grid-element">
+    <div
+      className="app__grid-element"
+      onClick={() =>
+        axios
+          .get(`/recipe/get/${props.element._id}`)
+          .then(navigate(`/recipe/${props.element._id}`))
+      }
+    >
       <h3 className="image__title">{props.element.title}</h3>
-      <a
+      {/* <a
         className="see__more-link"
         onClick={() =>
           axios
@@ -16,8 +23,8 @@ export default function Tile(props) {
             .then(navigate(`/recipe/${props.element._id}`))
         }
       >
-        See More...
-      </a>
+        See More
+      </a> */}
       <img className="app_web_view-show" src={props.img} alt="none" />
       <p className="image__description">{props.description}</p>
     </div>

@@ -46,7 +46,6 @@ export function CreateRecipe() {
         formData
       );
       const imageUrl = dataRes.data.url;
-      console.log(imageUrl);
       recipe.url = imageUrl;
     }
     axios

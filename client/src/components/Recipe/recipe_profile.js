@@ -49,9 +49,9 @@ export default function RecipeProfile(props) {
         {props.logged ? (
           <p>
             {props.fav ? (
-              <btn onClick={btnDelFromFav}>Delete from Favs</btn>
+              <btn onClick={btnDelFromFav}>Delete from Favourite</btn>
             ) : (
-              <btn onClick={btnAddToFav}>Add to Favs</btn>
+              <btn onClick={btnAddToFav}>Add to Favourite</btn>
             )}
           </p>
         ) : (
