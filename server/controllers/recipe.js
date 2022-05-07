@@ -53,23 +53,14 @@ export const getRecipe = async (req, res) => {
 /*delete recepie*/
 export const deleteRecipe = async (req, res) => {
   try {
-    // const userId = req.user._id;
-    // const recipeId = req.params.id;
-    // const owner = await User.findOne({ recipeId });
-    // if (owner._id == userId) {
-    //   const recipe = await PostRecipe.findByIdAndDelete(recipeId);
-    //   const recId = mongoose.Types.ObjectId(recipeId);
-    //   const delFav = await User.findByIdAndUpdate(
-    //     userId,
-    //     { $pull: { myrecipe_id: recId }, $inc: { myrecipe: -1 } },
-    //     { new: true }
-    //   );
-    //   res.status(202).json({ message: `Deleted Successfully` });
-    // } else {
-    //   res.status(401).send("Not Authorized");
-    // }
+    const userId = req.user._id.toString();
     const recipeId = req.params.id;
+    const userUpdate = await User.findByIdAndUpdate(userId, {
+      $inc: { myrecipe: -1 },
+      $pull: { myrecipe_id: recipeId },
+    });
     const recipe = await PostRecipe.findByIdAndDelete(recipeId);
+
     res.status(202).json({ message: `Deleted Successfully` });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -103,13 +94,10 @@ export const createRecipe = async (req, res) => {
     await newRecipe.save();
     const savedRecipe = await PostRecipe.findOne({ title });
     const recipeId = savedRecipe._id;
-    const recUpdate = await User.findOneAndUpdate(
-      { email: currentEmail },
-      {
-        $inc: { myrecipe: 1 },
-        $push: { myrecipe_id: recipeId },
-      }
-    );
+    const recUpdate = await User.findByIdAndUpdate(userId, {
+      $inc: { myrecipe: 1 },
+      $push: { myrecipe_id: recipeId },
+    });
     res.status(201).json(recUpdate);
   } catch (error) {
     res.status(409).json({ message: error.message });
