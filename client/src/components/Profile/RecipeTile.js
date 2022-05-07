@@ -17,6 +17,16 @@ export default function RecipeTile(props) {
       <div className="recipe-text-container">
         <h3 className="recipe-img-title">{props.element.title}</h3>
         <p className="recipe-description">{props.element.description}</p>
+        <MdDelete
+                  size={35}
+                  onClick={() => {
+                    if (window.confirm("Are you sure?") === true) {
+                      axios
+                        .delete(`/recipe/delete/${id}`)
+                        .then(navigate("/profile-my-recipe"));
+                    }
+                  }}
+          />
       </div>
     </div>
   );
