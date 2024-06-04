@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 
 export default function RecipeTile(props) {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ export default function RecipeTile(props) {
     <div
       className="app__recipe-tile"
       onClick={() =>
-        axios
+        axiosInstance
           .get(`/recipe/get/${props.element._id}`)
           .then(navigate(`/recipe/${props.element._id}`))
       }

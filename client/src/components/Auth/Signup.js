@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import FormField from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
   //Check if already logged in
   const callProfile = async () => {
-    const res = await axios.get("/profile", {
+    const res = await axiosInstance.get("/profile", {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const SignUp = () => {
       const formData = new FormData();
       formData.append("file", image);
       formData.append("upload_preset", "rustleup");
-      const dataRes = await axios.post(
+      const dataRes = await axiosInstance.post(
         "https://api.cloudinary.com/v1_1/nrvserver/image/upload",
         formData
       );
@@ -64,7 +64,7 @@ const SignUp = () => {
     }
     const { name, email, password, confirmPassword, url } = user;
     if (name && email && password && image && password === confirmPassword) {
-      axios
+      axiosInstance
         .post("/auth/signup", user)
         .then((response) => {
           window.alert("Registration successful!");

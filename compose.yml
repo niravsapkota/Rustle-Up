@@ -24,8 +24,8 @@ services:
         ipv4_address: "10.0.250.18" 
 #    depends_on:
 #      - mongodb
-#   environment:
-#      - CONNECTION_URL=mongodb://mongodb:27017/ruslteupdb
+    environment:
+       - MONGO_URL=mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority
 
 #  mongodb:
 #    build:

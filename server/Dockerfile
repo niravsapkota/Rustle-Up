@@ -8,6 +8,8 @@ COPY package*.json ./
 
 RUN npm install package.json
 
+RUN npm install package-lock.json
+
 COPY . .
 
 EXPOSE 5000 

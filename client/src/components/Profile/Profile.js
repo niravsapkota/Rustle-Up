@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import RecipeTile from "./RecipeTile";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function Profile() {
 
   const callProfile = async () => {
     try {
-      const res = await axios.get("/profile", {
+      const res = await axiosInstance.get("/profile", {
         headers: {
           "Access-Control-Allow-Credentials": true,
           "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export default function Profile() {
 
   const myfav = async () => {
     try {
-      const res = await axios.get("/recipe/getmyfav");
+      const res = await axiosInstance.get("/recipe/getmyfav");
       if (!res) {
         throw new Error("cant find the recipe");
       } else {
@@ -64,7 +64,7 @@ export default function Profile() {
 
   const btnLogout = async (e) => {
     e.preventDefault();
-    axios
+    axiosInstance
       .get("auth/logout", {
         headers: {
           "Access-Control-Allow-Credentials": true,

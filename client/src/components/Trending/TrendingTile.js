@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 
 export default function TrendingTile(props) {
@@ -9,7 +9,7 @@ export default function TrendingTile(props) {
     <div
       className="app__trending-tile"
       onClick={() =>
-        axios
+        axiosInstance
           .get(`/recipe/get/${props.element._id}`)
           .then(navigate(`/recipe/${props.element._id}`))
       }

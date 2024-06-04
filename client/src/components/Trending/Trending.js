@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TrendingTile from "./TrendingTile";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ export default function Trending() {
 
   const trending = async () => {
     try {
-      const res = await axios.get(`/recipe/trending/`, {
+      const res = await axiosInstance.get(`/recipe/trending/`, {
         params: {
           size: size,
         },

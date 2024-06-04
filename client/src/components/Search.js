@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { TextField } from "@material-ui/core";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../utils/api";
 import TrendingTile from "./Trending/TrendingTile";
 
 export default function Search() {
@@ -15,7 +15,7 @@ export default function Search() {
     if (search.trim()) {
       (async function getRecipeBySearch() {
         try {
-          const res = await axios.get(`/recipe/search/`, {
+          const res = await axiosInstance.get(`/recipe/search/`, {
             params: {
               searchQuery: search,
             },

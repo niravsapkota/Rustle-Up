@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import FormField from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 
 export default function Login() {
   const navigate = useNavigate();
 
   //Check if already logged in
   const callProfile = async () => {
-    const res = await axios.get("/profile", {
+    const res = await axiosInstance.get("/profile", {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function Login() {
     e.preventDefault();
     const { email, password } = user;
     if (email && password) {
-      axios
+      axiosInstance
         .post("/auth/login", user)
         .then((res) => {
           navigate("/profile");

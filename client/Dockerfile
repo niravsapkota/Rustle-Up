@@ -6,7 +6,9 @@ RUN npm install -g npm@8.5.5
 
 COPY package*.json ./
 
-RUN npm install package.json
+RUN npm install package.json 
+
+RUN npm install package-lock.json
 
 COPY . .
 

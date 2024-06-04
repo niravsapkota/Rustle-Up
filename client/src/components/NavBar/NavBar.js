@@ -9,7 +9,7 @@ import {
   NavBtnLink,
 } from "./NavElements";
 import Logo from "./Logo";
-import axios from "axios";
+import axiosInstance from "../../utils/api";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function NavBar() {
   const [info, setInfo] = useState([]);
 
   const callProfile = async () => {
-    const res = await axios.get("/profile", {
+    const res = await axiosInstance.get("/profile", {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Content-Type": "application/json",
