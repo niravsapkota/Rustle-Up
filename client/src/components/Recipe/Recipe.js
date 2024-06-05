@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
 import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
-import axiosInstance from "..//../utils/api";
+import axiosInstance from "../../utils/api";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function Recipe() {
@@ -74,7 +74,7 @@ export default function Recipe() {
     checkFav();
   }, []);
 
-  let idmatch = info._id == data.creator;
+  let idmatch = info._id === data.creator;
   let logUser = idmatch && logged;
   return (
     <>

@@ -53,7 +53,7 @@ export default function Profile() {
   }, [data]);
 
   const checkFav = () => {
-    if (!data.favourites == 0) {
+    if (!data.favourites === 0) {
       return true;
     } else {
       return false;
