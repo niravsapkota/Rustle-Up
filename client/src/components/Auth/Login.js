@@ -8,14 +8,18 @@ export default function Login() {
 
   //Check if already logged in
   const callProfile = async () => {
-    const res = await axiosInstance.get("/profile", {
-      headers: {
-        "Access-Control-Allow-Credentials": true,
-        "Content-Type": "application/json",
-      },
-    });
-    if (res) {
-      navigate("/profile");
+    try{
+      const res = await axiosInstance.get("/profile", {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+          "Content-Type": "application/json",
+        },
+      });
+      if (res && res.data) {
+        navigate("/profile");
+      }
+    } catch (error) {
+      console.error("Error Fetching Profile : ", error)
     }
   };
 

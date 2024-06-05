@@ -17,25 +17,35 @@ export default function NavBar() {
   const [info, setInfo] = useState([]);
 
   const callProfile = async () => {
-    const res = await axiosInstance.get("/profile", {
-      headers: {
-        "Access-Control-Allow-Credentials": true,
-        "Content-Type": "application/json",
-      },
-    });
-    if (res) {
-      const value = res.data;
-      setInfo(value);
-      setLogged(true);
-    } else {
-      setLogged(false);
+    try{
+      const res = await axiosInstance.get("/profile", {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+          "Content-Type": "application/json",
+        },
+      });
+      if (res) {
+        const value = res.data;
+        setInfo(value);
+        setLogged(true);
+      }
+    } catch (error) {
+      if(error.response && error.response.status === 401)
+      {
+          setLogged(false);
+        console.error("Unauthorized - possibly invalid token");
+        // Optionally redirect to login or handle token refresh
+      } else {
+        console.error("An error occurred:", error);
+      }
     }
   };
 
   useEffect(() => {
-    setInterval(() => {
-      callProfile();
-    }, 1000);
+    callProfile(); // Call the profile once when the component mounts
+    const interval = setInterval(callProfile, 1000); // Optionally check every 1000 ms
+
+    return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
 
   return (

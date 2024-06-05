@@ -17,11 +17,11 @@ export default function Profile() {
           "Content-Type": "application/json",
         },
       });
-      if (!res) {
-        throw new Error("cant login");
-      } else {
+      if (res && res.data) {
         const value = res.data;
-        setInfo(value);
+        setInfo(value); 
+      } else {
+        throw new Error("cant login");
       }
     } catch (error) {
       navigate("/login");

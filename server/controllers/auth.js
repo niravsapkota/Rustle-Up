@@ -4,20 +4,20 @@ import User from "../models/user.js";
 
 const secret = "test";
 
-//Sign in
-export const signin = async (req, res) => {
+//Log In
+export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
     // Checking if the user exists
     const oldUser = await User.findOne({ email });
-
+    console.log(oldUser);
     if (!oldUser)
       return res.status(404).json({ message: "User doesn't exist" });
 
     // Validates the Password
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-
+    console.log(isPasswordCorrect);
     if (!isPasswordCorrect)
       return res.status(400).json({ message: "Invalid credentials" });
 
