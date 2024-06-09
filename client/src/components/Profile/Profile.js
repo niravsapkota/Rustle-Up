@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import RecipeTile from "./RecipeTile";
@@ -17,11 +18,11 @@ export default function Profile() {
           "Content-Type": "application/json",
         },
       });
-      if (!res) {
-        throw new Error("cant login");
-      } else {
+      if (res && res.data) {
         const value = res.data;
-        setInfo(value);
+        setInfo(value); 
+      } else {
+        throw new Error("Can't login");
       }
     } catch (error) {
       navigate("/login");
@@ -53,7 +54,7 @@ export default function Profile() {
   }, [data]);
 
   const checkFav = () => {
-    if (!data.favourites == 0) {
+    if (!data.favourites === 0) {
       return true;
     } else {
       return false;
@@ -71,7 +72,8 @@ export default function Profile() {
         },
       })
       .then((res) => {
-        window.location.reload();
+        // window.location.reload();
+        navigate("/");
       })
       .catch((error) => {
         window.alert("Unsuccessfull");

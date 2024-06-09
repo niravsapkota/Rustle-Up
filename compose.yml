@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      rustle-up:
+        ipv4_address: "10.0.250.20"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      rustle-up:
+        ipv4_address: "10.0.250.18" 
+#    depends_on:
+#      - mongodb
+    environment:
+       - MONGO_URL=mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority
+
+#  mongodb:
+#    build:
+#      context: .
+#      dockerfile: db/Dockerfile
+#    ports:
+#      - "27017:27017"
+#    volumes:
+#    - mongodb_data:/data/db 
+
+networks:
+  rustle-up:
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.0.250.0/24"
+
+# volumes:
+#  mongodb_data:  
+  

@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  signin,
+  login,
   signup,
   getMe,
   logout,
@@ -11,7 +11,7 @@ import authenticate from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/login", signin);
+router.post("/login", login);
 router.post("/signup", signup);
 router.get("/logout", logout);
 router.get("/me", authenticate, getMe);

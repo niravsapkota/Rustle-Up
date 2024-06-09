@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FormField from "./Formfield";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -6,22 +6,26 @@ import axios from "axios";
 export default function Login() {
   const navigate = useNavigate();
 
-  //Check if already logged in
-  const callProfile = async () => {
-    const res = await axios.get("/profile", {
-      headers: {
-        "Access-Control-Allow-Credentials": true,
-        "Content-Type": "application/json",
-      },
-    });
-    if (res) {
-      navigate("/profile");
-    }
-  };
+  // //Check if already logged in
+  // const callProfile = async () => {
+  //   try{
+  //     const res = await axios.get("/profile", {
+  //       headers: {
+  //         "Access-Control-Allow-Credentials": true,
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     if (res && res.data) {
+  //       navigate("/profile");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error Fetching Profile : ", error)
+  //   }
+  // };
 
-  useEffect(() => {
-    callProfile();
-  }, []);
+  // useEffect(() => {
+  //   callProfile();
+  // }, []);
 
   // Initial blank state of form
   const [user, setUser] = useState({

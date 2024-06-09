@@ -74,7 +74,7 @@ export default function Recipe() {
     checkFav();
   }, []);
 
-  let idmatch = info._id == data.creator;
+  let idmatch = info._id === data.creator;
   let logUser = idmatch && logged;
   return (
     <>

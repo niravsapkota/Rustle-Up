@@ -4,14 +4,14 @@ import User from "../models/user.js";
 
 const secret = "test";
 
-//Sign in
-export const signin = async (req, res) => {
+//Log In
+export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
     // Checking if the user exists
     const oldUser = await User.findOne({ email });
-
+ 
     if (!oldUser)
       return res.status(404).json({ message: "User doesn't exist" });
 
@@ -30,6 +30,7 @@ export const signin = async (req, res) => {
       expires: new Date(Date.now() + 3600000),
       httpOnly: true,
     });
+    //Console long this
     res.status(200).json({ result: oldUser, token: token });
   } catch (error) {
     // Error

@@ -40,8 +40,8 @@ const App = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/profile-my-recipe" element={<ProfileMyRecipe />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/manage-profile" element={<ManageProfile />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/recipe/:id" element={<Recipe />} />

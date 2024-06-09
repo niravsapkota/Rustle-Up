@@ -18,14 +18,15 @@ app.use("/recipe", recipeRoutes);
 app.use("/auth", authRoutes);
 app.use("/", protectedRoutes);
 
-const CONNECTION_URL =
-  "mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority";
+// const CONNECTION_URL = 'mongodb://localhost:27017/rustleup';
+
+const CONNECTION_URL = process.env.MONGO_URL ||  "mongodb+srv://admin:admin@cluster0.4qhg3.mongodb.net/rustleup?retryWrites=true&w=majority";
 
 const PORT = 5000;
 
 mongoose
-  .connect(CONNECTION_URL)
+  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
-    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
+    app.listen(PORT, () => console.log(`Server running on port : ${PORT}`))
   )
-  .catch((error) => console.log(error.message));
+  .catch((error) => console.log(`The Error is : ${error.message}`));

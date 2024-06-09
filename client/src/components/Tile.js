@@ -18,7 +18,7 @@ export default function Tile(props) {
       {/* <a
         className="see__more-link"
         onClick={() =>
-          axios
+          axiosInstance
             .get(`/recipe/get/${props.element._id}`)
             .then(navigate(`/recipe/${props.element._id}`))
         }
