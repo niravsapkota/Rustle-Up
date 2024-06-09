@@ -1,4 +1,4 @@
-import axiosInstance from "../../utils/api";
+import axios from "axios";
 import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ export default function RecipeProfile(props) {
 
   const btnAddToFav = async (e) => {
     e.preventDefault();
-    axiosInstance
+    axios
       .post(`/recipe/addToFav/${id}`)
       .then((response) => {
         window.alert("Added to Favourites!");
@@ -26,7 +26,7 @@ export default function RecipeProfile(props) {
   const btnDelFromFav = async (e) => {
     e.preventDefault();
     if (window.confirm("Are you sure?") === true) {
-      axiosInstance
+      axios
         .post(`/recipe/delfromfav/${id}`)
         .then((response) => {
           navigate("/profile");

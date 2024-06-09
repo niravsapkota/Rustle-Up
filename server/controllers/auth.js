@@ -11,13 +11,13 @@ export const login = async (req, res) => {
   try {
     // Checking if the user exists
     const oldUser = await User.findOne({ email });
-    console.log(oldUser);
+ 
     if (!oldUser)
       return res.status(404).json({ message: "User doesn't exist" });
 
     // Validates the Password
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-    console.log(isPasswordCorrect);
+
     if (!isPasswordCorrect)
       return res.status(400).json({ message: "Invalid credentials" });
 
@@ -30,6 +30,7 @@ export const login = async (req, res) => {
       expires: new Date(Date.now() + 3600000),
       httpOnly: true,
     });
+    //Console long this
     res.status(200).json({ result: oldUser, token: token });
   } catch (error) {
     // Error

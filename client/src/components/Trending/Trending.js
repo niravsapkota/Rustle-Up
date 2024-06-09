@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TrendingTile from "./TrendingTile";
-import axiosInstance from "../../utils/api";
+import axios from "axios";
 import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -9,11 +9,14 @@ export default function Trending() {
   const [data, setData] = useState([]);
   const [searchParams, setSearchparams] = useSearchParams();
   const size = searchParams.get("size");
+  const page = searchParams.get('page');
+
 
   const trending = async () => {
     try {
-      const res = await axiosInstance.get(`/recipe/trending/`, {
+      const res = await axios.get(`/recipe/trending/`, {
         params: {
+          page: page,
           size: size,
         },
       });
@@ -40,6 +43,13 @@ export default function Trending() {
         {data.map((element) => (
           <TrendingTile key={element.title} element={element} />
         ))}
+         
+        <p className="app__trending-next" onClick={
+          ()=>{
+            setSearchparams({'page':`${parseInt(page)+1}`,'size':`${parseInt(size)}`})
+          }
+        }>Next</p>
+      
       </div>
     </>
   );

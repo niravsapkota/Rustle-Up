@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Formfield from "../Auth/Formfield";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../utils/api";
+import axios from "axios";
 
 export default function ManageProfile() {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ export default function ManageProfile() {
       const formData = new FormData();
       formData.append("file", image);
       formData.append("upload_preset", "rustleup");
-      const dataRes = await axiosInstance.post(
+      const dataRes = await axios.post(
         "https://api.cloudinary.com/v1_1/nrvserver/image/upload",
         formData
       );
@@ -42,7 +42,7 @@ export default function ManageProfile() {
     }
     const { password, confirmPassword, url } = pass;
     if (password && image && password === confirmPassword) {
-      axiosInstance
+      axios
         .post("/auth/change-password", pass)
         .then((res) => {
           window.alert("Update successful!");
@@ -59,7 +59,7 @@ export default function ManageProfile() {
   const btnDelete = async (e) => {
     e.preventDefault();
     if (window.confirm("Are you sure?") === true) {
-      axiosInstance
+      axios
         .get("auth/delete-profile", {
           headers: {
             "Access-Control-Allow-Credentials": true,

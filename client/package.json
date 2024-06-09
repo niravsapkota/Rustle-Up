@@ -1,8 +1,7 @@
 {
-  "name": "rustleup",
-  "version": "0.1.0",
+  "name": "rustleup",  "version": "0.1.0",
   "private": true,
-  "proxy": "http://192.168.1.5:5000/",
+  "proxy": "http://192.168.1.5:5000",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@testing-library/jest-dom": "^5.16.2",

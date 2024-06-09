@@ -2,7 +2,7 @@ import "./Main.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Tile from "./Tile";
-import axiosInstance from "../utils/api";
+import axios from "axios";
 import heroimga from "../assets/heroimga.png";
 import heroimgb from "../assets/heroimgb.png";
 import heroimgc from "../assets/heroimgc.png";
@@ -17,7 +17,7 @@ export default function Main() {
   const [logged, setLogged] = useState(false);
 
   const callProfile = async () => {
-    const res = await axiosInstance.get("/profile", {
+    const res = await axios.get("/profile", {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Main() {
 
   const trending = async () => {
     try {
-      const res = await axiosInstance.get(`/recipe/trending/`, {
+      const res = await axios.get(`/recipe/trending/`, {
         params: {
           size: 9,
         },

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
 import RecipeProfile from "./recipe_profile";
 import RecipeDetails from "./recipe_details";
-import axiosInstance from "../../utils/api";
+import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function Recipe() {
@@ -15,7 +15,7 @@ export default function Recipe() {
 
   //Logged boolean.
   const callProfile = async () => {
-    const res = await axiosInstance.get("/profile", {
+    const res = await axios.get("/profile", {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default function Recipe() {
   //Recipe
   const getRecipe = async () => {
     try {
-      const res = await axiosInstance.get(`/recipe/get/${id}`, {
+      const res = await axios.get(`/recipe/get/${id}`, {
         headers: {
           "Access-Control-Allow-Credentials": true,
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export default function Recipe() {
   };
 
   const checkFav = async () => {
-    const res = await axiosInstance.get(`/recipe/checkfav/${id}`, {
+    const res = await axios.get(`/recipe/checkfav/${id}`, {
       headers: {
         "Access-Control-Allow-Credentials": true,
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ export default function Recipe() {
                 <MdEdit
                   size={35}
                   onClick={() =>
-                    axiosInstance
+                    axios
                       .get(`/recipe/get/${id}`)
                       .then(navigate(`/create-recipe/${id}`))
                   }
@@ -110,7 +110,7 @@ export default function Recipe() {
                   size={35}
                   onClick={() => {
                     if (window.confirm("Are you sure?") === true) {
-                      axiosInstance
+                      axios
                         .delete(`/recipe/delete/${id}`)
                         .then(navigate("/profile-my-recipe"));
                     }

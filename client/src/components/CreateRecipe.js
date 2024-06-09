@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FormField from "./Auth/Formfield";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import axiosInstance from "../utils/api";
+import axios from "axios";
 
 export function CreateRecipe() {
   // initial blank state of form
@@ -41,14 +41,14 @@ export function CreateRecipe() {
       const formData = new FormData();
       formData.append("file", image);
       formData.append("upload_preset", "rustleup");
-      const dataRes = await axiosInstance.post(
+      const dataRes = await axios.post(
         "https://api.cloudinary.com/v1_1/nrvserver/image/upload",
         formData
       );
       const imageUrl = dataRes.data.url;
       recipe.url = imageUrl;
     }
-    axiosInstance
+    axios
       .post("/recipe/create", recipe)
       .then((response) => {
         window.alert("Recipe created.");
@@ -150,7 +150,7 @@ export function EditRecipe() {
 
   const getRecipe = async () => {
     try {
-      const res = await axiosInstance.get(`/recipe/get/${id}`, {
+      const res = await axios.get(`/recipe/get/${id}`, {
         headers: {
           "Access-Control-Allow-Credentials": true,
           "Content-Type": "application/json",
@@ -194,7 +194,7 @@ export function EditRecipe() {
 
   const btnUpdaterecipe = async (e) => {
     e.preventDefault();
-    axiosInstance
+    axios
       .patch(`/recipe/edit/${id}`, recipe)
       .then((response) => {
         console.log(response.data);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React , { useState, useEffect } from "react";
 import {
   MyHiMenu,
   MyHiXCircle,
@@ -9,7 +9,7 @@ import {
   NavBtnLink,
 } from "./NavElements";
 import Logo from "./Logo";
-import axiosInstance from "../../utils/api";
+import axios from "axios";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ export default function NavBar() {
 
   const callProfile = async () => {
     try{
-      const res = await axiosInstance.get("/profile", {
+      const res = await axios.get("/profile", {
         headers: {
           "Access-Control-Allow-Credentials": true,
           "Content-Type": "application/json",
@@ -76,7 +76,7 @@ export default function NavBar() {
               <NavBtnLink to="/login">Log In /</NavBtnLink>
               <NavBtnLink to="/signup"> Sign Up</NavBtnLink>
             </>
-          )}
+           )} 
         </NavBtn>
         <MyHiMenu
           size={30}

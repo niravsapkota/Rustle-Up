@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import { HiMenu, HiXCircle } from "react-icons/hi";
 
-
 export const MyHiMenu = styled(HiMenu)`
   display:none;
   @media (max-width:720px){
