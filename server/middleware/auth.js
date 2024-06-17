@@ -1,15 +1,13 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 
-const secret = "test";
-
 const authenticate = async (req, res, next) => {
   let token;
 
   if (req.cookies.jwtoken) {
     try {
       token = req.cookies.jwtoken;
-      const verifyToken = jwt.verify(token, secret);
+      const verifyToken = jwt.verify(token, process.env.SECRET);
       const user = await User.findOne({ email: verifyToken.email });
       req.user = user;
       //res.status(200).send("authenticated");
@@ -32,7 +30,7 @@ const authenticate = async (req, res, next) => {
   //     token = req.headers.authorization.split(" ")[1];
 
   //     //Verify the token
-  //     const verifyToken = jwt.verify(token, secret);
+  //     const verifyToken = jwt.verify(token, process.env.SECRET);
 
   //     //get user from token
   //     const user = await User.findOne({ email: verifyToken.email });
